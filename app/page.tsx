@@ -204,7 +204,7 @@ export default function Home() {
             subtitle="ทำความรู้จัก 3 SaaS ของ Hubly — แต่ละตัวช่วยธุรกิจคุณเรื่องอะไร และทำอะไรได้บ้าง"
           />
           <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {MODULES.map((m, i) => {
+            {[MODULES[1], MODULES[0], MODULES[2]].map((m, i) => {
               const accent = MODULE_ACCENT[m.key];
               const Icon = m.icon;
               return (
