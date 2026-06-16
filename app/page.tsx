@@ -6,6 +6,9 @@ import { ArrowRightIcon, CheckIcon } from "./components/icons";
 import HeroVideo from "./components/HeroVideo";
 import MotionReveal from "./components/MotionReveal";
 
+const CARD_SHADOW =
+  "shadow-[0_16px_44px_-24px_rgba(60,48,39,0.30)] hover:shadow-[0_30px_64px_-28px_rgba(60,48,39,0.42)]";
+
 export default function Home() {
   return (
     <>
@@ -13,8 +16,16 @@ export default function Home() {
       <HeroVideo />
 
       {/* ===== 3 Pillars ===== */}
-      <section className="bg-card py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="relative isolate overflow-hidden bg-cream py-20 md:py-28">
+        <div
+          aria-hidden
+          className="bg-noise pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-multiply"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-10 -top-24 h-80 w-80 rounded-full bg-clay/20 blur-3xl"
+        />
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
           <SectionHeading
             eyebrow="สามเสาหลักของเรา"
             title="ครบทุกอย่างที่ธุรกิจคุณต้องใช้ ในที่เดียว"
@@ -27,14 +38,12 @@ export default function Home() {
                 <MotionReveal key={p.name} delay={i * 0.12} className="h-full">
                   <Link
                     href={p.href}
-                    className="group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/8 bg-cream p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+                    className={`group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 ${CARD_SHADOW}`}
                   >
-                    {/* accent bar on top */}
                     <span
                       aria-hidden
                       className={`absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 ${p.dot}`}
                     />
-                    {/* faint index number */}
                     <span
                       aria-hidden
                       className="absolute right-6 top-5 text-5xl font-bold text-ink/[0.06]"
@@ -43,7 +52,7 @@ export default function Home() {
                     </span>
 
                     <span
-                      className={`grid h-13 w-13 place-items-center rounded-[0.9rem] transition-transform duration-300 group-hover:scale-105 ${p.accent}`}
+                      className={`grid place-items-center rounded-[0.9rem] transition-transform duration-300 group-hover:scale-105 ${p.accent}`}
                       style={{ width: "3.25rem", height: "3.25rem" }}
                     >
                       <Icon width={26} height={26} />
@@ -89,8 +98,16 @@ export default function Home() {
       </section>
 
       {/* ===== Services highlight ===== */}
-      <section className="bg-cream py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="relative isolate overflow-hidden bg-beige py-20 md:py-28">
+        <div
+          aria-hidden
+          className="bg-noise pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-multiply"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-20 right-0 h-80 w-80 rounded-full bg-mocha/10 blur-3xl"
+        />
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
           <SectionHeading
             eyebrow="Marketing Agency"
             title="บริการ Marketing ครบวงจร"
@@ -101,7 +118,9 @@ export default function Home() {
               const Icon = s.icon;
               return (
                 <MotionReveal key={s.title} delay={i * 0.1} className="h-full">
-                  <div className="h-full rounded-card border border-ink/8 bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                  <div
+                    className={`h-full rounded-card border border-ink/8 bg-card p-6 transition-all duration-200 hover:-translate-y-1 ${CARD_SHADOW}`}
+                  >
                     <span className="grid h-11 w-11 place-items-center rounded-[0.8rem] bg-amber-500/12 text-amber-700">
                       <Icon width={22} height={22} />
                     </span>
@@ -119,7 +138,7 @@ export default function Home() {
           <div className="mt-10 flex justify-center">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-btn border border-ink/15 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-beige"
+              className="inline-flex items-center gap-2 rounded-btn border border-ink/15 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-cream"
             >
               ดูบริการทั้งหมด
               <ArrowRightIcon width={18} height={18} />
@@ -129,8 +148,16 @@ export default function Home() {
       </section>
 
       {/* ===== Products highlight ===== */}
-      <section className="bg-card py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="relative isolate overflow-hidden bg-cream py-20 md:py-28">
+        <div
+          aria-hidden
+          className="bg-noise pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-multiply"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-16 right-1/4 h-80 w-80 rounded-full bg-clay/15 blur-3xl"
+        />
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
           <SectionHeading
             eyebrow="Hubly SaaS"
             title="ซอฟต์แวร์จัดการธุรกิจสำหรับ SME ไทย"
@@ -142,7 +169,9 @@ export default function Home() {
               const Icon = m.icon;
               return (
                 <MotionReveal key={m.key} delay={i * 0.12} className="h-full">
-                  <div className="group flex h-full flex-col rounded-card border border-ink/8 bg-cream p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                  <div
+                    className={`group flex h-full flex-col rounded-card border border-ink/8 bg-card p-7 transition-all duration-200 hover:-translate-y-1 ${CARD_SHADOW}`}
+                  >
                     <span
                       className={`grid h-12 w-12 place-items-center rounded-[0.85rem] ${accent.badge}`}
                     >
@@ -154,7 +183,10 @@ export default function Home() {
                     </p>
                     <ul className="mt-5 flex-1 space-y-2.5">
                       {m.features.slice(0, 4).map((f) => (
-                        <li key={f} className="flex gap-2.5 text-sm text-ink/85">
+                        <li
+                          key={f}
+                          className="flex gap-2.5 text-sm text-ink/85"
+                        >
                           <CheckIcon
                             width={18}
                             height={18}
@@ -210,15 +242,14 @@ export default function Home() {
             >
               ปรึกษาเรา
             </ButtonLink>
-            <ButtonLink
+            <a
               href={APP.url}
-              external
-              variant="outline"
-              className="border-cream/30 px-7 py-3.5 text-base text-cream hover:bg-white/10"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-btn border border-cream/40 px-7 py-3.5 text-base font-semibold text-cream transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/10"
             >
               ทดลอง Hubly ฟรี
               <ArrowRightIcon width={18} height={18} />
-            </ButtonLink>
+            </a>
           </div>
         </div>
       </section>
