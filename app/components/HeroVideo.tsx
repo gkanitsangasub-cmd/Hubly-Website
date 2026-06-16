@@ -4,7 +4,7 @@ import { ArrowRightIcon } from "./icons";
 
 export default function HeroVideo() {
   return (
-    <section className="bg-night p-4 md:p-6">
+    <section className="bg-cream p-4 md:p-6">
       {/* Inset cinematic frame */}
       <div
         className="relative flex min-h-[34rem] items-center justify-center overflow-hidden rounded-2xl bg-ink bg-cover bg-center md:min-h-[calc(100vh-3rem)] md:rounded-[2rem]"

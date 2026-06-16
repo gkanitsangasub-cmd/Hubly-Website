@@ -41,7 +41,7 @@ export const PILLARS: Pillar[] = [
     points: ["Social & Google Ads", "Content & Artwork", "กลยุทธ์ & วัดผล"],
     href: "/services",
     cta: "ดูบริการ Marketing",
-    accent: "bg-amber-400/15 text-amber-300",
+    accent: "bg-amber-500/12 text-amber-700",
     dot: "bg-amber-500",
   },
   {
@@ -53,7 +53,7 @@ export const PILLARS: Pillar[] = [
     points: ["เว็บไซต์ด้วยโค้ดจริง", "Chatbot อัตโนมัติ", "ระบบจัดการ Lead"],
     href: "/services",
     cta: "ดู AI Solution",
-    accent: "bg-orange-400/20 text-orange-300",
+    accent: "bg-orange-400/25 text-orange-700",
     dot: "bg-orange-400",
   },
   {
@@ -65,8 +65,8 @@ export const PILLARS: Pillar[] = [
     points: ["HubDeal CRM", "HubChat รวมแชท", "HubStore ร้านค้า"],
     href: "/products",
     cta: "ดู Hubly SaaS",
-    accent: "bg-lime-400/15 text-lime-300",
-    dot: "bg-lime-500",
+    accent: "bg-lime-700/12 text-lime-800",
+    dot: "bg-lime-700",
   },
 ];
 
