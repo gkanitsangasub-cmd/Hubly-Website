@@ -32,7 +32,7 @@ export default function PricingPage() {
             {MODULES.map((m) => {
               const accent = MODULE_ACCENT[m.key];
               const Icon = m.icon;
-              const featured = m.key === "hubdeal";
+              const featured = m.key === "hubchat";
               return (
                 <div
                   key={m.key}

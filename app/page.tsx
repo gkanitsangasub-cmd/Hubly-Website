@@ -206,13 +206,13 @@ export default function Home() {
           <div className="mt-14 grid gap-5 lg:grid-cols-5">
             {/* Featured module */}
             {(() => {
-              const m = MODULES[0];
+              const m = MODULES[1];
               const accent = MODULE_ACCENT[m.key];
               const Icon = m.icon;
               return (
                 <MotionReveal delay={0} className="lg:col-span-3">
                   <div
-                    className={`flex h-full flex-col rounded-card border bg-card p-8 ring-1 ring-amber-500/10 ${accent.border} ${CARD_SHADOW}`}
+                    className={`flex h-full flex-col rounded-card border bg-card p-8 ring-1 ${accent.ring} ${accent.border} ${CARD_SHADOW}`}
                   >
                     <div className="flex items-start justify-between">
                       <span
@@ -272,7 +272,7 @@ export default function Home() {
 
             {/* Two compact modules */}
             <div className="grid gap-5 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-1 lg:grid-rows-2">
-              {[MODULES[1], MODULES[2]].map((m, i) => {
+              {[MODULES[0], MODULES[2]].map((m, i) => {
                 const accent = MODULE_ACCENT[m.key];
                 const Icon = m.icon;
                 return (
