@@ -11,13 +11,31 @@ export const APP = {
   login: "https://app.hublycompany.com/login",
 } as const;
 
-export const NAV_LINKS = [
-  { href: "/services", label: "Services" },
+export type NavChild = { href: string; label: string; sublabel?: string };
+export type NavItem = { href: string; label: string; children?: NavChild[] };
+
+export const NAV_LINKS: NavItem[] = [
+  {
+    href: "/services",
+    label: "Services",
+    children: [
+      {
+        href: "/services/marketing",
+        label: "Marketing Agency",
+        sublabel: "ยิงโฆษณา · Content · วัดผล",
+      },
+      {
+        href: "/services/ai-solution",
+        label: "AI Solution",
+        sublabel: "เว็บไซต์ · ระบบ · AI ตามสั่ง",
+      },
+    ],
+  },
   { href: "/products", label: "Products" },
   { href: "/pricing", label: "Pricing" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
-] as const;
+];
 
 export type ModuleKey = "hubdeal" | "hubchat" | "hubstore";
 

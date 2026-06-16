@@ -179,6 +179,14 @@ export function ArrowRightIcon(p: IconProps) {
   );
 }
 
+export function ChevronDownIcon(p: IconProps) {
+  return (
+    <svg {...base} {...p}>
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
 export function MenuIcon(p: IconProps) {
   return (
     <svg {...base} {...p}>

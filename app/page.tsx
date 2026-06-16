@@ -148,7 +148,7 @@ export default function Home() {
               return (
                 <MotionReveal key={s.title} delay={i * 0.05}>
                   <Link
-                    href="/services"
+                    href="/services/marketing"
                     className="group flex items-center gap-4 px-2 py-5 transition-colors hover:bg-cream/60 md:gap-7 md:px-4"
                   >
                     <span className="w-7 shrink-0 text-sm font-semibold tabular-nums text-ink/30 md:text-base">
@@ -177,7 +177,7 @@ export default function Home() {
           </div>
           <div className="mt-10 flex justify-center">
             <Link
-              href="/services"
+              href="/services/marketing"
               className="inline-flex items-center gap-2 rounded-btn border border-ink/15 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-cream"
             >
               ดูรายละเอียดบริการทั้งหมด
