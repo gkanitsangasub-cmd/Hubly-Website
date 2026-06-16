@@ -142,24 +142,35 @@ export default function Home() {
             title="บริการ Marketing ครบวงจร"
             subtitle="วางแผน ยิงโฆษณา สร้าง Content และวัดผลจริงทุกช่องทาง"
           />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {MARKETING_SERVICES.slice(0, 4).map((s, i) => {
+          <div className="mx-auto mt-12 max-w-4xl divide-y divide-ink/10 border-y border-ink/10">
+            {MARKETING_SERVICES.map((s, i) => {
               const Icon = s.icon;
               return (
-                <MotionReveal key={s.title} delay={i * 0.1} className="h-full">
-                  <div
-                    className={`h-full rounded-card border border-ink/8 bg-card p-6 transition-all duration-200 hover:-translate-y-1 ${CARD_SHADOW}`}
+                <MotionReveal key={s.title} delay={i * 0.05}>
+                  <Link
+                    href="/services"
+                    className="group flex items-center gap-4 px-2 py-5 transition-colors hover:bg-cream/60 md:gap-7 md:px-4"
                   >
-                    <span className="grid h-11 w-11 place-items-center rounded-[0.8rem] bg-amber-500/12 text-amber-700">
-                      <Icon width={22} height={22} />
+                    <span className="w-7 shrink-0 text-sm font-semibold tabular-nums text-ink/30 md:text-base">
+                      {String(i + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="mt-4 text-base font-bold text-ink">
-                      {s.title}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">
-                      {s.desc}
-                    </p>
-                  </div>
+                    <span className="hidden h-11 w-11 shrink-0 place-items-center rounded-full bg-card text-mocha shadow-sm transition-colors group-hover:bg-mocha group-hover:text-[#FDFBF9] sm:grid">
+                      <Icon width={20} height={20} />
+                    </span>
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-base font-bold text-ink md:text-lg">
+                        {s.title}
+                      </h3>
+                      <p className="mt-0.5 truncate text-sm text-muted md:whitespace-normal">
+                        {s.desc}
+                      </p>
+                    </div>
+                    <ArrowRightIcon
+                      width={18}
+                      height={18}
+                      className="ml-2 shrink-0 text-mocha opacity-40 transition-all group-hover:translate-x-1 group-hover:opacity-100"
+                    />
+                  </Link>
                 </MotionReveal>
               );
             })}
@@ -169,7 +180,7 @@ export default function Home() {
               href="/services"
               className="inline-flex items-center gap-2 rounded-btn border border-ink/15 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-cream"
             >
-              ดูบริการทั้งหมด
+              ดูรายละเอียดบริการทั้งหมด
               <ArrowRightIcon width={18} height={18} />
             </Link>
           </div>
