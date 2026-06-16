@@ -31,64 +31,93 @@ export default function Home() {
             title="ครบทุกอย่างที่ธุรกิจคุณต้องใช้ ในที่เดียว"
             subtitle="ตั้งแต่การตลาด ระบบ & AI ไปจนถึงซอฟต์แวร์จัดการธุรกิจ — พาร์ตเนอร์รายเดียวที่โตไปกับคุณ"
           />
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Visual lead card */}
+            <MotionReveal delay={0} className="h-full">
+              <div className="relative h-full min-h-[320px] overflow-hidden rounded-card border border-ink/8 bg-ink lg:min-h-[440px]">
+                <video
+                  className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  poster="/hero/pillar-poster.jpg"
+                  aria-hidden="true"
+                >
+                  <source src="/hero/pillar.mp4" type="video/mp4" />
+                </video>
+                <div
+                  aria-hidden
+                  className="absolute inset-0 hidden bg-cover bg-center motion-reduce:block"
+                  style={{ backgroundImage: "url(/hero/pillar-poster.jpg)" }}
+                />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent"
+                />
+                <div className="absolute inset-x-0 bottom-0 p-6">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cream/70">
+                    HublyCompany
+                  </div>
+                  <p className="mt-1.5 text-lg font-bold leading-snug text-cream">
+                    พาร์ตเนอร์ดิจิทัล
+                    <br />
+                    ที่โตไปกับธุรกิจคุณ
+                  </p>
+                </div>
+              </div>
+            </MotionReveal>
+
+            {/* Pillar cards */}
             {PILLARS.map((p, i) => {
               const Icon = p.icon;
               return (
-                <MotionReveal key={p.name} delay={i * 0.12} className="h-full">
+                <MotionReveal
+                  key={p.name}
+                  delay={(i + 1) * 0.1}
+                  className="h-full"
+                >
                   <Link
                     href={p.href}
-                    className={`group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 ${CARD_SHADOW}`}
+                    className={`group flex h-full min-h-[320px] flex-col rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 lg:min-h-[440px] ${CARD_SHADOW}`}
                   >
-                    <span
-                      aria-hidden
-                      className={`absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 ${p.dot}`}
-                    />
-                    <span
-                      aria-hidden
-                      className="absolute right-6 top-5 text-5xl font-bold text-ink/[0.06]"
-                    >
-                      {p.no}
-                    </span>
-
-                    <span
-                      className={`grid place-items-center rounded-[0.9rem] transition-transform duration-300 group-hover:scale-105 ${p.accent}`}
-                      style={{ width: "3.25rem", height: "3.25rem" }}
-                    >
-                      <Icon width={26} height={26} />
-                    </span>
-
-                    <div
-                      className={`mt-5 inline-flex w-fit items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${p.accent}`}
-                    >
-                      {p.tag}
+                    <div className="flex items-start justify-between">
+                      <span className="grid h-11 w-11 place-items-center rounded-full bg-beige text-mocha transition-colors duration-300 group-hover:bg-mocha group-hover:text-[#FDFBF9]">
+                        <Icon width={21} height={21} />
+                      </span>
+                      <span
+                        aria-hidden
+                        className="text-4xl font-bold text-ink/[0.07]"
+                      >
+                        {p.no}
+                      </span>
                     </div>
-                    <h3 className="mt-2.5 text-2xl font-bold text-ink">
-                      {p.name}
-                    </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">
-                      {p.desc}
-                    </p>
 
-                    <ul className="mt-5 flex flex-1 flex-col gap-2">
-                      {p.points.map((pt) => (
-                        <li
-                          key={pt}
-                          className="flex items-center gap-2.5 text-sm text-ink/80"
-                        >
-                          <span
-                            aria-hidden
-                            className={`h-1.5 w-1.5 shrink-0 rounded-full ${p.dot}`}
-                          />
-                          {pt}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-mocha transition-all group-hover:gap-2.5 group-hover:text-mocha-dark">
-                      {p.cta}
-                      <ArrowRightIcon width={16} height={16} />
-                    </span>
+                    <div className="mt-auto pt-10">
+                      <h3 className="text-xl font-bold text-ink">{p.name}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted">
+                        {p.desc}
+                      </p>
+                      <ul className="mt-4 space-y-2">
+                        {p.points.map((pt) => (
+                          <li
+                            key={pt}
+                            className="flex items-center gap-2 text-sm text-ink/70"
+                          >
+                            <CheckIcon
+                              width={15}
+                              height={15}
+                              className="shrink-0 text-mocha/60"
+                            />
+                            {pt}
+                          </li>
+                        ))}
+                      </ul>
+                      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-mocha transition-all group-hover:gap-2.5 group-hover:text-mocha-dark">
+                        {p.cta}
+                        <ArrowRightIcon width={16} height={16} />
+                      </span>
+                    </div>
                   </Link>
                 </MotionReveal>
               );
