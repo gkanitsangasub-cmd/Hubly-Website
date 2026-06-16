@@ -58,7 +58,7 @@ Nav: Services · Products · Pricing · Blog · Contact + [เข้าสู่
 ---
 
 ## Pricing (single source: `app/lib/content.ts`)
-- HubDeal ฿2,490/เดือน · HubChat ฿1,990/เดือน · HubStore ฿1,990/เดือน
+- ฿1,990/เดือน เท่ากันทุก SaaS (HubDeal · HubChat · HubStore)
 - Bundle: 2 SaaS = −15% · ครบ 3 SaaS = −20% (computed in `bundleRows()`, rendered by `<BundleTable />` on `/products` + `/pricing`)
 
 ## Working agreements

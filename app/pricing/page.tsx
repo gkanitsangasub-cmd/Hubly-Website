@@ -8,7 +8,7 @@ import BundleTable from "../components/BundleTable";
 export const metadata: Metadata = {
   title: "ราคา",
   description:
-    "ราคา Hubly SaaS — HubDeal ฿2,490 · HubChat ฿1,990 · HubStore ฿1,990 ต่อเดือน ไม่มีค่าติดตั้ง เลือก 2 SaaS ลด 15% หรือครบ 3 SaaS ลด 20%",
+    "ราคา Hubly SaaS — ฿1,990/เดือน ทุก SaaS (HubDeal, HubChat, HubStore) ไม่มีค่าติดตั้ง เลือก 2 SaaS ลด 15% หรือครบ 3 SaaS ลด 20%",
 };
 
 export default function PricingPage() {

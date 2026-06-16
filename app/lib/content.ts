@@ -148,7 +148,7 @@ export const MODULES: Module[] = [
     name: "HubDeal",
     icon: KanbanIcon,
     tagline: "ระบบ CRM จัดการ Lead และดีล",
-    priceValue: 2490,
+    priceValue: 1990,
     features: [
       "Kanban pipeline",
       "ติดตาม lead ทุกขั้นตอน",
