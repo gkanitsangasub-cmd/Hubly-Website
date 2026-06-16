@@ -17,32 +17,70 @@ export default function Home() {
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
             eyebrow="สามเสาหลักของเรา"
-            title="ครบทุกอย่างที่ธุรกิจคุณต้องใช้"
-            subtitle="ตั้งแต่การตลาด ระบบเทคโนโลยี ไปจนถึงซอฟต์แวร์จัดการธุรกิจ — ในพาร์ตเนอร์รายเดียว"
+            title="ครบทุกอย่างที่ธุรกิจคุณต้องใช้ ในที่เดียว"
+            subtitle="ตั้งแต่การตลาด ระบบ & AI ไปจนถึงซอฟต์แวร์จัดการธุรกิจ — พาร์ตเนอร์รายเดียวที่โตไปกับคุณ"
           />
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {PILLARS.map((p, i) => {
               const Icon = p.icon;
               return (
                 <MotionReveal key={p.name} delay={i * 0.12} className="h-full">
-                  <div className="group flex h-full flex-col rounded-card border border-ink/8 bg-cream p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                  <Link
+                    href={p.href}
+                    className="group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/8 bg-cream p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+                  >
+                    {/* accent bar on top */}
                     <span
-                      className={`grid h-12 w-12 place-items-center rounded-[0.85rem] ${p.accent}`}
+                      aria-hidden
+                      className={`absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 ${p.dot}`}
+                    />
+                    {/* faint index number */}
+                    <span
+                      aria-hidden
+                      className="absolute right-6 top-5 text-5xl font-bold text-ink/[0.06]"
                     >
-                      <Icon width={24} height={24} />
+                      {p.no}
                     </span>
-                    <h3 className="mt-5 text-xl font-bold text-ink">{p.name}</h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+
+                    <span
+                      className={`grid h-13 w-13 place-items-center rounded-[0.9rem] transition-transform duration-300 group-hover:scale-105 ${p.accent}`}
+                      style={{ width: "3.25rem", height: "3.25rem" }}
+                    >
+                      <Icon width={26} height={26} />
+                    </span>
+
+                    <div
+                      className={`mt-5 inline-flex w-fit items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[11px] font-semibold ${p.accent}`}
+                    >
+                      {p.tag}
+                    </div>
+                    <h3 className="mt-2.5 text-2xl font-bold text-ink">
+                      {p.name}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted">
                       {p.desc}
                     </p>
-                    <Link
-                      href={p.href}
-                      className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-mocha transition-colors group-hover:text-mocha-dark"
-                    >
-                      ดูเพิ่มเติม
+
+                    <ul className="mt-5 flex flex-1 flex-col gap-2">
+                      {p.points.map((pt) => (
+                        <li
+                          key={pt}
+                          className="flex items-center gap-2.5 text-sm text-ink/80"
+                        >
+                          <span
+                            aria-hidden
+                            className={`h-1.5 w-1.5 shrink-0 rounded-full ${p.dot}`}
+                          />
+                          {pt}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-mocha transition-all group-hover:gap-2.5 group-hover:text-mocha-dark">
+                      {p.cta}
                       <ArrowRightIcon width={16} height={16} />
-                    </Link>
-                  </div>
+                    </span>
+                  </Link>
                 </MotionReveal>
               );
             })}

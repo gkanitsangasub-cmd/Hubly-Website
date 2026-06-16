@@ -14,7 +14,7 @@ const SECTIONS = [
   },
   {
     h: "2. ขอบเขตการให้บริการ",
-    p: "HublyCompany ให้บริการด้าน Marketing Agency, Tech & AI Solutions และซอฟต์แวร์ Hubly SaaS (HubDeal, HubChat, HubStore) ตามรายละเอียดและราคาที่ระบุบนเว็บไซต์ ซึ่งอาจมีการปรับปรุงเป็นครั้งคราว",
+    p: "HublyCompany ให้บริการด้าน Marketing Agency, AI Solution และซอฟต์แวร์ Hubly SaaS (HubDeal, HubChat, HubStore) ตามรายละเอียดและราคาที่ระบุบนเว็บไซต์ ซึ่งอาจมีการปรับปรุงเป็นครั้งคราว",
   },
   {
     h: "3. บัญชีผู้ใช้และการชำระเงิน",

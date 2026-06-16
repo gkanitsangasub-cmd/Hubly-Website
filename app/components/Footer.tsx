@@ -31,7 +31,7 @@ export default function Footer() {
             </li>
             <li>
               <Link href="/services" className="transition-colors hover:text-cream">
-                Tech & AI Solutions
+                AI Solution
               </Link>
             </li>
             <li>

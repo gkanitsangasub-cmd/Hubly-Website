@@ -7,7 +7,7 @@ import { ArrowRightIcon } from "../components/icons";
 export const metadata: Metadata = {
   title: "บริการ",
   description:
-    "บริการของ HublyCompany — Marketing Agency ครบวงจร และ Tech & AI Solutions สร้างระบบ เว็บไซต์ และ AI ตามความต้องการธุรกิจคุณ",
+    "บริการของ HublyCompany — Marketing Agency ครบวงจร และ AI Solution สร้างระบบ เว็บไซต์ และ AI ตามความต้องการธุรกิจคุณ",
 };
 
 export default function ServicesPage() {
@@ -21,7 +21,7 @@ export default function ServicesPage() {
             บริการครบ ตั้งแต่การตลาดจนถึงเทคโนโลยี
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            ทีม HublyCompany ดูแลทั้ง Marketing Agency และ Tech & AI Solutions
+            ทีม HublyCompany ดูแลทั้ง Marketing Agency และ AI Solution
             ให้ธุรกิจ SME ไทยเติบโตได้จริง
           </p>
         </div>
@@ -59,12 +59,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Section 2 — Tech & AI Solutions */}
+      {/* Section 2 — AI Solution */}
       <section className="bg-cream py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
-            eyebrow="02 · Tech & AI Solutions"
-            title="Tech & AI Solutions"
+            eyebrow="02 · AI Solution"
+            title="AI Solution"
             subtitle="ระบบ เครื่องมือ และ AI ที่สร้างขึ้นตามความต้องการธุรกิจคุณ"
           />
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

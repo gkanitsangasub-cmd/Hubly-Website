@@ -18,11 +18,11 @@ export const metadata: Metadata = {
     template: "%s · HublyCompany",
   },
   description:
-    "HublyCompany รวมบริการ Marketing Agency, Tech & AI Solutions และซอฟต์แวร์ Hubly SaaS ไว้ในที่เดียว เพื่อให้ธุรกิจ SME ไทยเติบโตได้จริง",
+    "HublyCompany รวมบริการ Marketing Agency, AI Solution และซอฟต์แวร์ Hubly SaaS ไว้ในที่เดียว เพื่อให้ธุรกิจ SME ไทยเติบโตได้จริง",
   openGraph: {
     title: "HublyCompany — Agency ดิจิทัล + เทคโนโลยี AI + SaaS ของคุณเอง",
     description:
-      "Marketing, Tech & AI Solutions และ Hubly SaaS ในที่เดียว สำหรับธุรกิจ SME ไทย",
+      "Marketing, AI Solution และ Hubly SaaS ในที่เดียว สำหรับธุรกิจ SME ไทย",
     type: "website",
     locale: "th_TH",
   },

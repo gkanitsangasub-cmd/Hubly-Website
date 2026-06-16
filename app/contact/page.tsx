@@ -6,7 +6,7 @@ import { PhoneIcon, MailIcon, UsersIcon } from "../components/icons";
 export const metadata: Metadata = {
   title: "ติดต่อเรา",
   description:
-    "ติดต่อ HublyCompany — Kanit Sangasub โทร 094-632-6916 อีเมล gkanit.sangasub@gmail.com ปรึกษาบริการ Marketing, Tech & AI และ Hubly SaaS",
+    "ติดต่อ HublyCompany — Kanit Sangasub โทร 094-632-6916 อีเมล gkanit.sangasub@gmail.com ปรึกษาบริการ Marketing Agency, AI Solution และ Hubly SaaS",
 };
 
 export default function ContactPage() {

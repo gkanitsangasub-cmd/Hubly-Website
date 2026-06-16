@@ -20,33 +20,53 @@ type Icon = ComponentType<SVGProps<SVGSVGElement>>;
 /* ===== Home: three pillars ===== */
 export type Pillar = {
   icon: Icon;
+  no: string;
   name: string;
+  tag: string;
   desc: string;
+  points: string[];
   href: string;
+  cta: string;
   accent: string;
+  dot: string;
 };
 
 export const PILLARS: Pillar[] = [
   {
     icon: MegaphoneIcon,
+    no: "01",
     name: "Marketing Agency",
-    desc: "วางแผน ยิงโฆษณา สร้าง Content และวัดผลจริงทุกช่องทาง ให้ธุรกิจคุณโตได้แบบมีตัวเลข",
+    tag: "การตลาดที่ลงมือทำจริง",
+    desc: "วางแผน ยิงโฆษณา สร้าง Content และวัดผลจริงทุกช่องทาง ให้ธุรกิจโตแบบมีตัวเลข",
+    points: ["Social & Google Ads", "Content & Artwork", "กลยุทธ์ & วัดผล"],
     href: "/services",
+    cta: "ดูบริการ Marketing",
     accent: "bg-amber-500/12 text-amber-700",
+    dot: "bg-amber-500",
   },
   {
     icon: SparkleIcon,
-    name: "Tech & AI Solutions",
-    desc: "ระบบ เว็บไซต์ และ AI ที่สร้างขึ้นตามความต้องการธุรกิจคุณ — built by Claude AI",
+    no: "02",
+    name: "AI Solution",
+    tag: "ระบบ & AI ตามสั่ง",
+    desc: "เว็บไซต์ ระบบ และ AI ที่สร้างตามความต้องการธุรกิจคุณ — built by Claude AI",
+    points: ["เว็บไซต์ด้วยโค้ดจริง", "Chatbot อัตโนมัติ", "ระบบจัดการ Lead"],
     href: "/services",
+    cta: "ดู AI Solution",
     accent: "bg-orange-400/25 text-orange-700",
+    dot: "bg-orange-400",
   },
   {
     icon: LayersIcon,
+    no: "03",
     name: "Hubly SaaS",
+    tag: "ซอฟต์แวร์พร้อมใช้",
     desc: "ซอฟต์แวร์จัดการธุรกิจสำหรับ SME ไทย — CRM, แชท และร้านค้า เลือกเฉพาะที่ต้องการ",
+    points: ["HubDeal CRM", "HubChat รวมแชท", "HubStore ร้านค้า"],
     href: "/products",
+    cta: "ดู Hubly SaaS",
     accent: "bg-lime-700/12 text-lime-800",
+    dot: "bg-lime-700",
   },
 ];
 
@@ -91,7 +111,7 @@ export const MARKETING_SERVICES: ServiceItem[] = [
   },
 ];
 
-/* ===== Services: Tech & AI Solutions =====
+/* ===== Services: AI Solution =====
    Note: only the first three are confirmed from spec; the rest of the
    spec section was truncated. Keep this list to the confirmed items. */
 export const TECH_SOLUTIONS: ServiceItem[] = [
