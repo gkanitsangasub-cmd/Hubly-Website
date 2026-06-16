@@ -13,9 +13,14 @@ export default function Home() {
       <HeroVideo />
 
       {/* ===== 3 Pillars ===== */}
-      <section className="bg-card py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="relative isolate overflow-hidden bg-night py-20 md:py-28">
+        <div
+          aria-hidden
+          className="bg-noise pointer-events-none absolute inset-0 opacity-[0.12]"
+        />
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
           <SectionHeading
+            tone="dark"
             eyebrow="สามเสาหลักของเรา"
             title="ครบทุกอย่างที่ธุรกิจคุณต้องใช้ ในที่เดียว"
             subtitle="ตั้งแต่การตลาด ระบบ & AI ไปจนถึงซอฟต์แวร์จัดการธุรกิจ — พาร์ตเนอร์รายเดียวที่โตไปกับคุณ"
@@ -27,23 +32,21 @@ export default function Home() {
                 <MotionReveal key={p.name} delay={i * 0.12} className="h-full">
                   <Link
                     href={p.href}
-                    className="group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/8 bg-cream p-7 shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg"
+                    className="group relative flex h-full flex-col overflow-hidden rounded-card border border-cream/10 bg-surface p-7 shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-cream/20 hover:shadow-xl"
                   >
-                    {/* accent bar on top */}
                     <span
                       aria-hidden
                       className={`absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 ${p.dot}`}
                     />
-                    {/* faint index number */}
                     <span
                       aria-hidden
-                      className="absolute right-6 top-5 text-5xl font-bold text-ink/[0.06]"
+                      className="absolute right-6 top-5 text-5xl font-bold text-cream/[0.06]"
                     >
                       {p.no}
                     </span>
 
                     <span
-                      className={`grid h-13 w-13 place-items-center rounded-[0.9rem] transition-transform duration-300 group-hover:scale-105 ${p.accent}`}
+                      className={`grid place-items-center rounded-[0.9rem] transition-transform duration-300 group-hover:scale-105 ${p.accent}`}
                       style={{ width: "3.25rem", height: "3.25rem" }}
                     >
                       <Icon width={26} height={26} />
@@ -54,10 +57,10 @@ export default function Home() {
                     >
                       {p.tag}
                     </div>
-                    <h3 className="mt-2.5 text-2xl font-bold text-ink">
+                    <h3 className="mt-2.5 text-2xl font-bold text-cream">
                       {p.name}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">
+                    <p className="mt-2 text-sm leading-relaxed text-cream/60">
                       {p.desc}
                     </p>
 
@@ -65,7 +68,7 @@ export default function Home() {
                       {p.points.map((pt) => (
                         <li
                           key={pt}
-                          className="flex items-center gap-2.5 text-sm text-ink/80"
+                          className="flex items-center gap-2.5 text-sm text-cream/75"
                         >
                           <span
                             aria-hidden
@@ -76,7 +79,7 @@ export default function Home() {
                       ))}
                     </ul>
 
-                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-mocha transition-all group-hover:gap-2.5 group-hover:text-mocha-dark">
+                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-clay transition-all group-hover:gap-2.5 group-hover:text-cream">
                       {p.cta}
                       <ArrowRightIcon width={16} height={16} />
                     </span>
@@ -89,9 +92,14 @@ export default function Home() {
       </section>
 
       {/* ===== Services highlight ===== */}
-      <section className="bg-cream py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="relative isolate overflow-hidden bg-night-2 py-20 md:py-28">
+        <div
+          aria-hidden
+          className="bg-noise pointer-events-none absolute inset-0 opacity-[0.1]"
+        />
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
           <SectionHeading
+            tone="dark"
             eyebrow="Marketing Agency"
             title="บริการ Marketing ครบวงจร"
             subtitle="วางแผน ยิงโฆษณา สร้าง Content และวัดผลจริงทุกช่องทาง"
@@ -101,14 +109,14 @@ export default function Home() {
               const Icon = s.icon;
               return (
                 <MotionReveal key={s.title} delay={i * 0.1} className="h-full">
-                  <div className="h-full rounded-card border border-ink/8 bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
-                    <span className="grid h-11 w-11 place-items-center rounded-[0.8rem] bg-amber-500/12 text-amber-700">
+                  <div className="h-full rounded-card border border-cream/10 bg-surface p-6 shadow-md transition-all duration-200 hover:-translate-y-1 hover:border-cream/20 hover:shadow-xl">
+                    <span className="grid h-11 w-11 place-items-center rounded-[0.8rem] bg-amber-400/15 text-amber-300">
                       <Icon width={22} height={22} />
                     </span>
-                    <h3 className="mt-4 text-base font-bold text-ink">
+                    <h3 className="mt-4 text-base font-bold text-cream">
                       {s.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted">
+                    <p className="mt-2 text-sm leading-relaxed text-cream/60">
                       {s.desc}
                     </p>
                   </div>
@@ -119,7 +127,7 @@ export default function Home() {
           <div className="mt-10 flex justify-center">
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-btn border border-ink/15 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-beige"
+              className="inline-flex items-center gap-2 rounded-btn border border-cream/25 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-cream/10"
             >
               ดูบริการทั้งหมด
               <ArrowRightIcon width={18} height={18} />
@@ -129,9 +137,14 @@ export default function Home() {
       </section>
 
       {/* ===== Products highlight ===== */}
-      <section className="bg-card py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="relative isolate overflow-hidden bg-night py-20 md:py-28">
+        <div
+          aria-hidden
+          className="bg-noise pointer-events-none absolute inset-0 opacity-[0.12]"
+        />
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
           <SectionHeading
+            tone="dark"
             eyebrow="Hubly SaaS"
             title="ซอฟต์แวร์จัดการธุรกิจสำหรับ SME ไทย"
             subtitle="เลือกเฉพาะ SaaS ที่ธุรกิจคุณต้องการ ราคาที่จ่ายได้จริง"
@@ -142,19 +155,24 @@ export default function Home() {
               const Icon = m.icon;
               return (
                 <MotionReveal key={m.key} delay={i * 0.12} className="h-full">
-                  <div className="group flex h-full flex-col rounded-card border border-ink/8 bg-cream p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                  <div className="group flex h-full flex-col rounded-card border border-cream/10 bg-surface p-7 shadow-md transition-all duration-200 hover:-translate-y-1 hover:border-cream/20 hover:shadow-xl">
                     <span
-                      className={`grid h-12 w-12 place-items-center rounded-[0.85rem] ${accent.badge}`}
+                      className={`grid h-12 w-12 place-items-center rounded-[0.85rem] ${accent.badgeDark}`}
                     >
                       <Icon width={24} height={24} />
                     </span>
-                    <h3 className="mt-5 text-xl font-bold text-ink">{m.name}</h3>
-                    <p className="mt-1 text-sm font-medium text-muted">
+                    <h3 className="mt-5 text-xl font-bold text-cream">
+                      {m.name}
+                    </h3>
+                    <p className="mt-1 text-sm font-medium text-cream/55">
                       {m.tagline}
                     </p>
                     <ul className="mt-5 flex-1 space-y-2.5">
                       {m.features.slice(0, 4).map((f) => (
-                        <li key={f} className="flex gap-2.5 text-sm text-ink/85">
+                        <li
+                          key={f}
+                          className="flex gap-2.5 text-sm text-cream/80"
+                        >
                           <CheckIcon
                             width={18}
                             height={18}
@@ -164,11 +182,11 @@ export default function Home() {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-6 border-t border-ink/8 pt-5">
-                      <span className="text-2xl font-bold text-ink">
+                    <div className="mt-6 border-t border-cream/10 pt-5">
+                      <span className="text-2xl font-bold text-cream">
                         {baht(m.priceValue)}
                       </span>
-                      <span className="text-sm text-muted">/เดือน</span>
+                      <span className="text-sm text-cream/55">/เดือน</span>
                     </div>
                   </div>
                 </MotionReveal>
@@ -185,7 +203,7 @@ export default function Home() {
             </Link>
             <Link
               href="/pricing"
-              className="inline-flex items-center gap-2 rounded-btn border border-ink/15 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-beige"
+              className="inline-flex items-center gap-2 rounded-btn border border-cream/25 px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-cream/10"
             >
               ดูราคา
             </Link>
@@ -210,15 +228,14 @@ export default function Home() {
             >
               ปรึกษาเรา
             </ButtonLink>
-            <ButtonLink
+            <a
               href={APP.url}
-              external
-              variant="outline"
-              className="border-cream/30 px-7 py-3.5 text-base text-cream hover:bg-white/10"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-btn border border-cream/40 px-7 py-3.5 text-base font-semibold text-cream transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/10"
             >
               ทดลอง Hubly ฟรี
               <ArrowRightIcon width={18} height={18} />
-            </ButtonLink>
+            </a>
           </div>
         </div>
       </section>

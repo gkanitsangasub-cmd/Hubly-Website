@@ -32,9 +32,23 @@ export function ButtonLink({
   );
 }
 
-export function Eyebrow({ children }: { children: ReactNode }) {
+type Tone = "light" | "dark";
+
+export function Eyebrow({
+  children,
+  tone = "light",
+}: {
+  children: ReactNode;
+  tone?: Tone;
+}) {
+  const cls =
+    tone === "dark"
+      ? "border-clay/30 bg-clay/10 text-clay"
+      : "border-mocha/20 bg-mocha/5 text-mocha";
   return (
-    <span className="inline-flex items-center rounded-full border border-mocha/20 bg-mocha/5 px-3.5 py-1 text-xs font-semibold tracking-wide text-mocha">
+    <span
+      className={`inline-flex items-center rounded-full border px-3.5 py-1 text-xs font-semibold tracking-wide ${cls}`}
+    >
       {children}
     </span>
   );
@@ -45,24 +59,30 @@ export function SectionHeading({
   title,
   subtitle,
   center = true,
+  tone = "light",
 }: {
   eyebrow?: string;
   title: ReactNode;
   subtitle?: ReactNode;
   center?: boolean;
+  tone?: Tone;
 }) {
+  const titleColor = tone === "dark" ? "text-cream" : "text-ink";
+  const subColor = tone === "dark" ? "text-cream/60" : "text-muted";
   return (
     <div className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       {eyebrow && (
         <div className={center ? "flex justify-center" : ""}>
-          <Eyebrow>{eyebrow}</Eyebrow>
+          <Eyebrow tone={tone}>{eyebrow}</Eyebrow>
         </div>
       )}
-      <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-ink md:text-4xl">
+      <h2
+        className={`mt-4 text-3xl font-bold leading-tight tracking-tight md:text-4xl ${titleColor}`}
+      >
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-base leading-relaxed text-muted md:text-lg">
+        <p className={`mt-4 text-base leading-relaxed md:text-lg ${subColor}`}>
           {subtitle}
         </p>
       )}
