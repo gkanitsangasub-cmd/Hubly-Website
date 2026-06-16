@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { APP } from "../lib/site";
-import { ButtonLink } from "./ui";
 import { ArrowRightIcon } from "./icons";
 
 export default function HeroVideo() {
@@ -56,11 +55,11 @@ export default function HeroVideo() {
             className="hero-rise mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-lg font-medium text-cream sm:text-xl md:text-2xl"
             style={{ animationDelay: "0.2s" }}
           >
-            <span>Agency</span>
+            <span>Marketing Agency</span>
             <span aria-hidden className="text-clay">
               |
             </span>
-            <span>Production</span>
+            <span>AI Solution</span>
             <span aria-hidden className="text-clay">
               |
             </span>
@@ -70,8 +69,8 @@ export default function HeroVideo() {
             className="hero-rise mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-cream/85 sm:text-base"
             style={{ animationDelay: "0.32s" }}
           >
-            รวมบริการ Marketing, Production และซอฟต์แวร์ Hubly SaaS ไว้ในที่เดียว
-            เพื่อให้ธุรกิจ SME ไทยเติบโตได้จริง
+            รวมบริการ Marketing Agency, AI Solution และซอฟต์แวร์ Hubly SaaS
+            ไว้ในที่เดียว เพื่อให้ธุรกิจ SME ไทยเติบโตได้จริง
           </p>
 
           <div
@@ -85,14 +84,13 @@ export default function HeroVideo() {
               ดูบริการ
               <ArrowRightIcon width={18} height={18} />
             </Link>
-            <ButtonLink
+            <a
               href={APP.url}
-              external
-              variant="outline"
-              className="border-cream/40 bg-white/5 px-6 py-3.5 text-cream backdrop-blur-sm hover:bg-white/15"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-btn border border-cream/70 bg-ink/45 px-6 py-3.5 text-sm font-semibold text-cream shadow-lg backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-ink/65"
             >
               ทดลอง Hubly ฟรี
-            </ButtonLink>
+            </a>
           </div>
         </div>
       </div>
