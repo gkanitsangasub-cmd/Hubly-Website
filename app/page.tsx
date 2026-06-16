@@ -203,26 +203,39 @@ export default function Home() {
             title="ซอฟต์แวร์จัดการธุรกิจสำหรับ SME ไทย"
             subtitle="เลือกเฉพาะ SaaS ที่ธุรกิจคุณต้องการ ราคาที่จ่ายได้จริง"
           />
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {MODULES.map((m, i) => {
+          <div className="mt-14 grid gap-5 lg:grid-cols-5">
+            {/* Featured module */}
+            {(() => {
+              const m = MODULES[0];
               const accent = MODULE_ACCENT[m.key];
               const Icon = m.icon;
               return (
-                <MotionReveal key={m.key} delay={i * 0.12} className="h-full">
+                <MotionReveal delay={0} className="lg:col-span-3">
                   <div
-                    className={`group flex h-full flex-col rounded-card border border-ink/8 bg-card p-7 transition-all duration-200 hover:-translate-y-1 ${CARD_SHADOW}`}
+                    className={`flex h-full flex-col rounded-card border bg-card p-8 ring-1 ring-amber-500/10 ${accent.border} ${CARD_SHADOW}`}
                   >
-                    <span
-                      className={`grid h-12 w-12 place-items-center rounded-[0.85rem] ${accent.badge}`}
-                    >
-                      <Icon width={24} height={24} />
-                    </span>
-                    <h3 className="mt-5 text-xl font-bold text-ink">{m.name}</h3>
+                    <div className="flex items-start justify-between">
+                      <span
+                        className={`grid h-14 w-14 place-items-center rounded-[0.9rem] ${accent.badge}`}
+                      >
+                        <Icon width={28} height={28} />
+                      </span>
+                      <span className="rounded-full bg-mocha px-3 py-1 text-xs font-semibold text-[#FDFBF9]">
+                        ยอดนิยม
+                      </span>
+                    </div>
+                    <h3 className="mt-5 text-3xl font-bold text-ink">{m.name}</h3>
                     <p className="mt-1 text-sm font-medium text-muted">
                       {m.tagline}
                     </p>
-                    <ul className="mt-5 flex-1 space-y-2.5">
-                      {m.features.slice(0, 4).map((f) => (
+                    <div className="mt-5 flex items-end gap-1">
+                      <span className="text-4xl font-bold text-ink">
+                        {baht(m.priceValue)}
+                      </span>
+                      <span className="pb-1.5 text-sm text-muted">/เดือน</span>
+                    </div>
+                    <ul className="mt-6 grid flex-1 gap-2.5 sm:grid-cols-2">
+                      {m.features.map((f) => (
                         <li
                           key={f}
                           className="flex gap-2.5 text-sm text-ink/85"
@@ -236,16 +249,89 @@ export default function Home() {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-6 border-t border-ink/8 pt-5">
-                      <span className="text-2xl font-bold text-ink">
-                        {baht(m.priceValue)}
-                      </span>
-                      <span className="text-sm text-muted">/เดือน</span>
+                    <div className="mt-7 flex flex-wrap gap-3">
+                      <a
+                        href={APP.url}
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-btn bg-mocha px-6 py-3 text-sm font-semibold text-[#FDFBF9] transition-colors hover:bg-mocha-dark"
+                      >
+                        เริ่มทดลองฟรี
+                        <ArrowRightIcon width={18} height={18} />
+                      </a>
+                      <Link
+                        href="/products"
+                        className="inline-flex items-center gap-2 rounded-btn border border-ink/15 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-beige"
+                      >
+                        ดูรายละเอียด
+                      </Link>
                     </div>
                   </div>
                 </MotionReveal>
               );
-            })}
+            })()}
+
+            {/* Two compact modules */}
+            <div className="grid gap-5 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-1 lg:grid-rows-2">
+              {[MODULES[1], MODULES[2]].map((m, i) => {
+                const accent = MODULE_ACCENT[m.key];
+                const Icon = m.icon;
+                return (
+                  <MotionReveal
+                    key={m.key}
+                    delay={(i + 1) * 0.1}
+                    className="h-full"
+                  >
+                    <Link
+                      href="/products"
+                      className={`group flex h-full flex-col rounded-card border border-ink/8 bg-card p-6 transition-all duration-300 hover:-translate-y-1 ${CARD_SHADOW}`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <span
+                          className={`grid h-11 w-11 shrink-0 place-items-center rounded-[0.8rem] ${accent.badge}`}
+                        >
+                          <Icon width={22} height={22} />
+                        </span>
+                        <div className="min-w-0">
+                          <h3 className="text-lg font-bold text-ink">
+                            {m.name}
+                          </h3>
+                          <p className="truncate text-xs text-muted">
+                            {m.tagline}
+                          </p>
+                        </div>
+                      </div>
+                      <ul className="mt-4 flex-1 space-y-1.5">
+                        {m.features.slice(0, 3).map((f) => (
+                          <li
+                            key={f}
+                            className="flex gap-2 text-sm text-ink/75"
+                          >
+                            <CheckIcon
+                              width={15}
+                              height={15}
+                              className="mt-0.5 shrink-0 text-sage"
+                            />
+                            <span>{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-4 flex items-center justify-between border-t border-ink/8 pt-4">
+                        <span>
+                          <span className="text-xl font-bold text-ink">
+                            {baht(m.priceValue)}
+                          </span>
+                          <span className="text-xs text-muted">/เดือน</span>
+                        </span>
+                        <span className="inline-flex items-center gap-1 text-sm font-semibold text-mocha transition-all group-hover:gap-2">
+                          ดูเพิ่มเติม
+                          <ArrowRightIcon width={15} height={15} />
+                        </span>
+                      </div>
+                    </Link>
+                  </MotionReveal>
+                );
+              })}
+            </div>
           </div>
           <div className="mt-10 flex justify-center gap-3">
             <Link
