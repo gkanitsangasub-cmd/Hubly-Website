@@ -97,7 +97,7 @@ export default function ProductsPage() {
                 <ArrowRightIcon width={18} height={18} />
               </a>
               <Link
-                href="/pricing"
+                href="/pricing/saas"
                 className="inline-flex items-center justify-center gap-2 rounded-btn border border-cream/40 bg-white/5 px-6 py-3.5 text-sm font-semibold text-cream backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15"
               >
                 ดูราคา
@@ -177,7 +177,7 @@ export default function ProductsPage() {
                   {m.desc}
                 </p>
                 <Link
-                  href="/pricing"
+                  href="/pricing/saas"
                   className="mt-6 inline-flex items-center gap-2 rounded-btn bg-mocha px-5 py-3 text-sm font-semibold text-[#FDFBF9] transition-colors hover:bg-mocha-dark"
                 >
                   ดูราคา {m.name}
@@ -300,7 +300,7 @@ export default function ProductsPage() {
                   </p>
                 </div>
                 <Link
-                  href="/pricing"
+                  href="/pricing/saas"
                   className="inline-flex shrink-0 items-center gap-2 rounded-btn bg-mocha px-5 py-3 text-sm font-semibold text-[#FDFBF9] transition-colors hover:bg-mocha-dark"
                 >
                   ดูแพ็กเกจรวม
@@ -315,7 +315,7 @@ export default function ProductsPage() {
       <CtaCard
         title="เริ่มใช้ Hubly SaaS วันนี้"
         subtitle="ทดลองฟรี ไม่ต้องใช้บัตรเครดิต หรือดูราคาแต่ละแพ็กเกจก่อนก็ได้"
-        primaryHref="/pricing"
+        primaryHref="/pricing/saas"
         primaryLabel="ดูราคา"
       />
     </>

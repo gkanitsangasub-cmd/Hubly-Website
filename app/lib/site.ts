@@ -32,7 +32,27 @@ export const NAV_LINKS: NavItem[] = [
     ],
   },
   { href: "/products", label: "Products" },
-  { href: "/pricing", label: "Pricing" },
+  {
+    href: "/pricing",
+    label: "Pricing",
+    children: [
+      {
+        href: "/pricing/marketing",
+        label: "Marketing Agency",
+        sublabel: "แพ็กเกจบริการการตลาด",
+      },
+      {
+        href: "/pricing/ai-solution",
+        label: "AI Solution",
+        sublabel: "ราคาตามโปรเจกต์",
+      },
+      {
+        href: "/pricing/saas",
+        label: "Hubly SaaS",
+        sublabel: "฿1,990/เดือน ทุก SaaS",
+      },
+    ],
+  },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];

@@ -1,156 +1,117 @@
 import type { Metadata } from "next";
-import { APP, MODULE_ACCENT } from "../lib/site";
-import { MODULES, FAQ, baht } from "../lib/content";
-import { ButtonLink, Eyebrow, SectionHeading } from "../components/ui";
-import { CheckIcon, ArrowRightIcon } from "../components/icons";
-import BundleTable from "../components/BundleTable";
+import Link from "next/link";
+import { SectionHeading } from "../components/ui";
+import {
+  MegaphoneIcon,
+  SparkleIcon,
+  LayersIcon,
+  ArrowRightIcon,
+} from "../components/icons";
+import MotionReveal from "../components/MotionReveal";
+import CtaCard from "../components/CtaCard";
 
 export const metadata: Metadata = {
   title: "ราคา",
   description:
-    "ราคา Hubly SaaS — ฿1,990/เดือน ทุก SaaS (HubDeal, HubChat, HubStore) ไม่มีค่าติดตั้ง เลือก 2 SaaS ลด 15% หรือครบ 3 SaaS ลด 20%",
+    "ราคาของ HublyCompany — Marketing Agency, AI Solution และ Hubly SaaS เลือกบริการที่ตรงกับธุรกิจคุณ",
 };
 
-export default function PricingPage() {
+const CARD_SHADOW =
+  "shadow-[0_16px_44px_-24px_rgba(60,48,39,0.30)] hover:shadow-[0_30px_64px_-28px_rgba(60,48,39,0.42)]";
+
+const OPTIONS = [
+  {
+    href: "/pricing/marketing",
+    icon: MegaphoneIcon,
+    name: "Marketing Agency",
+    price: "ราคาตามขอบเขตงาน",
+    desc: "แพ็กเกจดูแลการตลาด ยิงโฆษณา Content และวัดผล",
+    accent: "bg-amber-500/12 text-amber-700",
+    dot: "bg-amber-500",
+  },
+  {
+    href: "/pricing/ai-solution",
+    icon: SparkleIcon,
+    name: "AI Solution",
+    price: "ราคาตามโปรเจกต์",
+    desc: "เว็บไซต์ Chatbot และระบบ AI ออกแบบเฉพาะธุรกิจ",
+    accent: "bg-orange-400/20 text-orange-700",
+    dot: "bg-orange-400",
+  },
+  {
+    href: "/pricing/saas",
+    icon: LayersIcon,
+    name: "Hubly SaaS",
+    price: "฿1,990/เดือน",
+    desc: "HubChat · HubDeal · HubStore — เลือก 2 ลด 15%, ครบ 3 ลด 20%",
+    accent: "bg-lime-700/12 text-lime-800",
+    dot: "bg-lime-700",
+  },
+];
+
+export default function PricingHubPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-cream py-16 md:py-24">
-        <div className="mx-auto max-w-6xl px-6">
+      <section className="relative isolate overflow-hidden bg-cream py-16 md:py-24">
+        <div
+          aria-hidden
+          className="bg-noise pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-multiply"
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-clay/20 blur-3xl"
+        />
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
           <SectionHeading
             eyebrow="ราคา"
-            title="เลือก SaaS ที่ตรงกับธุรกิจคุณ"
-            subtitle="ไม่มีค่าติดตั้ง · ยกเลิกได้ทุกเมื่อ · จ่ายเท่าที่ใช้จริง"
+            title="เลือกบริการที่ตรงกับธุรกิจคุณ"
+            subtitle="ดูราคาของ Marketing Agency, AI Solution หรือ Hubly SaaS — โปร่งใส ไม่มีค่าแอบแฝง"
           />
-        </div>
-      </section>
-
-      {/* Plan cards */}
-      <section className="bg-card pb-20 md:pb-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-6 md:grid-cols-3">
-            {MODULES.map((m) => {
-              const accent = MODULE_ACCENT[m.key];
-              const Icon = m.icon;
-              const featured = m.key === "hubchat";
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {OPTIONS.map((o, i) => {
+              const Icon = o.icon;
               return (
-                <div
-                  key={m.key}
-                  className={`relative flex flex-col rounded-card border bg-cream p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md ${
-                    featured ? "border-mocha/40 ring-1 ring-mocha/20" : "border-ink/8"
-                  }`}
-                >
-                  {featured && (
-                    <span className="absolute -top-3 left-7 rounded-full bg-mocha px-3 py-1 text-xs font-semibold text-[#FDFBF9]">
-                      ยอดนิยม
-                    </span>
-                  )}
-                  <span
-                    className={`grid h-12 w-12 place-items-center rounded-[0.85rem] ${accent.badge}`}
+                <MotionReveal key={o.href} delay={i * 0.1} className="h-full">
+                  <Link
+                    href={o.href}
+                    className={`group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 ${CARD_SHADOW}`}
                   >
-                    <Icon width={24} height={24} />
-                  </span>
-                  <h3 className="mt-5 text-xl font-bold text-ink">{m.name}</h3>
-                  <p className="mt-1 text-sm font-medium text-muted">
-                    {m.tagline}
-                  </p>
-
-                  <div className="mt-5 flex items-end gap-1">
-                    <span className="text-3xl font-bold text-ink">
-                      {baht(m.priceValue)}
+                    <span
+                      aria-hidden
+                      className={`absolute inset-x-0 top-0 h-1 origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100 ${o.dot}`}
+                    />
+                    <span
+                      className={`grid h-12 w-12 place-items-center rounded-[0.85rem] ${o.accent}`}
+                    >
+                      <Icon width={24} height={24} />
                     </span>
-                    <span className="pb-1 text-sm text-muted">/เดือน</span>
-                  </div>
-
-                  <ButtonLink
-                    href={APP.url}
-                    external
-                    variant={featured ? "primary" : "outline"}
-                    className="mt-5 w-full"
-                  >
-                    เริ่มทดลองฟรี
-                  </ButtonLink>
-
-                  <ul className="mt-6 space-y-3 border-t border-ink/8 pt-6">
-                    {m.features.map((f) => (
-                      <li key={f} className="flex gap-2.5 text-sm text-ink/85">
-                        <CheckIcon
-                          width={18}
-                          height={18}
-                          className="mt-0.5 shrink-0 text-sage"
-                        />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                    <h2 className="mt-5 text-xl font-bold text-ink">{o.name}</h2>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+                      {o.desc}
+                    </p>
+                    <div className="mt-5 border-t border-ink/8 pt-5">
+                      <div className="text-lg font-bold text-mocha">
+                        {o.price}
+                      </div>
+                    </div>
+                    <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-mocha transition-all group-hover:gap-2.5 group-hover:text-mocha-dark">
+                      ดูราคา {o.name}
+                      <ArrowRightIcon width={16} height={16} />
+                    </span>
+                  </Link>
+                </MotionReveal>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* Bundle table */}
-      <section className="bg-cream py-20 md:py-28">
-        <div className="mx-auto max-w-4xl px-6">
-          <SectionHeading
-            eyebrow="แพ็คเกจรวม"
-            title="รวม SaaS แล้วประหยัดกว่า"
-            subtitle="เลือก 2 SaaS ลด 15% หรือครบทั้ง 3 SaaS ลด 20% จากราคาปกติ"
-          />
-          <div className="mt-12">
-            <BundleTable />
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="bg-card py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-6">
-          <SectionHeading eyebrow="คำถามที่พบบ่อย" title="FAQ" />
-          <div className="mt-12 space-y-3">
-            {FAQ.map((item) => (
-              <details
-                key={item.q}
-                className="group rounded-card border border-ink/8 bg-cream p-5 shadow-sm [&_summary::-webkit-details-marker]:hidden"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-ink">
-                  {item.q}
-                  <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-beige text-muted transition-transform group-open:rotate-45">
-                    +
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {item.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <section className="bg-mocha">
-        <div className="mx-auto max-w-4xl px-6 py-20 text-center md:py-24">
-          <h2 className="text-3xl font-bold text-[#FDFBF9] md:text-4xl">
-            พร้อมเริ่มแล้วใช่ไหม?
-          </h2>
-          <p className="mt-4 text-base text-cream/80">
-            ทดลองใช้ฟรี ไม่ต้องใช้บัตรเครดิต
-          </p>
-          <div className="mt-8 flex justify-center">
-            <ButtonLink
-              href={APP.url}
-              external
-              variant="light"
-              className="px-7 py-3.5 text-base"
-            >
-              เริ่มทดลองฟรี
-              <ArrowRightIcon width={18} height={18} />
-            </ButtonLink>
-          </div>
-        </div>
-      </section>
+      <CtaCard
+        title="ไม่แน่ใจว่าควรเริ่มจากตรงไหน?"
+        subtitle="ปรึกษาทีม HublyCompany ฟรี เราจะช่วยแนะนำบริการที่เหมาะกับธุรกิจคุณ"
+        primaryHref="/contact"
+        primaryLabel="ปรึกษาเรา"
+      />
     </>
   );
 }

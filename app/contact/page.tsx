@@ -11,8 +11,16 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="bg-cream py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-6">
+    <section className="relative isolate overflow-hidden bg-cream py-16 md:py-24">
+      <div
+        aria-hidden
+        className="bg-noise pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-multiply"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-24 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-clay/20 blur-3xl"
+      />
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
         <div className="text-center">
           <Eyebrow>ติดต่อเรา</Eyebrow>
           <h1 className="mx-auto mt-5 max-w-2xl text-4xl font-bold leading-tight tracking-tight text-ink md:text-5xl">
@@ -26,7 +34,7 @@ export default function ContactPage() {
         <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_1.2fr]">
           {/* Contact info */}
           <div className="space-y-4">
-            <div className="flex items-start gap-4 rounded-card border border-ink/8 bg-card p-6 shadow-sm">
+            <div className="flex items-start gap-4 rounded-card border border-ink/8 bg-card p-6 shadow-[0_16px_44px_-24px_rgba(60,48,39,0.30)]">
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-[0.8rem] bg-mocha/10 text-mocha">
                 <UsersIcon width={22} height={22} />
               </span>
@@ -40,7 +48,7 @@ export default function ContactPage() {
 
             <a
               href={COMPANY.phoneHref}
-              className="flex items-start gap-4 rounded-card border border-ink/8 bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+              className="flex items-start gap-4 rounded-card border border-ink/8 bg-card p-6 shadow-[0_16px_44px_-24px_rgba(60,48,39,0.30)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
             >
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-[0.8rem] bg-sage/15 text-sage">
                 <PhoneIcon width={22} height={22} />
@@ -55,7 +63,7 @@ export default function ContactPage() {
 
             <a
               href={`mailto:${COMPANY.email}`}
-              className="flex items-start gap-4 rounded-card border border-ink/8 bg-card p-6 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+              className="flex items-start gap-4 rounded-card border border-ink/8 bg-card p-6 shadow-[0_16px_44px_-24px_rgba(60,48,39,0.30)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
             >
               <span className="grid h-11 w-11 shrink-0 place-items-center rounded-[0.8rem] bg-clay/20 text-mocha">
                 <MailIcon width={22} height={22} />
@@ -74,7 +82,7 @@ export default function ContactPage() {
             action={`mailto:${COMPANY.email}`}
             method="post"
             encType="text/plain"
-            className="rounded-card border border-ink/8 bg-card p-7 shadow-sm md:p-8"
+            className="rounded-card border border-ink/8 bg-card p-7 shadow-[0_16px_44px_-24px_rgba(60,48,39,0.30)] md:p-8"
           >
             <h2 className="text-lg font-bold text-ink">ส่งข้อความถึงเรา</h2>
             <p className="mt-1 text-sm text-muted">
@@ -115,7 +123,7 @@ export default function ContactPage() {
 
             <button
               type="submit"
-              className="mt-6 w-full rounded-btn bg-mocha px-5 py-3 text-sm font-semibold text-[#FDFBF9] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-mocha-dark"
+              className="mt-6 w-full rounded-btn bg-mocha px-5 py-3 text-sm font-semibold text-[#FDFBF9] shadow-[0_16px_44px_-24px_rgba(60,48,39,0.30)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-mocha-dark"
             >
               ส่งข้อความ
             </button>

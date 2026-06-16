@@ -258,7 +258,7 @@ export default function Home() {
           </div>
           <div className="mt-10 flex justify-center">
             <Link
-              href="/pricing"
+              href="/pricing/saas"
               className="inline-flex items-center gap-2 rounded-btn border border-ink/15 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-beige"
             >
               ดูราคาและแพ็กเกจทั้งหมด
