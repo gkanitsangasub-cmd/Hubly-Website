@@ -14,15 +14,15 @@ const prompt = Prompt({
 export const metadata: Metadata = {
   metadataBase: new URL("https://hublycompany.com"),
   title: {
-    default: "Hubly — ระบบจัดการธุรกิจครบวงจร สำหรับ SME ไทย",
-    template: "%s · Hubly",
+    default: "HublyCompany — Agency ดิจิทัล + เทคโนโลยี AI + SaaS ของคุณเอง",
+    template: "%s · HublyCompany",
   },
   description:
-    "Hubly รวม CRM, Inbox แชท และระบบจัดการร้านค้าไว้ในที่เดียว — HubDeal, HubChat, HubStore สำหรับธุรกิจ SME ไทย เริ่มทดลองฟรี 14 วัน",
+    "HublyCompany รวมบริการ Marketing Agency, Tech & AI Solutions และซอฟต์แวร์ Hubly SaaS ไว้ในที่เดียว เพื่อให้ธุรกิจ SME ไทยเติบโตได้จริง",
   openGraph: {
-    title: "Hubly — ระบบจัดการธุรกิจครบวงจร สำหรับ SME ไทย",
+    title: "HublyCompany — Agency ดิจิทัล + เทคโนโลยี AI + SaaS ของคุณเอง",
     description:
-      "CRM, Inbox แชท และระบบจัดการร้านค้าในที่เดียว สำหรับธุรกิจ SME ไทย",
+      "Marketing, Tech & AI Solutions และ Hubly SaaS ในที่เดียว สำหรับธุรกิจ SME ไทย",
     type: "website",
     locale: "th_TH",
   },

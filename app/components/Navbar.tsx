@@ -35,7 +35,7 @@ export default function Navbar() {
             เข้าสู่ระบบ
           </a>
           <a
-            href={APP.signup}
+            href={APP.url}
             className="rounded-btn bg-mocha px-4 py-2 text-sm font-semibold text-[#FDFBF9] shadow-sm transition-colors hover:bg-mocha-dark"
           >
             ทดลองฟรี
@@ -77,7 +77,7 @@ export default function Navbar() {
               เข้าสู่ระบบ
             </a>
             <a
-              href={APP.signup}
+              href={APP.url}
               className="rounded-btn bg-mocha px-4 py-2.5 text-center text-sm font-semibold text-[#FDFBF9]"
             >
               ทดลองฟรี

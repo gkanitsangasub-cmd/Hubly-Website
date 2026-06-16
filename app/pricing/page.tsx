@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { APP, MODULE_ACCENT } from "../lib/site";
-import { MODULE_CARDS, PRICING_FEATURES, FAQ } from "../lib/content";
+import { MODULES, FAQ, baht } from "../lib/content";
 import { ButtonLink, Eyebrow, SectionHeading } from "../components/ui";
 import { CheckIcon, ArrowRightIcon } from "../components/icons";
+import BundleTable from "../components/BundleTable";
 
 export const metadata: Metadata = {
   title: "ราคา",
   description:
-    "เลือก SaaS ที่ตรงกับธุรกิจคุณ — HubDeal, HubChat, HubStore ไม่มีค่าติดตั้ง ยกเลิกได้ทุกเมื่อ เลือก 2 SaaS ลด 15% หรือครบ 3 SaaS ลด 20%",
+    "ราคา Hubly SaaS — HubDeal ฿2,490 · HubChat ฿1,990 · HubStore ฿1,990 ต่อเดือน ไม่มีค่าติดตั้ง เลือก 2 SaaS ลด 15% หรือครบ 3 SaaS ลด 20%",
 };
 
 export default function PricingPage() {
@@ -19,26 +20,24 @@ export default function PricingPage() {
           <SectionHeading
             eyebrow="ราคา"
             title="เลือก SaaS ที่ตรงกับธุรกิจคุณ"
-            subtitle="ไม่มีค่าติดตั้ง · ยกเลิกได้ทุกเมื่อ · ทดลองฟรี 14 วัน ทุก module"
+            subtitle="ไม่มีค่าติดตั้ง · ยกเลิกได้ทุกเมื่อ · จ่ายเท่าที่ใช้จริง"
           />
         </div>
       </section>
 
       {/* Plan cards */}
-      <section className="bg-card pb-20 md:pb-28">
+      <section className="bg-card pb-20 md:pb-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-6 md:grid-cols-3">
-            {MODULE_CARDS.map((m) => {
+            {MODULES.map((m) => {
               const accent = MODULE_ACCENT[m.key];
               const Icon = m.icon;
-              const featured = m.key === "hubchat";
+              const featured = m.key === "hubdeal";
               return (
                 <div
                   key={m.key}
                   className={`relative flex flex-col rounded-card border bg-cream p-7 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md ${
-                    featured
-                      ? "border-mocha/40 ring-1 ring-mocha/20"
-                      : "border-ink/8"
+                    featured ? "border-mocha/40 ring-1 ring-mocha/20" : "border-ink/8"
                   }`}
                 >
                   {featured && (
@@ -58,16 +57,13 @@ export default function PricingPage() {
 
                   <div className="mt-5 flex items-end gap-1">
                     <span className="text-3xl font-bold text-ink">
-                      {m.price}
+                      {baht(m.priceValue)}
                     </span>
                     <span className="pb-1 text-sm text-muted">/เดือน</span>
                   </div>
-                  {m.priceNote && (
-                    <p className="mt-1 text-xs text-clay">*{m.priceNote}</p>
-                  )}
 
                   <ButtonLink
-                    href={APP.signup}
+                    href={APP.url}
                     external
                     variant={featured ? "primary" : "outline"}
                     className="mt-5 w-full"
@@ -76,7 +72,7 @@ export default function PricingPage() {
                   </ButtonLink>
 
                   <ul className="mt-6 space-y-3 border-t border-ink/8 pt-6">
-                    {PRICING_FEATURES[m.key].map((f) => (
+                    {m.features.map((f) => (
                       <li key={f} className="flex gap-2.5 text-sm text-ink/85">
                         <CheckIcon
                           width={18}
@@ -94,38 +90,16 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Bundle discount */}
+      {/* Bundle table */}
       <section className="bg-cream py-20 md:py-28">
         <div className="mx-auto max-w-4xl px-6">
-          <div className="overflow-hidden rounded-hero border border-mocha/15 bg-gradient-to-br from-beige to-card p-8 text-center shadow-sm md:p-12">
-            <Eyebrow>ส่วนลดแพ็กเกจ</Eyebrow>
-            <h2 className="mt-4 text-2xl font-bold text-ink md:text-3xl">
-              ยิ่งใช้หลาย SaaS ยิ่งประหยัด
-            </h2>
-            <p className="mx-auto mt-3 max-w-xl text-base leading-relaxed text-muted">
-              ทุก module ทำงานเชื่อมกันอัตโนมัติ — แชทเข้า HubChat สร้าง Lead ใน
-              HubDeal และต่อยอดเป็น Order ใน HubStore
-            </p>
-            <div className="mx-auto mt-7 grid max-w-md gap-4 sm:grid-cols-2">
-              <div className="rounded-card border border-ink/8 bg-card p-6 shadow-sm">
-                <div className="text-3xl font-bold text-mocha">ลด 15%</div>
-                <div className="mt-1 text-sm font-medium text-ink">
-                  เลือก 2 SaaS
-                </div>
-              </div>
-              <div className="rounded-card border border-mocha/30 bg-card p-6 shadow-sm ring-1 ring-mocha/20">
-                <div className="text-3xl font-bold text-mocha">ลด 20%</div>
-                <div className="mt-1 text-sm font-medium text-ink">
-                  เลือกครบ 3 SaaS
-                </div>
-              </div>
-            </div>
-            <div className="mt-7 flex justify-center">
-              <ButtonLink href={APP.signup} external className="px-6 py-3.5">
-                เริ่มแพ็กเกจรวม
-                <ArrowRightIcon width={18} height={18} />
-              </ButtonLink>
-            </div>
+          <SectionHeading
+            eyebrow="แพ็คเกจรวม"
+            title="รวม SaaS แล้วประหยัดกว่า"
+            subtitle="เลือก 2 SaaS ลด 15% หรือครบทั้ง 3 SaaS ลด 20% จากราคาปกติ"
+          />
+          <div className="mt-12">
+            <BundleTable />
           </div>
         </div>
       </section>
@@ -162,16 +136,16 @@ export default function PricingPage() {
             พร้อมเริ่มแล้วใช่ไหม?
           </h2>
           <p className="mt-4 text-base text-cream/80">
-            ทดลองฟรี 14 วัน · ไม่ต้องใช้บัตรเครดิต
+            ทดลองใช้ฟรี ไม่ต้องใช้บัตรเครดิต
           </p>
           <div className="mt-8 flex justify-center">
             <ButtonLink
-              href={APP.signup}
+              href={APP.url}
               external
               variant="light"
               className="px-7 py-3.5 text-base"
             >
-              สมัครเลย
+              เริ่มทดลองฟรี
               <ArrowRightIcon width={18} height={18} />
             </ButtonLink>
           </div>

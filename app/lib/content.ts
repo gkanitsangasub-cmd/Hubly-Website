@@ -3,302 +3,270 @@ import {
   KanbanIcon,
   ChatIcon,
   StoreIcon,
-  TimelineIcon,
-  ChartIcon,
-  TagIcon,
-  PaperclipIcon,
-  BroadcastIcon,
-  UsersIcon,
-  ClockIcon,
-  BoxIcon,
-  ReceiptIcon,
-  BellIcon,
-  PlugIcon,
+  MegaphoneIcon,
+  GoogleIcon,
+  ImageIcon,
+  SearchIcon,
+  RocketIcon,
+  CodeIcon,
+  RobotIcon,
+  LayersIcon,
+  SparkleIcon,
 } from "../components/icons";
 import type { ModuleKey } from "./site";
 
 type Icon = ComponentType<SVGProps<SVGSVGElement>>;
 
-export type ModuleCard = {
-  key: ModuleKey;
-  name: string;
-  tagline: string;
+/* ===== Home: three pillars ===== */
+export type Pillar = {
   icon: Icon;
-  bullets: string[];
-  price: string;
-  priceNote?: string;
+  name: string;
+  desc: string;
+  href: string;
+  accent: string;
 };
 
-/* Landing-page module cards */
-export const MODULE_CARDS: ModuleCard[] = [
+export const PILLARS: Pillar[] = [
+  {
+    icon: MegaphoneIcon,
+    name: "Marketing Agency",
+    desc: "วางแผน ยิงโฆษณา สร้าง Content และวัดผลจริงทุกช่องทาง ให้ธุรกิจคุณโตได้แบบมีตัวเลข",
+    href: "/services",
+    accent: "bg-amber-500/12 text-amber-700",
+  },
+  {
+    icon: SparkleIcon,
+    name: "Tech & AI Solutions",
+    desc: "ระบบ เว็บไซต์ และ AI ที่สร้างขึ้นตามความต้องการธุรกิจคุณ — built by Claude AI",
+    href: "/services",
+    accent: "bg-orange-400/25 text-orange-700",
+  },
+  {
+    icon: LayersIcon,
+    name: "Hubly SaaS",
+    desc: "ซอฟต์แวร์จัดการธุรกิจสำหรับ SME ไทย — CRM, แชท และร้านค้า เลือกเฉพาะที่ต้องการ",
+    href: "/products",
+    accent: "bg-lime-700/12 text-lime-800",
+  },
+];
+
+/* ===== Services: Marketing Agency ===== */
+export type ServiceItem = { icon: Icon; title: string; desc: string };
+
+export const MARKETING_SERVICES: ServiceItem[] = [
+  {
+    icon: MegaphoneIcon,
+    title: "Social Media Ads",
+    desc: "ยิงโฆษณา Facebook, Instagram, TikTok ให้ตรงกลุ่มเป้าหมาย คุมงบ วัดผลได้",
+  },
+  {
+    icon: GoogleIcon,
+    title: "Google Ads",
+    desc: "Search, Display และ YouTube Ads ดักลูกค้าที่กำลังค้นหาธุรกิจแบบคุณ",
+  },
+  {
+    icon: ImageIcon,
+    title: "Content Social Media",
+    desc: "Content & Artwork สำหรับโซเชียล สวย ตรงแบรนด์ โพสต์ได้สม่ำเสมอ",
+  },
+  {
+    icon: SearchIcon,
+    title: "Content Website",
+    desc: "Blog & SEO เขียนบทความติดอันดับ Google ดึง traffic เข้าเว็บระยะยาว",
+  },
+  {
+    icon: KanbanIcon,
+    title: "Marketing Consultant",
+    desc: "Planner & Performance วางกลยุทธ์ ติดตามผล และปรับแผนให้คุ้มทุกบาท",
+  },
+  {
+    icon: RocketIcon,
+    title: "Marketing Campaign",
+    desc: "Production แคมเปญครบวงจร ตั้งแต่คอนเซ็ปต์ ถ่ายทำ จนถึงเผยแพร่",
+  },
+  {
+    icon: StoreIcon,
+    title: "Marketplace Marketing",
+    desc: "ดูแลร้านบน Shopee & Lazada ทั้งโฆษณา โปรโมชัน และยอดขาย",
+  },
+];
+
+/* ===== Services: Tech & AI Solutions =====
+   Note: only the first three are confirmed from spec; the rest of the
+   spec section was truncated. Keep this list to the confirmed items. */
+export const TECH_SOLUTIONS: ServiceItem[] = [
+  {
+    icon: KanbanIcon,
+    title: "Software Lead Management",
+    desc: "ระบบจัดการ Lead แบบ Subscription — ขับเคลื่อนด้วย Hubly SaaS พร้อมใช้ทันที",
+  },
+  {
+    icon: CodeIcon,
+    title: "Build Website with Codebase",
+    desc: "เว็บไซต์ที่เขียนด้วยโค้ดจริง Built by Claude AI เร็ว ปรับแต่งได้ ไม่ติด template",
+  },
+  {
+    icon: RobotIcon,
+    title: "Chatbot Rulebase",
+    desc: "แชตบอตตอบลูกค้าอัตโนมัติตามกฎที่กำหนด ลดงานซ้ำ ตอบไว 24 ชม.",
+  },
+];
+
+/* ===== Products: Hubly SaaS modules (single source of pricing) ===== */
+export type Module = {
+  key: ModuleKey;
+  name: string;
+  icon: Icon;
+  tagline: string;
+  priceValue: number; // THB / month
+  features: string[];
+};
+
+export const MODULES: Module[] = [
   {
     key: "hubdeal",
     name: "HubDeal",
-    tagline: "CRM สำหรับทีมขาย",
     icon: KanbanIcon,
-    bullets: [
-      "Kanban Pipeline จัดการ Lead ไม่จำกัด",
-      "Activity timeline & KPI dashboard",
-      "Tasks, reports, file attachments",
+    tagline: "ระบบ CRM จัดการ Lead และดีล",
+    priceValue: 2490,
+    features: [
+      "Kanban pipeline",
+      "ติดตาม lead ทุกขั้นตอน",
+      "จัดการทีมขาย",
+      "รายงาน KPI",
+      "Deal analytics",
     ],
-    price: "฿2,490",
   },
   {
     key: "hubchat",
     name: "HubChat",
-    tagline: "Inbox รวม LINE / Facebook",
     icon: ChatIcon,
-    bullets: [
-      "รับแชทจากทุกช่องทางในที่เดียว",
-      "Auto-create Lead ใน HubDeal อัตโนมัติ",
-      "Broadcast & quick replies & round-robin",
+    tagline: "Inbox รวมแชทจากทุกช่องทาง",
+    priceValue: 1990,
+    features: [
+      "LINE + Facebook Messenger",
+      "ตอบแชทจากที่เดียว",
+      "Auto-reply",
+      "Broadcast",
+      "เชื่อม CRM อัตโนมัติ",
     ],
-    price: "฿1,990",
   },
   {
     key: "hubstore",
     name: "HubStore",
-    tagline: "จัดการร้านค้า & สต็อก",
     icon: StoreIcon,
-    bullets: [
+    tagline: "ระบบจัดการร้านค้าและสต็อก",
+    priceValue: 1990,
+    features: [
       "จัดการสินค้าและสต็อก",
       "ออเดอร์และการขาย",
       "รายรับ-รายจ่าย & รายงาน",
       "แจ้งเตือนสต็อก",
     ],
-    price: "฿1,990",
   },
 ];
 
-/* Pricing-page detailed feature lists */
-export const PRICING_FEATURES: Record<ModuleKey, string[]> = {
-  hubdeal: [
-    "Kanban Pipeline ไม่จำกัด Lead",
-    "Person & Contact management",
-    "Activity timeline & events",
-    "Tasks & Subtasks",
-    "Reports & KPI dashboard",
-    "Custom stages, sources, tags",
-    "File attachments 5 GB",
-    "รองรับทีมทุกขนาด",
-  ],
-  hubchat: [
-    "Inbox รวมทุกช่องทาง",
-    "LINE Official Account",
-    "Facebook Messenger",
-    "Auto-create Lead ใน HubDeal",
-    "Quick replies & templates",
-    "Broadcast ส่งข้อความหาลูกค้าทุกคน",
-    "Team assignment & round-robin",
-    "Message history ไม่จำกัด",
-  ],
-  hubstore: [
-    "รายรับ-รายจ่ายรายวัน",
-    "Order management",
-    "Stock เข้า/ออก",
-    "สต็อกต่ำ alert",
-    "รายงานยอดขาย",
-    "สร้าง Order จากแชท HubChat",
-    "เชื่อม Won Deal จาก HubDeal",
-    "Multi-location (เร็วๆ นี้)",
-  ],
+export const baht = (n: number) => `฿${n.toLocaleString("en-US")}`;
+
+/* ===== Bundles (derived from module prices) =====
+   2 SaaS = 15% off · 3 SaaS = 20% off.
+   Chat+Store special and the all-3 row are computed (spec rows truncated). */
+export type Bundle = {
+  label: string;
+  modules: ModuleKey[];
+  discount: number; // fraction
 };
 
-/* Features page — grouped */
-export type Feature = { icon: Icon; title: string; desc: string };
-export type FeatureGroup = {
-  key: ModuleKey;
-  name: string;
-  heading: string;
-  icon: Icon;
-  features: Feature[];
-};
-
-export const FEATURE_GROUPS: FeatureGroup[] = [
+export const BUNDLES: Bundle[] = [
+  { label: "HubDeal + HubChat", modules: ["hubdeal", "hubchat"], discount: 0.15 },
+  { label: "HubDeal + HubStore", modules: ["hubdeal", "hubstore"], discount: 0.15 },
+  { label: "HubChat + HubStore", modules: ["hubchat", "hubstore"], discount: 0.15 },
   {
-    key: "hubdeal",
-    name: "HubDeal",
-    heading: "CRM สำหรับทีมขาย",
-    icon: KanbanIcon,
-    features: [
-      {
-        icon: KanbanIcon,
-        title: "Kanban Pipeline",
-        desc: "ลาก-วาง Lead ข้าม stage เห็นภาพรวมดีลทั้งทีมในที่เดียว",
-      },
-      {
-        icon: TimelineIcon,
-        title: "Activity Timeline",
-        desc: "ทุกการโทร นัดหมาย และโน้ต ถูกบันทึกเรียงตามเวลาอัตโนมัติ",
-      },
-      {
-        icon: ChartIcon,
-        title: "Reports & KPI",
-        desc: "Dashboard ยอดขาย อัตราปิดดีล และ performance รายทีม",
-      },
-      {
-        icon: TagIcon,
-        title: "Custom Stages & Tags",
-        desc: "ปรับ pipeline, sources และ tags ให้ตรงกับกระบวนการขายของคุณ",
-      },
-      {
-        icon: PaperclipIcon,
-        title: "File Attachments",
-        desc: "แนบไฟล์ รูป และ PDF ใน Lead ได้เลย พื้นที่ 5 GB",
-      },
-      {
-        icon: UsersIcon,
-        title: "Tasks & Subtasks",
-        desc: "มอบหมายงานติดตามลูกค้า พร้อมกำหนดเวลาและผู้รับผิดชอบ",
-      },
-    ],
-  },
-  {
-    key: "hubchat",
-    name: "HubChat",
-    heading: "Inbox รวมทุกช่องทาง",
-    icon: ChatIcon,
-    features: [
-      {
-        icon: ChatIcon,
-        title: "Unified Inbox",
-        desc: "LINE + Facebook ในหน้าเดียว ไม่ต้องสลับ app ให้วุ่นวาย",
-      },
-      {
-        icon: BroadcastIcon,
-        title: "Broadcast",
-        desc: "ส่งข้อความหาลูกค้าทุกคนพร้อมกันได้ใน 1 คลิก",
-      },
-      {
-        icon: TagIcon,
-        title: "Quick Replies & Templates",
-        desc: "ตอบเร็วด้วย template ที่ตั้งไว้ ลดเวลาพิมพ์ซ้ำ",
-      },
-      {
-        icon: UsersIcon,
-        title: "Round-Robin Assignment",
-        desc: "แจกงานให้ทีม agent ทั่วถึงอัตโนมัติ ไม่มีแชทตกหล่น",
-      },
-      {
-        icon: ClockIcon,
-        title: "Working Hours & Auto-reply",
-        desc: "ตั้งเวลาทำการ ตอบลูกค้าอัตโนมัตินอกเวลาทำการ",
-      },
-      {
-        icon: PlugIcon,
-        title: "Auto-create Lead",
-        desc: "ทุกแชทใหม่สร้าง Lead ใน HubDeal ให้อัตโนมัติ",
-      },
-    ],
-  },
-  {
-    key: "hubstore",
-    name: "HubStore",
-    heading: "จัดการร้านค้าครบวงจร",
-    icon: StoreIcon,
-    features: [
-      {
-        icon: ReceiptIcon,
-        title: "Order Management",
-        desc: "สร้าง ติดตาม และยืนยัน Order ได้ในที่เดียว",
-      },
-      {
-        icon: BoxIcon,
-        title: "Stock Ledger",
-        desc: "ติดตามสต็อกเข้า-ออกแบบเรียลไทม์ รู้ของคงเหลือตลอดเวลา",
-      },
-      {
-        icon: BellIcon,
-        title: "Low-stock Alert",
-        desc: "แจ้งเตือนเมื่อสต็อกใกล้หมด เติมของได้ทันก่อนขาดมือ",
-      },
-      {
-        icon: ChartIcon,
-        title: "รายรับ-รายจ่าย & รายงาน",
-        desc: "บันทึกรายรับ-รายจ่ายรายวัน พร้อมรายงานยอดขาย",
-      },
-      {
-        icon: ChatIcon,
-        title: "สร้าง Order จากแชท",
-        desc: "เปลี่ยนบทสนทนาใน HubChat เป็น Order ได้ทันที",
-      },
-      {
-        icon: PlugIcon,
-        title: "เชื่อม Won Deal",
-        desc: "ดีลที่ปิดได้ใน HubDeal ไหลเข้ามาเป็น Order อัตโนมัติ",
-      },
-    ],
+    label: "ครบทั้ง 3 SaaS",
+    modules: ["hubdeal", "hubchat", "hubstore"],
+    discount: 0.2,
   },
 ];
 
-/* How it works (landing) */
-export const STEPS = [
-  {
-    n: "1",
-    title: "สมัครและเลือก module",
-    desc: "เลือก SaaS ที่ตรงกับธุรกิจของคุณ เริ่มได้จาก module เดียวหรือครบชุด",
-  },
-  {
-    n: "2",
-    title: "เชื่อมต่อช่องทาง",
-    desc: "เชื่อม LINE Official Account / Facebook Page ของคุณภายในไม่กี่คลิก",
-  },
-  {
-    n: "3",
-    title: "เริ่มปิดดีล",
-    desc: "เริ่มรับแชท สร้าง Lead และปิดดีลได้เลย ทุกอย่างอยู่ในที่เดียว",
-  },
-];
+export function bundleRows() {
+  const priceOf = (k: ModuleKey) =>
+    MODULES.find((m) => m.key === k)!.priceValue;
+  return BUNDLES.map((b) => {
+    const normal = b.modules.reduce((s, k) => s + priceOf(k), 0);
+    const special = Math.round(normal * (1 - b.discount));
+    return {
+      label: b.label,
+      normal,
+      discountPct: Math.round(b.discount * 100),
+      special,
+    };
+  });
+}
 
-/* Testimonials (placeholder) */
-export const TESTIMONIALS = [
-  {
-    quote:
-      "ย้ายจากการจดใน Excel มาใช้ HubDeal แล้วทีมขายเห็นภาพ pipeline ชัดขึ้นมาก ปิดดีลเร็วขึ้นจริง",
-    name: "คุณนภัส ว.",
-    role: "เจ้าของธุรกิจ",
-    company: "ร้านเฟอร์นิเจอร์ออนไลน์",
-  },
-  {
-    quote:
-      "HubChat รวมแชท LINE กับ Facebook ไว้ที่เดียว ทีม agent ไม่พลาดข้อความลูกค้าอีกเลย",
-    name: "คุณธีรพงศ์ ส.",
-    role: "Marketing Manager",
-    company: "แบรนด์เครื่องสำอาง",
-  },
-  {
-    quote:
-      "ใช้ครบทั้ง 3 module คุ้มมาก ตั้งแต่แชท ปิดดีล ยันจัดการสต็อก จบในระบบเดียว",
-    name: "คุณอารยา พ.",
-    role: "ผู้ก่อตั้ง",
-    company: "ร้านอาหารเสริม",
-  },
-];
-
-/* FAQ (pricing). Item #1 reconstructed; #2–#6 from spec. */
+/* ===== Pricing FAQ ===== */
 export const FAQ = [
   {
-    q: "Hubly คืออะไร?",
-    a: "Hubly คือระบบจัดการธุรกิจครบวงจรสำหรับ SME ไทย รวม CRM (HubDeal), Inbox แชท (HubChat) และระบบจัดการร้านค้า (HubStore) ไว้ในที่เดียว เลือกใช้เฉพาะ module ที่ต้องการได้",
+    q: "เลือกใช้ SaaS แค่ตัวเดียวได้ไหม?",
+    a: "ได้เลย เลือกเฉพาะ module ที่ธุรกิจคุณต้องการ จ่ายเท่าที่ใช้ และเพิ่ม module อื่นทีหลังได้ตลอด",
+  },
+  {
+    q: "ส่วนลดแพ็คเกจคิดยังไง?",
+    a: "เลือก 2 SaaS รับส่วนลด 15% ทันที และถ้าเลือกครบทั้ง 3 SaaS รับส่วนลด 20% จากราคาปกติ",
+  },
+  {
+    q: "มีค่าติดตั้งหรือสัญญาผูกมัดไหม?",
+    a: "ไม่มีค่าติดตั้ง และยกเลิกได้ทุกเมื่อ ราคาเป็นแบบรายเดือน",
   },
   {
     q: "ข้อมูลปลอดภัยแค่ไหน?",
-    a: "ข้อมูลของคุณอยู่ใน Supabase database แยกเฉพาะของคุณคนเดียว ไม่แชร์กับลูกค้าคนอื่น",
+    a: "ข้อมูลของแต่ละธุรกิจถูกแยกเก็บเฉพาะของคุณ ไม่แชร์กับผู้ใช้รายอื่น",
   },
   {
-    q: "ถ้าอยากเพิ่ม module ทีหลังได้ไหม?",
-    a: "ได้เลย เพิ่มหรือลด module ได้ตลอดเวลา ราคาปรับตามรอบบิลถัดไป",
+    q: "มีทีม support ภาษาไทยไหม?",
+    a: "มีครับ ทีม HublyCompany พร้อมช่วยเหลือผ่านโทรศัพท์และอีเมล",
+  },
+];
+
+/* ===== Blog (placeholder posts) ===== */
+export type BlogPost = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  category: string;
+};
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "scale-sme-with-crm",
+    title: "5 สัญญาณว่าธุรกิจ SME ของคุณถึงเวลาใช้ CRM",
+    excerpt:
+      "ถ้ายังจด Lead ใน Excel หรือลืมตามลูกค้าอยู่บ่อยๆ บทความนี้ช่วยให้คุณรู้ว่าเมื่อไหร่ควรขยับมาใช้ระบบ",
+    date: "12 มิถุนายน 2026",
+    category: "Sales",
   },
   {
-    q: "รองรับกี่ user?",
-    a: "ไม่จำกัดจำนวน user ในทีม",
+    slug: "facebook-ads-budget",
+    title: "ตั้งงบ Facebook Ads เท่าไหร่ดี สำหรับธุรกิจเพิ่งเริ่ม",
+    excerpt:
+      "เจาะวิธีคิดงบโฆษณาให้คุ้มค่า พร้อมตัวอย่างการกระจายงบระหว่างทดสอบและสเกล",
+    date: "5 มิถุนายน 2026",
+    category: "Marketing",
   },
   {
-    q: "ยกเลิกแล้วข้อมูลหายไหม?",
-    a: "ข้อมูลยังอยู่ครบ 30 วันหลังยกเลิก สามารถ export ได้",
+    slug: "unified-inbox-line-fb",
+    title: "รวมแชท LINE และ Facebook ไว้ที่เดียว ช่วยปิดการขายได้จริงไหม",
+    excerpt:
+      "เมื่อทุกข้อความอยู่ใน inbox เดียว ทีมตอบไวขึ้น ไม่มีแชทตกหล่น และเปลี่ยนเป็นยอดขายได้มากขึ้น",
+    date: "28 พฤษภาคม 2026",
+    category: "Product",
   },
   {
-    q: "มี support ภาษาไทยไหม?",
-    a: "มีครับ ทีม support ไทยพร้อมช่วยเหลือผ่าน LINE และ email",
+    slug: "ai-website-codebase",
+    title: "เว็บไซต์เขียนด้วยโค้ดจริง vs Template ต่างกันยังไง",
+    excerpt:
+      "ทำไมเว็บที่ build ด้วย codebase ถึงเร็วกว่า ปรับแต่งได้อิสระกว่า และดีต่อ SEO ในระยะยาว",
+    date: "20 พฤษภาคม 2026",
+    category: "Tech",
   },
 ];

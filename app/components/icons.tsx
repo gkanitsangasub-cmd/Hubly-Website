@@ -194,3 +194,114 @@ export function CloseIcon(p: IconProps) {
     </svg>
   );
 }
+
+export function MegaphoneIcon(p: IconProps) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M4 9v6h3l9 4V5L7 9H4Z" />
+      <path d="M19 9a3 3 0 0 1 0 6" />
+      <path d="M7 15v3a2 2 0 0 0 3 0" />
+    </svg>
+  );
+}
+
+export function GoogleIcon(p: IconProps) {
+  return (
+    <svg {...base} {...p}>
+      <circle cx="12" cy="12" r="8" />
+      <path d="M12 12h7a7 7 0 1 1-2-5" />
+    </svg>
+  );
+}
+
+export function ImageIcon(p: IconProps) {
+  return (
+    <svg {...base} {...p}>
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <circle cx="8.5" cy="9" r="1.5" />
+      <path d="m4 18 5-5 4 3 3-3 4 4" />
+    </svg>
+  );
+}
+
+export function SearchIcon(p: IconProps) {
+  return (
+    <svg {...base} {...p}>
+      <circle cx="11" cy="11" r="7" />
+      <path d="m20 20-3.5-3.5" />
+    </svg>
+  );
+}
+
+export function RocketIcon(p: IconProps) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M5 15c-1 1-1.5 4-1.5 4s3-.5 4-1.5a2.1 2.1 0 0 0-2.5-2.5Z" />
+      <path d="M9 13c-2 0-3 1-3 1l-2-2s1-3 4-5c4-2.5 8-2 8-2s.5 4-2 8c-.8 1.2-1.8 2-2.8 2.5" />
+      <path d="M14 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />
+      <path d="M9 13l2 2" />
+    </svg>
+  );
+}
+
+export function CodeIcon(p: IconProps) {
+  return (
+    <svg {...base} {...p}>
+      <path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 6l-3 12" />
+    </svg>
+  );
+}
+
+export function RobotIcon(p: IconProps) {
+  return (
+    <svg {...base} {...p}>
+      <rect x="4" y="8" width="16" height="11" rx="2.5" />
+      <path d="M12 4v4M9 13h.01M15 13h.01" />
+      <path d="M9 16h6" />
+    </svg>
+  );
+}
+
+export function LayersIcon(p: IconProps) {
+  return (
+    <svg {...base} {...p}>
+      <path d="m12 3 9 5-9 5-9-5 9-5Z" />
+      <path d="m3 13 9 5 9-5M3 16.5l9 5 9-5" />
+    </svg>
+  );
+}
+
+export function PhoneIcon(p: IconProps) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M5 4h3l1.5 4-2 1.5a11 11 0 0 0 5 5l1.5-2 4 1.5V18a2 2 0 0 1-2.2 2A15 15 0 0 1 3 6.2 2 2 0 0 1 5 4Z" />
+    </svg>
+  );
+}
+
+export function MailIcon(p: IconProps) {
+  return (
+    <svg {...base} {...p}>
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m4 7 8 6 8-6" />
+    </svg>
+  );
+}
+
+export function DocIcon(p: IconProps) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M6 3h8l4 4v14H6V3Z" />
+      <path d="M14 3v4h4M9 12h6M9 16h6" />
+    </svg>
+  );
+}
+
+export function BagIcon(p: IconProps) {
+  return (
+    <svg {...base} {...p}>
+      <path d="M6 8h12l-1 12H7L6 8Z" />
+      <path d="M9 8a3 3 0 0 1 6 0" />
+    </svg>
+  );
+}

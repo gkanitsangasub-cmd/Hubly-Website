@@ -1,60 +1,70 @@
-# Hubly Marketing Website
+# HublyCompany Website
 
-**Project type:** Static marketing site (Next.js SSG) — no backend, auth, or database.
+**Company:** HublyCompany — Agency ดิจิทัล (Marketing) + Tech & AI Solutions + Hubly SaaS for Thai SMEs.
+
+**Contact:** Kanit Sangasub · 094-632-6916 · gkanit.sangasub@gmail.com
+
+**Project type:** Static marketing site (Next.js SSG) — no backend, auth, database, or real API.
 
 **Stack:** Next.js 16 App Router · Tailwind CSS v4 · TypeScript · Font: Prompt (Google Fonts, Thai + Latin, weights 300/400/500/600/700)
 
-**Domain:** hublycompany.com → links out to app.hublycompany.com for login/signup.
+**App (SaaS) URL:** all "ทดลองฟรี / เข้าสู่ระบบ" CTAs link out to `https://app.hublycompany.com`.
 
 **Brand:** Follow the Brand CI below — do NOT deviate on colors / font / radius.
 
-**Pages:** `/` · `/pricing` · `/features`
+---
+
+## Sitemap
+| Page | Path |
+| --- | --- |
+| Home | `/` |
+| Services (Marketing + Tech & AI) | `/services` |
+| Products (Hubly SaaS) | `/products` |
+| Pricing | `/pricing` |
+| Blog | `/blog` |
+| Contact | `/contact` |
+| Privacy Policy | `/privacy` |
+| Terms of Service | `/terms` |
+
+Nav: Services · Products · Pricing · Blog · Contact + [เข้าสู่ระบบ] + [ทดลองฟรี].
 
 ---
 
 ## Brand CI (always use — do not deviate)
 
-### Colors
+### Colors (Mood: "Latte" — warm, premium SME, not cold tech blue)
 | Token | Hex | Tailwind |
 | --- | --- | --- |
+| Background (Warm Cream) | `#F9F3EB` | `cream` |
+| Card (Warm White) | `#FFFCF9` | `card` |
 | Primary (Mocha) | `#8A6A4E` | `mocha` |
 | Primary hover | `#7A5A3E` | `mocha-dark` |
-| Background (Cream) | `#F9F3EB` | `cream` |
-| Card (Warm White) | `#FFFCF9` | `card` |
-| Text primary | `#3C3027` | `ink` |
-| Text muted | `#73665C` | `muted` |
+| Primary fg (on Mocha) | `#FDFBF9` | `[#FDFBF9]` |
+| Foreground (Warm Dark Brown) | `#3C3027` | `ink` |
+| Muted fg | `#73665C` | `muted` |
 | Accent (Clay) | `#D7A587` | `clay` |
 | Success (Sage) | `#6B9A6C` | `sage` |
 | Secondary (Beige) | `#F3EBE1` | `beige` |
 
-### Module accent colors
+### Module / pillar accents
 - HubDeal: `bg-amber-500/12 text-amber-700`
 - HubChat: `bg-rose-400/12 text-rose-700`
 - HubStore: `bg-lime-700/12 text-lime-800`
-- Automation: `bg-stone-500/12 text-stone-700`
-- AI: `bg-orange-400/25`
+- Tech & AI: `bg-orange-400/25 text-orange-700`
 
-### Border radius (soft, "premium coffee shop")
-- Button / input: `0.72rem` (`rounded-btn`)
-- Card: `0.9rem–1.26rem` (`rounded-card`)
-- Hero card: `1.62rem+` (`rounded-hero`)
-
-### Mood
-"Latte" — inspired by Linear.app & Vercel.com: clean, modern, but warmer.
+### Radius — soft, rounded everything (base 0.9rem)
+`rounded-btn` 0.72rem · `rounded-card` ~1.1rem · `rounded-hero` 1.62rem
 
 ---
 
-## Working agreements
-1. Every page responsive at 375px / 768px / 1280px.
-2. Use Brand CI colors only — never colors outside the palette.
-3. Every external (app) link points to `https://app.hublycompany.com`.
-4. SSG only — no auth, database, API calls, real forms, blog, or dark mode.
-5. Sections alternate bg: `#F9F3EB` (cream) and `#FFFCF9` (card).
-6. Card: `border border-ink/8` + subtle shadow.
-7. Primary button: `bg-mocha text-[#FDFBF9] rounded-btn hover:bg-mocha-dark`.
-8. Section padding: `py-20 md:py-28`. Max content width: `max-w-6xl mx-auto px-6`.
-9. Accessible: `aria-label` on icon buttons, semantic HTML.
+## Pricing (single source: `app/lib/content.ts`)
+- HubDeal ฿2,490/เดือน · HubChat ฿1,990/เดือน · HubStore ฿1,990/เดือน
+- Bundle: 2 SaaS = −15% · ครบ 3 SaaS = −20% (computed in `bundleRows()`, rendered by `<BundleTable />` on `/products` + `/pricing`)
 
-## App links
-- Sign up / trial: `https://app.hublycompany.com/signup`
-- Login: `https://app.hublycompany.com/login`
+## Working agreements
+1. Responsive at 375 / 768 / 1280.
+2. Brand CI colors only.
+3. SSG only — no backend/DB/API; contact form is static (mailto).
+4. Sections alternate bg: `cream` ↔ `card`. Section padding `py-20 md:py-28`, container `max-w-6xl mx-auto px-6`.
+5. Keep `vercel.json` (`framework: nextjs`) — required for Vercel deploys.
+6. Accessible: `aria-label` on icon buttons, semantic HTML.
