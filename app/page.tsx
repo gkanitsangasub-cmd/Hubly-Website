@@ -1,49 +1,15 @@
 import Link from "next/link";
 import { APP, MODULE_ACCENT } from "./lib/site";
 import { PILLARS, MARKETING_SERVICES, MODULES, baht } from "./lib/content";
-import { ButtonLink, Eyebrow, SectionHeading } from "./components/ui";
+import { ButtonLink, SectionHeading } from "./components/ui";
 import { ArrowRightIcon, CheckIcon } from "./components/icons";
-import HeroMockup from "./components/HeroMockup";
+import HeroVideo from "./components/HeroVideo";
 
 export default function Home() {
   return (
     <>
-      {/* ===== Hero ===== */}
-      <section className="relative overflow-hidden bg-cream">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-32 left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-clay/20 blur-3xl"
-        />
-        <div className="relative mx-auto max-w-6xl px-6 pb-20 pt-16 md:pb-28 md:pt-24">
-          <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow>Marketing · Tech & AI · Hubly SaaS</Eyebrow>
-            <h1 className="mt-5 text-4xl font-bold leading-[1.15] tracking-tight text-ink md:text-6xl">
-              Agency ดิจิทัล + เทคโนโลยี AI
-              <br className="hidden sm:block" /> + SaaS ของคุณเอง
-            </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-              HublyCompany รวมบริการ Marketing, Tech Solutions และซอฟต์แวร์
-              Hubly SaaS ไว้ในที่เดียว เพื่อให้ธุรกิจ SME ไทยเติบโตได้จริง
-            </p>
-            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center gap-2 rounded-btn bg-mocha px-6 py-3.5 text-sm font-semibold text-[#FDFBF9] shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-mocha-dark"
-              >
-                ดูบริการ
-                <ArrowRightIcon width={18} height={18} />
-              </Link>
-              <ButtonLink href={APP.url} external variant="outline" className="px-6 py-3.5">
-                ทดลอง Hubly ฟรี
-              </ButtonLink>
-            </div>
-          </div>
-
-          <div className="mt-14 md:mt-16">
-            <HeroMockup />
-          </div>
-        </div>
-      </section>
+      {/* ===== Hero (video) ===== */}
+      <HeroVideo />
 
       {/* ===== 3 Pillars ===== */}
       <section className="bg-card py-20 md:py-28">
