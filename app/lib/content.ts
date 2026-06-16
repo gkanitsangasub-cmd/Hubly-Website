@@ -195,6 +195,38 @@ export const MODULES: Module[] = [
 
 export const baht = (n: number) => `฿${n.toLocaleString("en-US")}`;
 
+/* ===== How the SaaS work together ===== */
+export type Workflow = {
+  combo: ModuleKey[];
+  title: string;
+  desc: string;
+  featured?: boolean;
+};
+
+export const WORKFLOWS: Workflow[] = [
+  {
+    combo: ["hubchat", "hubdeal"],
+    title: "HubChat + HubDeal",
+    desc: "แชทเข้ามาใน HubChat → สร้าง Lead ใน HubDeal อัตโนมัติ ทีมขายตามต่อและปิดดีลได้ทันที ไม่มีลูกค้าหลุดมือ",
+  },
+  {
+    combo: ["hubdeal", "hubstore"],
+    title: "HubDeal + HubStore",
+    desc: "ปิดดีลใน HubDeal → สร้าง Order ใน HubStore อัตโนมัติ ตัดสต็อกและบันทึกรายได้ในขั้นตอนเดียว",
+  },
+  {
+    combo: ["hubchat", "hubstore"],
+    title: "HubChat + HubStore",
+    desc: "ลูกค้าทักมาสั่งซื้อในแชท → สร้าง Order และตัดสต็อกได้ทันทีจากในแชท ไม่ต้องสลับหน้าจอ",
+  },
+  {
+    combo: ["hubchat", "hubdeal", "hubstore"],
+    title: "ครบทั้ง 3 SaaS",
+    desc: "แชท → Lead → ปิดดีล → Order → ตัดสต็อก → รายงาน ครบทั้งวงจรในระบบเดียว ข้อมูลไหลต่อเนื่องโดยไม่ต้องคีย์ซ้ำ",
+    featured: true,
+  },
+];
+
 /* ===== Bundles (derived from module prices) =====
    2 SaaS = 15% off · 3 SaaS = 20% off.
    Chat+Store special and the all-3 row are computed (spec rows truncated). */

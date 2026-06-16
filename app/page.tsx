@@ -210,7 +210,7 @@ export default function Home() {
               return (
                 <MotionReveal key={m.key} delay={i * 0.1} className="h-full">
                   <Link
-                    href="/products"
+                    href={`/products#${m.key}`}
                     className={`group flex h-full flex-col rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 ${CARD_SHADOW}`}
                   >
                     <span
