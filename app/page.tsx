@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { APP, MODULE_ACCENT } from "./lib/site";
-import { PILLARS, MARKETING_SERVICES, MODULES, baht } from "./lib/content";
+import { PILLARS, MARKETING_SERVICES, MODULES } from "./lib/content";
 import { ButtonLink, SectionHeading } from "./components/ui";
 import { ArrowRightIcon, CheckIcon } from "./components/icons";
 import HeroVideo from "./components/HeroVideo";
@@ -201,181 +201,108 @@ export default function Home() {
           <SectionHeading
             eyebrow="Hubly SaaS"
             title="ซอฟต์แวร์จัดการธุรกิจสำหรับ SME ไทย"
-            subtitle="เลือกเฉพาะ SaaS ที่ธุรกิจคุณต้องการ ราคาที่จ่ายได้จริง"
+            subtitle="ทำความรู้จัก 3 SaaS ของ Hubly — แต่ละตัวช่วยธุรกิจคุณเรื่องอะไร และทำอะไรได้บ้าง"
           />
-          <div className="mt-14 grid gap-5 lg:grid-cols-5">
-            {/* Featured module */}
-            {(() => {
-              const m = MODULES[1];
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {MODULES.map((m, i) => {
               const accent = MODULE_ACCENT[m.key];
               const Icon = m.icon;
               return (
-                <MotionReveal delay={0} className="lg:col-span-3">
-                  <div
-                    className={`flex h-full flex-col rounded-card border bg-card p-8 ring-1 ${accent.ring} ${accent.border} ${CARD_SHADOW}`}
+                <MotionReveal key={m.key} delay={i * 0.1} className="h-full">
+                  <Link
+                    href="/products"
+                    className={`group flex h-full flex-col rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 ${CARD_SHADOW}`}
                   >
-                    <div className="flex items-start justify-between">
-                      <span
-                        className={`grid h-14 w-14 place-items-center rounded-[0.9rem] ${accent.badge}`}
-                      >
-                        <Icon width={28} height={28} />
-                      </span>
-                      <span className="rounded-full bg-mocha px-3 py-1 text-xs font-semibold text-[#FDFBF9]">
-                        ยอดนิยม
-                      </span>
-                    </div>
-                    <h3 className="mt-5 text-3xl font-bold text-ink">{m.name}</h3>
+                    <span
+                      className={`grid h-14 w-14 place-items-center rounded-[0.9rem] ${accent.badge}`}
+                    >
+                      <Icon width={28} height={28} />
+                    </span>
+                    <h3 className="mt-5 text-xl font-bold text-ink">{m.name}</h3>
                     <p className="mt-1 text-sm font-medium text-muted">
                       {m.tagline}
                     </p>
-                    <div className="mt-5 flex items-end gap-1">
-                      <span className="text-4xl font-bold text-ink">
-                        {baht(m.priceValue)}
-                      </span>
-                      <span className="pb-1.5 text-sm text-muted">/เดือน</span>
-                    </div>
-                    <ul className="mt-6 grid flex-1 gap-2.5 sm:grid-cols-2">
-                      {m.features.map((f) => (
-                        <li
-                          key={f}
-                          className="flex gap-2.5 text-sm text-ink/85"
-                        >
-                          <CheckIcon
-                            width={18}
-                            height={18}
-                            className="mt-0.5 shrink-0 text-sage"
-                          />
-                          <span>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <div className="mt-7 flex flex-wrap gap-3">
-                      <a
-                        href={APP.url}
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-btn bg-mocha px-6 py-3 text-sm font-semibold text-[#FDFBF9] transition-colors hover:bg-mocha-dark"
-                      >
-                        เริ่มทดลองฟรี
-                        <ArrowRightIcon width={18} height={18} />
-                      </a>
-                      <Link
-                        href="/products"
-                        className="inline-flex items-center gap-2 rounded-btn border border-ink/15 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-beige"
-                      >
-                        ดูรายละเอียด
-                      </Link>
-                    </div>
-                  </div>
-                </MotionReveal>
-              );
-            })()}
+                    <p className="mt-3 text-sm leading-relaxed text-ink/70">
+                      {m.desc}
+                    </p>
 
-            {/* Two compact modules */}
-            <div className="grid gap-5 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-1 lg:grid-rows-2">
-              {[MODULES[0], MODULES[2]].map((m, i) => {
-                const accent = MODULE_ACCENT[m.key];
-                const Icon = m.icon;
-                return (
-                  <MotionReveal
-                    key={m.key}
-                    delay={(i + 1) * 0.1}
-                    className="h-full"
-                  >
-                    <Link
-                      href="/products"
-                      className={`group flex h-full flex-col rounded-card border border-ink/8 bg-card p-6 transition-all duration-300 hover:-translate-y-1 ${CARD_SHADOW}`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <span
-                          className={`grid h-11 w-11 shrink-0 place-items-center rounded-[0.8rem] ${accent.badge}`}
-                        >
-                          <Icon width={22} height={22} />
-                        </span>
-                        <div className="min-w-0">
-                          <h3 className="text-lg font-bold text-ink">
-                            {m.name}
-                          </h3>
-                          <p className="truncate text-xs text-muted">
-                            {m.tagline}
-                          </p>
-                        </div>
+                    <div className="mt-5 flex-1 border-t border-ink/8 pt-5">
+                      <div className="text-[11px] font-semibold uppercase tracking-wider text-muted">
+                        ทำอะไรได้บ้าง
                       </div>
-                      <ul className="mt-4 flex-1 space-y-1.5">
-                        {m.features.slice(0, 3).map((f) => (
+                      <ul className="mt-3 space-y-2">
+                        {m.features.map((f) => (
                           <li
                             key={f}
-                            className="flex gap-2 text-sm text-ink/75"
+                            className="flex gap-2.5 text-sm text-ink/80"
                           >
                             <CheckIcon
-                              width={15}
-                              height={15}
+                              width={16}
+                              height={16}
                               className="mt-0.5 shrink-0 text-sage"
                             />
                             <span>{f}</span>
                           </li>
                         ))}
                       </ul>
-                      <div className="mt-4 flex items-center justify-between border-t border-ink/8 pt-4">
-                        <span>
-                          <span className="text-xl font-bold text-ink">
-                            {baht(m.priceValue)}
-                          </span>
-                          <span className="text-xs text-muted">/เดือน</span>
-                        </span>
-                        <span className="inline-flex items-center gap-1 text-sm font-semibold text-mocha transition-all group-hover:gap-2">
-                          ดูเพิ่มเติม
-                          <ArrowRightIcon width={15} height={15} />
-                        </span>
-                      </div>
-                    </Link>
-                  </MotionReveal>
-                );
-              })}
-            </div>
+                    </div>
+
+                    <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-mocha transition-all group-hover:gap-2.5 group-hover:text-mocha-dark">
+                      ดูรายละเอียด {m.name}
+                      <ArrowRightIcon width={16} height={16} />
+                    </span>
+                  </Link>
+                </MotionReveal>
+              );
+            })}
           </div>
-          <div className="mt-10 flex justify-center gap-3">
-            <Link
-              href="/products"
-              className="inline-flex items-center gap-2 rounded-btn bg-mocha px-6 py-3 text-sm font-semibold text-[#FDFBF9] transition-colors hover:bg-mocha-dark"
-            >
-              ดูรายละเอียด Hubly
-              <ArrowRightIcon width={18} height={18} />
-            </Link>
+          <div className="mt-10 flex justify-center">
             <Link
               href="/pricing"
               className="inline-flex items-center gap-2 rounded-btn border border-ink/15 px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-beige"
             >
-              ดูราคา
+              ดูราคาและแพ็กเกจทั้งหมด
+              <ArrowRightIcon width={18} height={18} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ===== Bottom CTA ===== */}
-      <section className="bg-mocha">
-        <div className="mx-auto max-w-4xl px-6 py-20 text-center md:py-24">
-          <h2 className="text-3xl font-bold leading-tight text-[#FDFBF9] md:text-4xl">
-            พร้อมให้ธุรกิจคุณโตไปอีกขั้น?
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base text-cream/80">
-            ปรึกษาทีม HublyCompany ฟรี หรือเริ่มทดลองใช้ Hubly SaaS ได้ทันที
-          </p>
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <ButtonLink
-              href="/contact"
-              variant="light"
-              className="px-7 py-3.5 text-base"
-            >
-              ปรึกษาเรา
-            </ButtonLink>
-            <a
-              href={APP.url}
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-btn border border-cream/40 px-7 py-3.5 text-base font-semibold text-cream transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/10"
-            >
-              ทดลอง Hubly ฟรี
-              <ArrowRightIcon width={18} height={18} />
-            </a>
+      {/* ===== Bottom CTA (cinematic card) ===== */}
+      <section className="bg-cream px-4 py-10 md:px-6 md:py-16">
+        <div className="relative isolate mx-auto max-w-6xl overflow-hidden rounded-hero bg-gradient-to-br from-mocha via-[#7a5a3e] to-[#574029] px-6 py-16 text-center shadow-[0_30px_80px_-32px_rgba(60,48,39,0.6)] md:py-24">
+          <div
+            aria-hidden
+            className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.16] mix-blend-overlay"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -top-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-clay/25 blur-3xl"
+          />
+          <div className="relative z-10">
+            <h2 className="text-3xl font-bold leading-tight text-[#FDFBF9] md:text-4xl">
+              พร้อมให้ธุรกิจคุณโตไปอีกขั้น?
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-base text-cream/85">
+              ปรึกษาทีม HublyCompany ฟรี หรือเริ่มทดลองใช้ Hubly SaaS ได้ทันที
+            </p>
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <ButtonLink
+                href="/contact"
+                variant="light"
+                className="px-7 py-3.5 text-base"
+              >
+                ปรึกษาเรา
+              </ButtonLink>
+              <a
+                href={APP.url}
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-btn border border-cream/40 px-7 py-3.5 text-base font-semibold text-cream transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/10"
+              >
+                ทดลอง Hubly ฟรี
+                <ArrowRightIcon width={18} height={18} />
+              </a>
+            </div>
           </div>
         </div>
       </section>

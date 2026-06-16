@@ -138,6 +138,7 @@ export type Module = {
   name: string;
   icon: Icon;
   tagline: string;
+  desc: string;
   priceValue: number; // THB / month
   features: string[];
 };
@@ -148,6 +149,7 @@ export const MODULES: Module[] = [
     name: "HubDeal",
     icon: KanbanIcon,
     tagline: "ระบบ CRM จัดการ Lead และดีล",
+    desc: "จัดการ Lead และดีลทั้งทีมในที่เดียว เห็นภาพ pipeline ชัดเจน รู้ว่าดีลไหนอยู่ขั้นไหน ปิดการขายเร็วขึ้นโดยไม่มีลูกค้าหลุดมือ",
     priceValue: 1990,
     features: [
       "Kanban pipeline",
@@ -162,6 +164,7 @@ export const MODULES: Module[] = [
     name: "HubChat",
     icon: ChatIcon,
     tagline: "Inbox รวมแชทจากทุกช่องทาง",
+    desc: "รวมแชท LINE และ Facebook มาไว้กล่องเดียว ทีมตอบไว ไม่พลาดข้อความ พร้อม Auto-reply และ Broadcast เปลี่ยนทุกแชทให้เป็นยอดขาย",
     priceValue: 1990,
     features: [
       "LINE + Facebook Messenger",
@@ -176,6 +179,7 @@ export const MODULES: Module[] = [
     name: "HubStore",
     icon: StoreIcon,
     tagline: "ระบบจัดการร้านค้าและสต็อก",
+    desc: "ดูแลสินค้า สต็อก ออเดอร์ และรายรับ-รายจ่าย ครบจบในระบบเดียว รู้สถานะร้านแบบเรียลไทม์ พร้อมแจ้งเตือนเมื่อสต็อกใกล้หมด",
     priceValue: 1990,
     features: [
       "จัดการสินค้าและสต็อก",
