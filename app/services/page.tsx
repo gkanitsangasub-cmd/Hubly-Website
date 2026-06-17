@@ -63,7 +63,7 @@ export default function ServicesPage() {
                 <MotionReveal key={a.href} delay={i * 0.12} className="h-full">
                   <Link
                     href={a.href}
-                    className={`group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/8 bg-card p-8 transition-all duration-300 hover:-translate-y-1.5 shadow-warm hover:shadow-warm-lg`}
+                    className={`group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/8 bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 shadow-warm hover:shadow-warm-lg md:p-8`}
                   >
                     <span
                       aria-hidden
@@ -74,7 +74,7 @@ export default function ServicesPage() {
                     >
                       <Icon width={28} height={28} />
                     </span>
-                    <h2 className="mt-5 text-2xl font-bold text-ink">
+                    <h2 className="mt-5 text-xl font-bold text-ink sm:text-2xl">
                       {a.name}
                     </h2>
                     <p className="mt-2 text-sm leading-relaxed text-muted">

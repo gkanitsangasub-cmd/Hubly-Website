@@ -40,7 +40,7 @@ const OPTIONS = [
     icon: LayersIcon,
     name: "Hubly SaaS",
     price: "฿1,990/เดือน",
-    desc: "HubChat · HubDeal · HubStore — เลือก 2 ลด 15%, ครบ 3 ลด 20%",
+    desc: "HubChat · HubDeal · HubStore — รายปีลด 10% · Bundle สูงสุด −20%",
     accent: "bg-lime-700/12 text-lime-800",
     dot: "bg-lime-700",
   },

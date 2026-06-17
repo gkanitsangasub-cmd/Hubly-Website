@@ -23,7 +23,7 @@ export default function VideoHero({
   return (
     <section className="bg-cream p-4 md:p-6">
       <div
-        className="relative flex min-h-[24rem] items-center justify-center overflow-hidden rounded-2xl bg-ink bg-cover bg-center md:min-h-[30rem] md:rounded-[2rem]"
+        className="relative flex min-h-[20rem] items-center justify-center overflow-hidden rounded-2xl bg-ink bg-cover bg-center sm:min-h-[24rem] md:min-h-[30rem] md:rounded-[2rem]"
         style={{ backgroundImage: `url(${poster})` }}
       >
         <video
@@ -58,13 +58,13 @@ export default function VideoHero({
           className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.16] mix-blend-overlay"
         />
 
-        <div className="relative z-10 mx-auto max-w-3xl px-6 py-16 text-center">
+        <div className="relative z-10 mx-auto max-w-3xl px-6 py-10 text-center sm:py-16">
           <div className="flex justify-center">
             <span className="inline-flex items-center rounded-full border border-cream/30 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wide text-cream backdrop-blur-sm">
               {eyebrow}
             </span>
           </div>
-          <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight text-[#FDFBF9] md:text-5xl lg:text-6xl">
+          <h1 className="mt-5 text-3xl font-bold leading-tight tracking-tight text-[#FDFBF9] sm:text-4xl md:text-5xl lg:text-6xl">
             {title}
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-cream/85 sm:text-lg">

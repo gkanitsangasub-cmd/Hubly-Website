@@ -33,10 +33,10 @@ export default function BlogPage() {
         />
         <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
           <Eyebrow>Blog</Eyebrow>
-          <h1 className="mx-auto mt-5 max-w-3xl text-4xl font-bold leading-tight tracking-tight text-ink md:text-5xl">
+          <h1 className="mx-auto mt-5 max-w-3xl text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl md:text-5xl">
             ความรู้สำหรับธุรกิจ SME ไทย
           </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
             เคล็ดลับการตลาด เทคโนโลยี และการบริหารธุรกิจ จากทีม HublyCompany
           </p>
         </div>

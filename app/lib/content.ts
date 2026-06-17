@@ -195,6 +195,8 @@ export const MODULES: Module[] = [
 
 export const baht = (n: number) => `฿${n.toLocaleString("en-US")}`;
 
+export const ANNUAL_DISCOUNT = 0.10; // −10% when billed annually
+
 /* ===== How the SaaS work together ===== */
 export type Workflow = {
   combo: ModuleKey[];
@@ -228,35 +230,37 @@ export const WORKFLOWS: Workflow[] = [
 ];
 
 /* ===== Bundles (derived from module prices) =====
-   2 SaaS = 15% off · 3 SaaS = 20% off.
-   Chat+Store special and the all-3 row are computed (spec rows truncated). */
+   Bundle-only discount: 2 SaaS = 5% · 3 SaaS = 10% (5%+5%).
+   Stacks with annual billing (−10%) → max −15% / −20%. */
 export type Bundle = {
   label: string;
   modules: ModuleKey[];
-  discount: number; // fraction
+  bundleDiscount: number; // bundle-only fraction (excludes annual discount)
 };
 
 export const BUNDLES: Bundle[] = [
-  { label: "HubDeal + HubChat", modules: ["hubdeal", "hubchat"], discount: 0.15 },
-  { label: "HubDeal + HubStore", modules: ["hubdeal", "hubstore"], discount: 0.15 },
-  { label: "HubChat + HubStore", modules: ["hubchat", "hubstore"], discount: 0.15 },
+  { label: "HubDeal + HubChat", modules: ["hubdeal", "hubchat"], bundleDiscount: 0.05 },
+  { label: "HubDeal + HubStore", modules: ["hubdeal", "hubstore"], bundleDiscount: 0.05 },
+  { label: "HubChat + HubStore", modules: ["hubchat", "hubstore"], bundleDiscount: 0.05 },
   {
     label: "ครบทั้ง 3 SaaS",
     modules: ["hubdeal", "hubchat", "hubstore"],
-    discount: 0.2,
+    bundleDiscount: 0.10, // 5%+5% cumulative
   },
 ];
 
-export function bundleRows() {
+export function bundleRows(annual = false) {
+  const billingDiscount = annual ? ANNUAL_DISCOUNT : 0;
   const priceOf = (k: ModuleKey) =>
     MODULES.find((m) => m.key === k)!.priceValue;
   return BUNDLES.map((b) => {
     const normal = b.modules.reduce((s, k) => s + priceOf(k), 0);
-    const special = Math.round(normal * (1 - b.discount));
+    const totalDiscount = billingDiscount + b.bundleDiscount;
+    const special = Math.round(normal * (1 - totalDiscount));
     return {
       label: b.label,
       normal,
-      discountPct: Math.round(b.discount * 100),
+      discountPct: Math.round(totalDiscount * 100),
       special,
     };
   });
@@ -269,12 +273,12 @@ export const FAQ = [
     a: "ได้เลย เลือกเฉพาะ module ที่ธุรกิจคุณต้องการ จ่ายเท่าที่ใช้ และเพิ่ม module อื่นทีหลังได้ตลอด",
   },
   {
-    q: "ส่วนลดแพ็คเกจคิดยังไง?",
-    a: "เลือก 2 SaaS รับส่วนลด 15% ทันที และถ้าเลือกครบทั้ง 3 SaaS รับส่วนลด 20% จากราคาปกติ",
+    q: "ส่วนลดรายปีและแพ็คเกจคิดยังไง?",
+    a: "ซื้อรายปีลด 10% ทันที และยังได้ส่วนลด Bundle เพิ่มอีก — เลือก 2 SaaS +5% หรือครบ 3 SaaS +10% รวมสูงสุดลด 20% จากราคาปกติ",
   },
   {
     q: "มีค่าติดตั้งหรือสัญญาผูกมัดไหม?",
-    a: "ไม่มีค่าติดตั้ง และยกเลิกได้ทุกเมื่อ ราคาเป็นแบบรายเดือน",
+    a: "ไม่มีค่าติดตั้ง รายเดือนยกเลิกได้ทุกเมื่อ รายปีชำระล่วงหน้าและได้ส่วนลด 10%",
   },
   {
     q: "ข้อมูลปลอดภัยแค่ไหน?",

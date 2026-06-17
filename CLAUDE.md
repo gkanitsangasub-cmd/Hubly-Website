@@ -58,8 +58,12 @@ Nav: Services · Products · Pricing · Blog · Contact + [เข้าสู่
 ---
 
 ## Pricing (single source: `app/lib/content.ts`)
-- ฿1,990/เดือน เท่ากันทุก SaaS (HubDeal · HubChat · HubStore)
-- Bundle: 2 SaaS = −15% · ครบ 3 SaaS = −20% (computed in `bundleRows()`, rendered by `<BundleTable />` on `/products` + `/pricing`)
+- รายเดือน: ฿1,990/เดือน เท่ากันทุก SaaS (HubDeal · HubChat · HubStore)
+- รายปี: −10% (`ANNUAL_DISCOUNT = 0.10`) → ฿1,791/เดือน (เรียกเก็บ ฿21,492/ปี)
+- Bundle discount (on top of billing): 2 SaaS = +5% · ครบ 3 SaaS = +10% (5%+5%)
+- สูงสุด: รายปี + 3 SaaS = −20% | รายปี + 2 SaaS = −15%
+- `bundleRows(annual?: boolean)` computes combined discount, rendered by `<BundleTable annual={...} />` on `/products` + `/pricing/saas`
+- Billing toggle UI lives in `app/pricing/saas/SaasPricingContent.tsx` (client component)
 
 ## Working agreements
 1. Responsive at 375 / 768 / 1280.

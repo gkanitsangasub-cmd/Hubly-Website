@@ -1,7 +1,7 @@
 import { bundleRows, baht } from "../lib/content";
 
-export default function BundleTable() {
-  const rows = bundleRows();
+export default function BundleTable({ annual = false }: { annual?: boolean }) {
+  const rows = bundleRows(annual);
   return (
     <div className="overflow-hidden rounded-card border border-ink/8 bg-card shadow-sm">
       {/* header */}

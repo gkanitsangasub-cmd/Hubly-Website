@@ -45,13 +45,13 @@ export default function ContactPage() {
       />
 
       {/* Content (top-aligned, phone shows below in the video) */}
-      <div className="relative z-10 px-6 pt-24 text-center md:pt-32">
+      <div className="relative z-10 px-6 pt-20 text-center sm:pt-24 md:pt-32">
         <div className="flex justify-center">
           <span className="inline-flex items-center rounded-full border border-cream/30 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wide text-cream backdrop-blur-sm">
             ติดต่อเรา
           </span>
         </div>
-        <h1 className="mx-auto mt-5 max-w-2xl text-4xl font-bold leading-tight tracking-tight text-[#FDFBF9] drop-shadow-sm md:text-6xl">
+        <h1 className="mx-auto mt-5 max-w-2xl text-3xl font-bold leading-tight tracking-tight text-[#FDFBF9] drop-shadow-sm sm:text-4xl md:text-6xl">
           คุยกับเราได้เลย
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-cream/85 sm:text-lg">

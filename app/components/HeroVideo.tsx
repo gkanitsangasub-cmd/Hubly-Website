@@ -7,7 +7,7 @@ export default function HeroVideo() {
     <section className="bg-cream p-4 md:p-6">
       {/* Inset cinematic frame */}
       <div
-        className="relative flex min-h-[34rem] items-center justify-center overflow-hidden rounded-2xl bg-ink bg-cover bg-center md:min-h-[calc(100vh-3rem)] md:rounded-[2rem]"
+        className="relative flex min-h-[28rem] items-center justify-center overflow-hidden rounded-2xl bg-ink bg-cover bg-center sm:min-h-[34rem] md:min-h-[calc(100vh-3rem)] md:rounded-[2rem]"
         style={{ backgroundImage: "url(/hero/hero-poster.jpg)" }}
       >
         {/* Background video */}
@@ -44,15 +44,15 @@ export default function HeroVideo() {
         />
 
         {/* Centered content (CSS pull-up — visible without JS, SEO-safe) */}
-        <div className="relative z-10 mx-auto max-w-4xl px-6 py-24 text-center">
+        <div className="relative z-10 mx-auto max-w-4xl px-6 py-16 text-center sm:py-24">
           <h1
-            className="hero-rise text-5xl font-bold leading-[1.02] tracking-tight text-[#FDFBF9] drop-shadow-sm sm:text-6xl md:text-7xl lg:text-8xl"
+            className="hero-rise text-4xl font-bold leading-[1.02] tracking-tight text-[#FDFBF9] drop-shadow-sm sm:text-5xl md:text-7xl lg:text-8xl"
             style={{ animationDelay: "0.05s" }}
           >
             HublyCompany
           </h1>
           <p
-            className="hero-rise mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-lg font-medium text-cream sm:text-xl md:text-2xl"
+            className="hero-rise mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-base font-medium text-cream sm:gap-x-4 sm:text-xl md:text-2xl"
             style={{ animationDelay: "0.2s" }}
           >
             <span>Marketing Agency</span>

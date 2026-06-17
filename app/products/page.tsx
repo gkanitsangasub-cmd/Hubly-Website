@@ -41,7 +41,7 @@ export default function ProductsPage() {
       {/* ===== Video hero (warm-controlled) ===== */}
       <section className="bg-cream p-4 md:p-6">
         <div
-          className="relative flex min-h-[26rem] items-center justify-center overflow-hidden rounded-2xl bg-ink bg-cover bg-center md:min-h-[32rem] md:rounded-[2rem]"
+          className="relative flex min-h-[20rem] items-center justify-center overflow-hidden rounded-2xl bg-ink bg-cover bg-center sm:min-h-[26rem] md:min-h-[32rem] md:rounded-[2rem]"
           style={{ backgroundImage: "url(/hero/products-hero-poster.jpg)" }}
         >
           <video
@@ -73,13 +73,13 @@ export default function ProductsPage() {
             className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.16] mix-blend-overlay"
           />
 
-          <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 text-center">
+          <div className="relative z-10 mx-auto max-w-3xl px-6 py-12 text-center sm:py-20">
             <div className="flex justify-center">
               <span className="inline-flex items-center rounded-full border border-cream/30 bg-white/10 px-3.5 py-1 text-xs font-semibold tracking-wide text-cream backdrop-blur-sm">
                 Hubly SaaS
               </span>
             </div>
-            <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight text-[#FDFBF9] md:text-6xl">
+            <h1 className="mt-5 text-3xl font-bold leading-tight tracking-tight text-[#FDFBF9] sm:text-4xl md:text-6xl">
               ซอฟต์แวร์จัดการธุรกิจ
               <br className="hidden sm:block" /> ครบในชุดเดียว
             </h1>
@@ -169,7 +169,7 @@ export default function ProductsPage() {
                 >
                   <Icon width={28} height={28} />
                 </span>
-                <h2 className="mt-5 text-3xl font-bold text-ink">{m.name}</h2>
+                <h2 className="mt-5 text-2xl font-bold text-ink sm:text-3xl">{m.name}</h2>
                 <p className="mt-1 text-base font-medium text-muted">
                   {m.tagline}
                 </p>
