@@ -11,9 +11,6 @@ export const metadata: Metadata = {
     "บทความและความรู้จาก HublyCompany — การตลาด เทคโนโลยี AI และการบริหารธุรกิจ SME ไทย",
 };
 
-const CARD_SHADOW =
-  "shadow-[0_16px_44px_-24px_rgba(60,48,39,0.30)] hover:shadow-[0_30px_64px_-28px_rgba(60,48,39,0.42)]";
-
 const GRADIENTS = [
   "from-amber-500/30 to-clay/30",
   "from-rose-400/30 to-clay/30",
@@ -56,7 +53,7 @@ export default function BlogPage() {
             {BLOG_POSTS.map((post, i) => (
               <MotionReveal key={post.slug} delay={i * 0.08} className="h-full">
                 <article
-                  className={`flex h-full flex-col overflow-hidden rounded-card border border-ink/8 bg-card transition-all duration-300 hover:-translate-y-1.5 ${CARD_SHADOW}`}
+                  className={`flex h-full flex-col overflow-hidden rounded-card border border-ink/8 bg-card transition-all duration-300 hover:-translate-y-1.5 shadow-warm hover:shadow-warm-lg`}
                 >
                   <div
                     className={`relative flex aspect-[16/10] items-end bg-gradient-to-br p-4 ${

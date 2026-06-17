@@ -13,9 +13,6 @@ export const metadata: Metadata = {
     "ราคา Hubly SaaS — ฿1,990/เดือน ทุก SaaS (HubChat, HubDeal, HubStore) ไม่มีค่าติดตั้ง เลือก 2 SaaS ลด 15% หรือครบ 3 SaaS ลด 20%",
 };
 
-const CARD_SHADOW =
-  "shadow-[0_16px_44px_-24px_rgba(60,48,39,0.30)] hover:shadow-[0_30px_64px_-28px_rgba(60,48,39,0.42)]";
-
 const ORDERED = [MODULES[1], MODULES[0], MODULES[2]];
 
 export default function SaasPricingPage() {
@@ -40,7 +37,10 @@ export default function SaasPricingPage() {
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {/* Video lead card (same footage as the Home bento) */}
             <MotionReveal delay={0} className="h-full">
-              <div className="relative h-full min-h-[320px] overflow-hidden rounded-card border border-ink/8 bg-ink lg:min-h-[440px]">
+              <div
+                className="relative h-full min-h-[320px] overflow-hidden rounded-card border border-ink/8 bg-ink bg-cover bg-center lg:min-h-[440px]"
+                style={{ backgroundImage: "url(/hero/pillar-poster.jpg)" }}
+              >
                 <video
                   className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
                   autoPlay
@@ -80,7 +80,7 @@ export default function SaasPricingPage() {
                   className="h-full"
                 >
                   <div
-                    className={`relative flex h-full flex-col rounded-card border bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 ${CARD_SHADOW} ${
+                    className={`relative flex h-full flex-col rounded-card border bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 shadow-warm hover:shadow-warm-lg ${
                       featured
                         ? "border-mocha/40 ring-1 ring-mocha/20"
                         : "border-ink/8"
@@ -168,7 +168,7 @@ export default function SaasPricingPage() {
             {FAQ.map((item) => (
               <details
                 key={item.q}
-                className={`group rounded-card border border-ink/8 bg-card p-5 [&_summary::-webkit-details-marker]:hidden ${CARD_SHADOW}`}
+                className={`group rounded-card border border-ink/8 bg-card p-5 [&_summary::-webkit-details-marker]:hidden shadow-warm hover:shadow-warm-lg`}
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-ink">
                   {item.q}

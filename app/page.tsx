@@ -6,9 +6,6 @@ import { ArrowRightIcon, CheckIcon } from "./components/icons";
 import HeroVideo from "./components/HeroVideo";
 import MotionReveal from "./components/MotionReveal";
 
-const CARD_SHADOW =
-  "shadow-[0_16px_44px_-24px_rgba(60,48,39,0.30)] hover:shadow-[0_30px_64px_-28px_rgba(60,48,39,0.42)]";
-
 export default function Home() {
   return (
     <>
@@ -79,7 +76,7 @@ export default function Home() {
                 >
                   <Link
                     href={p.href}
-                    className={`group flex h-full min-h-[320px] flex-col rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 lg:min-h-[440px] ${CARD_SHADOW}`}
+                    className={`group flex h-full min-h-[320px] flex-col rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 lg:min-h-[440px] shadow-warm hover:shadow-warm-lg`}
                   >
                     <div className="flex items-start justify-between">
                       <span className="grid h-11 w-11 place-items-center rounded-full bg-beige text-mocha transition-colors duration-300 group-hover:bg-mocha group-hover:text-[#FDFBF9]">
@@ -211,7 +208,7 @@ export default function Home() {
                 <MotionReveal key={m.key} delay={i * 0.1} className="h-full">
                   <Link
                     href={`/products#${m.key}`}
-                    className={`group flex h-full flex-col rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 ${CARD_SHADOW}`}
+                    className={`group flex h-full flex-col rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 shadow-warm hover:shadow-warm-lg`}
                   >
                     <span
                       className={`grid h-14 w-14 place-items-center rounded-[0.9rem] ${accent.badge}`}

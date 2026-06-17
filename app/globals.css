@@ -32,6 +32,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Warm card shadows (shared — replaces the per-file CARD_SHADOW const) */
+@utility shadow-warm {
+  box-shadow: 0 16px 44px -24px rgba(60, 48, 39, 0.3);
+}
+
+@utility shadow-warm-lg {
+  box-shadow: 0 30px 64px -28px rgba(60, 48, 39, 0.42);
+}
+
 /* ===== Film-grain noise textures (SVG fractal noise data-URIs) ===== */
 .noise-overlay {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");

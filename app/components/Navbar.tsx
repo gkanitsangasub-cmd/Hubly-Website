@@ -31,7 +31,7 @@ export default function Navbar() {
                   />
                 </Link>
                 {/* Dropdown (pt-3 acts as a hover bridge) */}
-                <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                   <div className="w-64 rounded-card border border-ink/8 bg-card p-2 shadow-[0_16px_44px_-24px_rgba(60,48,39,0.35)]">
                     {l.children.map((c) => (
                       <Link

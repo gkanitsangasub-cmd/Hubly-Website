@@ -16,9 +16,6 @@ export const metadata: Metadata = {
     "ราคาของ HublyCompany — Marketing Agency, AI Solution และ Hubly SaaS เลือกบริการที่ตรงกับธุรกิจคุณ",
 };
 
-const CARD_SHADOW =
-  "shadow-[0_16px_44px_-24px_rgba(60,48,39,0.30)] hover:shadow-[0_30px_64px_-28px_rgba(60,48,39,0.42)]";
-
 const OPTIONS = [
   {
     href: "/pricing/marketing",
@@ -74,7 +71,7 @@ export default function PricingHubPage() {
                 <MotionReveal key={o.href} delay={i * 0.1} className="h-full">
                   <Link
                     href={o.href}
-                    className={`group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 ${CARD_SHADOW}`}
+                    className={`group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 shadow-warm hover:shadow-warm-lg`}
                   >
                     <span
                       aria-hidden

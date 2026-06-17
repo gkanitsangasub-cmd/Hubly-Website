@@ -12,9 +12,6 @@ export const metadata: Metadata = {
     "AI Solution จาก HublyCompany — เว็บไซต์ด้วยโค้ดจริง (built by Claude AI), Chatbot, และระบบ AI ที่สร้างตามความต้องการธุรกิจคุณ",
 };
 
-const CARD_SHADOW =
-  "shadow-[0_16px_44px_-24px_rgba(60,48,39,0.30)] hover:shadow-[0_30px_64px_-28px_rgba(60,48,39,0.42)]";
-
 export default function AiSolutionPage() {
   return (
     <>
@@ -47,7 +44,7 @@ export default function AiSolutionPage() {
               return (
                 <MotionReveal key={s.title} delay={i * 0.1} className="h-full">
                   <div
-                    className={`flex h-full flex-col rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 ${CARD_SHADOW}`}
+                    className={`flex h-full flex-col rounded-card border border-ink/8 bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 shadow-warm hover:shadow-warm-lg`}
                   >
                     <span className="grid h-14 w-14 place-items-center rounded-[0.9rem] bg-orange-400/20 text-orange-700">
                       <Icon width={28} height={28} />

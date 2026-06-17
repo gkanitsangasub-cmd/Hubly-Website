@@ -13,9 +13,6 @@ export const metadata: Metadata = {
     "Hubly SaaS — ซอฟต์แวร์จัดการธุรกิจสำหรับ SME ไทย: HubChat (Inbox แชท), HubDeal (CRM), HubStore (ร้านค้า) ทำงานเชื่อมกันครบวงจร",
 };
 
-const CARD_SHADOW =
-  "shadow-[0_16px_44px_-24px_rgba(60,48,39,0.30)] hover:shadow-[0_30px_64px_-28px_rgba(60,48,39,0.42)]";
-
 const byKey = Object.fromEntries(MODULES.map((m) => [m.key, m]));
 // Display order: HubChat, HubDeal, HubStore
 const ORDERED = [MODULES[1], MODULES[0], MODULES[2]];
@@ -43,7 +40,10 @@ export default function ProductsPage() {
     <>
       {/* ===== Video hero (warm-controlled) ===== */}
       <section className="bg-cream p-4 md:p-6">
-        <div className="relative flex min-h-[26rem] items-center justify-center overflow-hidden rounded-2xl bg-ink md:min-h-[32rem] md:rounded-[2rem]">
+        <div
+          className="relative flex min-h-[26rem] items-center justify-center overflow-hidden rounded-2xl bg-ink bg-cover bg-center md:min-h-[32rem] md:rounded-[2rem]"
+          style={{ backgroundImage: "url(/hero/products-hero-poster.jpg)" }}
+        >
           <video
             className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
             autoPlay
@@ -125,7 +125,7 @@ export default function ProductsPage() {
               return (
                 <MotionReveal key={o.title} delay={i * 0.1} className="h-full">
                   <div
-                    className={`h-full rounded-card border border-ink/8 bg-card p-7 ${CARD_SHADOW}`}
+                    className={`h-full rounded-card border border-ink/8 bg-card p-7 shadow-warm hover:shadow-warm-lg`}
                   >
                     <span className="grid h-12 w-12 place-items-center rounded-[0.85rem] bg-mocha/10 text-mocha">
                       <Icon width={24} height={24} />
@@ -187,7 +187,7 @@ export default function ProductsPage() {
               {/* features card */}
               <div className={textRight ? "md:order-1" : ""}>
                 <div
-                  className={`rounded-card border border-ink/8 bg-card p-7 ${CARD_SHADOW}`}
+                  className={`rounded-card border border-ink/8 bg-card p-7 shadow-warm hover:shadow-warm-lg`}
                 >
                   <div className="text-[11px] font-semibold uppercase tracking-wider text-muted">
                     ฟีเจอร์
@@ -234,7 +234,7 @@ export default function ProductsPage() {
             {WORKFLOWS.filter((w) => !w.featured).map((w, i) => (
               <MotionReveal key={w.title} delay={i * 0.1} className="h-full">
                 <div
-                  className={`flex h-full flex-col rounded-card border border-ink/8 bg-card p-6 ${CARD_SHADOW}`}
+                  className={`flex h-full flex-col rounded-card border border-ink/8 bg-card p-6 shadow-warm hover:shadow-warm-lg`}
                 >
                   <div className="flex items-center gap-2">
                     {w.combo.map((k, j) => {
