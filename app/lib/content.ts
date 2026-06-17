@@ -77,7 +77,7 @@ export const MARKETING_SERVICES: ServiceItem[] = [
   {
     icon: MegaphoneIcon,
     title: "Social Media Ads",
-    desc: "ยิงโฆษณา Facebook, Instagram, TikTok ให้ตรงกลุ่มเป้าหมาย คุมงบ วัดผลได้",
+    desc: "ยิงโฆษณา Facebook, Instagram, TikTok และ LINE ให้ตรงกลุ่มเป้าหมาย คุมงบ วัดผลได้",
   },
   {
     icon: GoogleIcon,
@@ -86,28 +86,91 @@ export const MARKETING_SERVICES: ServiceItem[] = [
   },
   {
     icon: ImageIcon,
-    title: "Content Social Media",
-    desc: "Content & Artwork สำหรับโซเชียล สวย ตรงแบรนด์ โพสต์ได้สม่ำเสมอ",
+    title: "Content & Artwork",
+    desc: "ออกแบบ Artwork และเขียน Caption สำหรับโซเชียล สวย ตรงแบรนด์ พร้อม Content Calendar",
   },
   {
     icon: SearchIcon,
-    title: "Content Website",
-    desc: "Blog & SEO เขียนบทความติดอันดับ Google ดึง traffic เข้าเว็บระยะยาว",
-  },
-  {
-    icon: KanbanIcon,
-    title: "Marketing Consultant",
-    desc: "Planner & Performance วางกลยุทธ์ ติดตามผล และปรับแผนให้คุ้มทุกบาท",
-  },
-  {
-    icon: RocketIcon,
-    title: "Marketing Campaign",
-    desc: "Production แคมเปญครบวงจร ตั้งแต่คอนเซ็ปต์ ถ่ายทำ จนถึงเผยแพร่",
+    title: "Blog & SEO",
+    desc: "เขียนบทความติดอันดับ Google ดึง organic traffic เข้าเว็บระยะยาว",
   },
   {
     icon: StoreIcon,
     title: "Marketplace Marketing",
-    desc: "ดูแลร้านบน Shopee & Lazada ทั้งโฆษณา โปรโมชัน และยอดขาย",
+    desc: "ดูแลร้านบน Shopee & Lazada ทั้งโฆษณา Listing SEO โปรโมชัน และยอดขาย",
+  },
+  {
+    icon: KanbanIcon,
+    title: "Marketing Strategy",
+    desc: "วางกลยุทธ์การตลาด วิเคราะห์คู่แข่ง และ Optimize แคมเปญต่อเนื่องทุกเดือน",
+  },
+  {
+    icon: RocketIcon,
+    title: "Campaign Production",
+    desc: "ผลิตแคมเปญครบวงจร ตั้งแต่คอนเซ็ปต์ Short Video จนถึงเผยแพร่",
+  },
+];
+
+/* ===== Pricing: Marketing Packages ===== */
+export type MarketingPackage = {
+  name: string;
+  startingPrice: number;
+  desc: string;
+  points: string[];
+  featured?: boolean;
+  isMarketplace?: boolean;
+};
+
+export const MARKETING_PACKAGES: MarketingPackage[] = [
+  {
+    name: "Boost",
+    startingPrice: 8900,
+    desc: "เริ่มต้นทำการตลาดอย่างมีระบบ เหมาะกับธุรกิจที่เพิ่งเริ่ม",
+    points: [
+      "Facebook + Instagram Ads (1 Brand)",
+      "Artwork + Caption 8 ชิ้น/เดือน",
+      "Content Calendar",
+      "Monthly Performance Report",
+    ],
+  },
+  {
+    name: "Scale",
+    startingPrice: 12900,
+    desc: "สเกลหลายช่องทาง เหมาะกับธุรกิจที่รันอยู่แล้วอยากโต",
+    points: [
+      "Facebook/IG + Google Search Ads",
+      "Artwork + Caption 12 ชิ้น/เดือน",
+      "Content Calendar",
+      "2 บทความ Blog/SEO",
+      "Monthly Performance Report",
+    ],
+    featured: true,
+  },
+  {
+    name: "Full-Service",
+    startingPrice: 19900,
+    desc: "เหมือนมีทีมการตลาดเป็นของตัวเอง ดูแลครบวงจร",
+    points: [
+      "ทุก Paid Channel (FB/IG + Google + TikTok + LINE)",
+      "Artwork + Caption 20 ชิ้น/เดือน",
+      "Content Calendar",
+      "10 บทความ Blog/SEO",
+      "Dedicated Marketing Consultant",
+      "Monthly Performance Report",
+    ],
+  },
+  {
+    name: "Marketplace",
+    startingPrice: 8900,
+    desc: "ดูแล Shopee & Lazada ครบวงจร เพิ่มยอดขายบน Marketplace",
+    points: [
+      "Shopee & Lazada Ads Management",
+      "Product Listing + SEO Optimization (สูงสุด 20 รายการ)",
+      "Flash Sale / Campaign Planning",
+      "Shop Page Setup / Decoration",
+      "Monthly Sales Report",
+    ],
+    isMarketplace: true,
   },
 ];
 
