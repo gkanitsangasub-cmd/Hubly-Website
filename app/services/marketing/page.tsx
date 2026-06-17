@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { MARKETING_SERVICES } from "../../lib/content";
 import VideoHero from "../../components/VideoHero";
-import { SectionHeading } from "../../components/ui";
+import { SectionHeading, ButtonLink } from "../../components/ui";
 import { ArrowRightIcon } from "../../components/icons";
 import MotionReveal from "../../components/MotionReveal";
 import CtaCard from "../../components/CtaCard";
@@ -12,6 +12,16 @@ export const metadata: Metadata = {
   description:
     "บริการ Marketing Agency ครบวงจรจาก HublyCompany — Social & Google Ads, Content & Artwork, Blog/SEO, Marketplace และวางกลยุทธ์การตลาดให้ธุรกิจ SME ไทย",
 };
+
+const SERVICE_TAGS: string[][] = [
+  ["Facebook", "Instagram", "TikTok", "LINE"],
+  ["Google Search", "Display", "YouTube"],
+  ["Artwork", "Caption", "Content Calendar"],
+  ["Blog", "SEO", "Organic"],
+  ["Shopee", "Lazada", "Marketplace"],
+  ["กลยุทธ์", "วิเคราะห์", "Optimize"],
+  ["Short Video", "Creative", "Production"],
+];
 
 export default function MarketingAgencyPage() {
   return (
@@ -34,42 +44,64 @@ export default function MarketingAgencyPage() {
         </Link>
       </VideoHero>
 
-      {/* Services list */}
+      {/* Services grid */}
       <section className="relative isolate overflow-hidden bg-beige py-16 md:py-24">
         <div
           aria-hidden
           className="bg-noise pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-multiply"
         />
-        <div className="relative z-10 mx-auto max-w-4xl px-6">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-20 right-0 h-80 w-80 rounded-full bg-amber-500/10 blur-3xl"
+        />
+        <div className="relative z-10 mx-auto max-w-6xl px-6">
           <SectionHeading
             eyebrow="สิ่งที่เราทำ"
             title="ครอบคลุมทุกช่องทางการตลาดดิจิทัล"
             subtitle="ตั้งแต่ยิงโฆษณา สร้าง Content ไปจนถึง Marketplace — ดูแลได้ทั้งหมดหรือเลือกเฉพาะที่ต้องการ"
           />
-          <div className="mt-12 divide-y divide-ink/10 border-y border-ink/10">
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {MARKETING_SERVICES.map((s, i) => {
               const Icon = s.icon;
+              const tags = SERVICE_TAGS[i] ?? [];
               return (
-                <MotionReveal key={s.title} delay={i * 0.05}>
-                  <div className="group flex items-center gap-4 px-2 py-5 md:gap-7 md:px-4">
-                    <span className="w-7 shrink-0 text-sm font-semibold tabular-nums text-ink/30 md:text-base">
-                      {String(i + 1).padStart(2, "0")}
+                <MotionReveal key={s.title} delay={i * 0.07} className="h-full">
+                  <div className="group flex h-full flex-col rounded-card border border-ink/8 bg-card p-6 shadow-warm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-warm-lg">
+                    {/* Icon */}
+                    <span className="grid h-12 w-12 place-items-center rounded-[0.85rem] bg-amber-500/12 text-amber-700 transition-colors duration-300 group-hover:bg-amber-500/20">
+                      <Icon width={22} height={22} />
                     </span>
-                    <span className="hidden h-11 w-11 shrink-0 place-items-center rounded-full bg-card text-amber-700 shadow-sm sm:grid">
-                      <Icon width={20} height={20} />
-                    </span>
-                    <div className="min-w-0 flex-1">
-                      <h3 className="text-base font-bold text-ink md:text-lg">
-                        {s.title}
-                      </h3>
-                      <p className="mt-0.5 line-clamp-2 text-sm leading-relaxed text-muted md:line-clamp-none">
-                        {s.desc}
-                      </p>
+
+                    {/* Title + desc */}
+                    <h3 className="mt-4 text-base font-bold text-ink md:text-lg">
+                      {s.title}
+                    </h3>
+                    <p className="mt-1.5 flex-1 text-sm leading-relaxed text-muted">
+                      {s.desc}
+                    </p>
+
+                    {/* Channel tags */}
+                    <div className="mt-4 flex flex-wrap gap-1.5">
+                      {tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-amber-500/20 bg-amber-500/8 px-2.5 py-0.5 text-[11px] font-medium text-amber-700"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </MotionReveal>
               );
             })}
+          </div>
+
+          <div className="mt-10 flex justify-center">
+            <ButtonLink href="/pricing/marketing" variant="outline">
+              ดูแพ็คเกจและราคา
+            </ButtonLink>
           </div>
         </div>
       </section>
