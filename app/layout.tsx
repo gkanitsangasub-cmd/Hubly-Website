@@ -25,6 +25,14 @@ export const metadata: Metadata = {
       "Marketing, AI Solution และ Hubly SaaS ในที่เดียว สำหรับธุรกิจ SME ไทย",
     type: "website",
     locale: "th_TH",
+    url: "https://hublycompany.com",
+    siteName: "HublyCompany",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "HublyCompany — Agency ดิจิทัล + เทคโนโลยี AI + SaaS ของคุณเอง",
+    description:
+      "Marketing, AI Solution และ Hubly SaaS ในที่เดียว สำหรับธุรกิจ SME ไทย",
   },
 };
 
