@@ -263,8 +263,9 @@ export function CodeIcon(p: IconProps) {
 export function RobotIcon(p: IconProps) {
   return (
     <svg {...base} {...p}>
-      <rect x="4" y="6" width="16" height="11" rx="2.5" />
-      <path d="M12 2v4M9 11h.01M15 11h.01" />
+      <rect x="4" y="5" width="16" height="14" rx="2.5" />
+      <path d="M8 5V3M16 5V3" />
+      <path d="M9 10.5h.01M15 10.5h.01" />
       <path d="M9 14h6" />
     </svg>
   );
