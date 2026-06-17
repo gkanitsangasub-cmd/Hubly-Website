@@ -224,14 +224,10 @@ export default function SaasPricingContent() {
           <SectionHeading
             eyebrow="แพ็คเกจรวม"
             title="รวม SaaS แล้วประหยัดกว่า"
-            subtitle={
-              isAnnual
-                ? "รายปี + 2 SaaS ลด 15% · รายปี + ครบ 3 SaaS ลด 20% จากราคาปกติ"
-                : "เลือก 2 SaaS ลด 5% · ครบ 3 SaaS ลด 10% — รวมกับรายปีได้สูงสุด 20%"
-            }
+            subtitle="เปรียบราคารายเดือนและรายปีได้เลย — ยิ่งรวมหลาย SaaS ยิ่งประหยัด"
           />
           <div className="mt-12">
-            <BundleTable annual={isAnnual} />
+            <BundleTable />
           </div>
         </div>
       </section>
