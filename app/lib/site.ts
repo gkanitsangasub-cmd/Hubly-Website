@@ -6,6 +6,11 @@ export const COMPANY = {
   email: "gkanit.sangasub@gmail.com",
 } as const;
 
+export const CONTACTS = [
+  { name: "คุณแชมป์", phone: "094-632-6916", phoneHref: "tel:+66946326916" },
+  { name: "คุณนัท", phone: "092-586-3639", phoneHref: "tel:+66925863639" },
+] as const;
+
 export const APP = {
   url: "https://app.hublycompany.com",
   login: "https://app.hublycompany.com/login",

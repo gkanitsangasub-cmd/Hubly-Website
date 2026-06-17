@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { COMPANY } from "../lib/site";
-import { PhoneIcon, MailIcon, UsersIcon } from "../components/icons";
+import { CONTACTS } from "../lib/site";
+import { PhoneIcon } from "../components/icons";
 
 export const metadata: Metadata = {
   title: "ติดต่อเรา",
   description:
-    "ติดต่อ HublyCompany — Kanit Sangasub โทร 094-632-6916 อีเมล gkanit.sangasub@gmail.com ปรึกษาบริการ Marketing Agency, AI Solution และ Hubly SaaS",
+    "ติดต่อ HublyCompany — คุณแชมป์ 094-632-6916, คุณนัท 092-586-3639 ปรึกษาบริการ Marketing Agency, AI Solution และ Hubly SaaS",
 };
 
 const PILL =
@@ -59,18 +59,12 @@ export default function ContactPage() {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <span className={PILL}>
-            <UsersIcon width={16} height={16} />
-            {COMPANY.contactName}
-          </span>
-          <a href={COMPANY.phoneHref} className={PILL}>
-            <PhoneIcon width={16} height={16} />
-            {COMPANY.phone}
-          </a>
-          <a href={`mailto:${COMPANY.email}`} className={PILL}>
-            <MailIcon width={16} height={16} />
-            <span className="break-all">{COMPANY.email}</span>
-          </a>
+          {CONTACTS.map((c) => (
+            <a key={c.phone} href={c.phoneHref} className={PILL}>
+              <PhoneIcon width={16} height={16} />
+              {c.name} {c.phone}
+            </a>
+          ))}
         </div>
       </div>
     </section>
