@@ -142,11 +142,11 @@ export default function AiPricingPage() {
                     )}
 
                     <span className="grid h-11 w-11 place-items-center rounded-[0.8rem] bg-orange-400/20 text-orange-700">
-                      <Icon width={22} height={22} />
+                      <Icon width={20} height={20} />
                     </span>
 
                     <h3 className="mt-4 text-lg font-bold text-ink">{t.name}</h3>
-                    <p className="mt-1 text-xs leading-relaxed text-muted">
+                    <p className="mt-1 flex-1 text-xs leading-relaxed text-muted">
                       {t.desc}
                     </p>
 
@@ -171,7 +171,7 @@ export default function AiPricingPage() {
                       <ArrowRightIcon width={14} height={14} />
                     </Link>
 
-                    <ul className="mt-5 flex-1 space-y-2 border-t border-ink/8 pt-5">
+                    <ul className="mt-5 space-y-2 border-t border-ink/8 pt-5">
                       {t.points.map((p) => (
                         <li key={p} className="flex gap-2 text-sm text-ink/80">
                           <CheckIcon
