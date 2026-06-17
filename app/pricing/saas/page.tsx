@@ -5,6 +5,7 @@ import { ButtonLink, Eyebrow, SectionHeading } from "../../components/ui";
 import { CheckIcon } from "../../components/icons";
 import BundleTable from "../../components/BundleTable";
 import CtaCard from "../../components/CtaCard";
+import MotionReveal from "../../components/MotionReveal";
 
 export const metadata: Metadata = {
   title: "ราคา Hubly SaaS",
@@ -36,64 +37,101 @@ export default function SaasPricingPage() {
             title="฿1,990/เดือน เท่ากันทุก SaaS"
             subtitle="ไม่มีค่าติดตั้ง · ยกเลิกได้ทุกเมื่อ · จ่ายเท่าที่ใช้จริง"
           />
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {ORDERED.map((m) => {
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Video lead card (same footage as the Home bento) */}
+            <MotionReveal delay={0} className="h-full">
+              <div className="relative h-full min-h-[320px] overflow-hidden rounded-card border border-ink/8 bg-ink lg:min-h-[440px]">
+                <video
+                  className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  poster="/hero/pillar-poster.jpg"
+                  aria-hidden="true"
+                >
+                  <source src="/hero/pillar.mp4" type="video/mp4" />
+                </video>
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent"
+                />
+                <div className="absolute inset-x-0 bottom-0 p-6">
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cream/70">
+                    Hubly SaaS
+                  </div>
+                  <p className="mt-1.5 text-lg font-bold leading-snug text-cream">
+                    ฿1,990/เดือน
+                    <br />
+                    เท่ากันทุก SaaS
+                  </p>
+                </div>
+              </div>
+            </MotionReveal>
+
+            {ORDERED.map((m, i) => {
               const accent = MODULE_ACCENT[m.key];
               const Icon = m.icon;
               const featured = m.key === "hubchat";
               return (
-                <div
+                <MotionReveal
                   key={m.key}
-                  className={`relative flex flex-col rounded-card border bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 ${CARD_SHADOW} ${
-                    featured
-                      ? "border-mocha/40 ring-1 ring-mocha/20"
-                      : "border-ink/8"
-                  }`}
+                  delay={(i + 1) * 0.1}
+                  className="h-full"
                 >
-                  {featured && (
-                    <span className="absolute -top-3 left-7 rounded-full bg-mocha px-3 py-1 text-xs font-semibold text-[#FDFBF9]">
-                      ยอดนิยม
-                    </span>
-                  )}
-                  <span
-                    className={`grid h-12 w-12 place-items-center rounded-[0.85rem] ${accent.badge}`}
+                  <div
+                    className={`relative flex h-full flex-col rounded-card border bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 ${CARD_SHADOW} ${
+                      featured
+                        ? "border-mocha/40 ring-1 ring-mocha/20"
+                        : "border-ink/8"
+                    }`}
                   >
-                    <Icon width={24} height={24} />
-                  </span>
-                  <h3 className="mt-5 text-xl font-bold text-ink">{m.name}</h3>
-                  <p className="mt-1 text-sm font-medium text-muted">
-                    {m.tagline}
-                  </p>
-
-                  <div className="mt-5 flex items-end gap-1">
-                    <span className="text-3xl font-bold text-ink">
-                      {baht(m.priceValue)}
+                    {featured && (
+                      <span className="absolute -top-3 left-6 rounded-full bg-mocha px-3 py-1 text-xs font-semibold text-[#FDFBF9]">
+                        ยอดนิยม
+                      </span>
+                    )}
+                    <span
+                      className={`grid h-11 w-11 place-items-center rounded-[0.8rem] ${accent.badge}`}
+                    >
+                      <Icon width={22} height={22} />
                     </span>
-                    <span className="pb-1 text-sm text-muted">/เดือน</span>
+                    <h3 className="mt-4 text-lg font-bold text-ink">{m.name}</h3>
+                    <p className="mt-1 text-xs text-muted">{m.tagline}</p>
+
+                    <div className="mt-4 flex items-end gap-1">
+                      <span className="text-2xl font-bold text-ink">
+                        {baht(m.priceValue)}
+                      </span>
+                      <span className="pb-0.5 text-xs text-muted">/เดือน</span>
+                    </div>
+
+                    <ButtonLink
+                      href={APP.url}
+                      external
+                      variant={featured ? "primary" : "outline"}
+                      className="mt-4 w-full"
+                    >
+                      เริ่มทดลองฟรี
+                    </ButtonLink>
+
+                    <ul className="mt-5 flex-1 space-y-2 border-t border-ink/8 pt-5">
+                      {m.features.map((f) => (
+                        <li
+                          key={f}
+                          className="flex gap-2 text-sm text-ink/80"
+                        >
+                          <CheckIcon
+                            width={15}
+                            height={15}
+                            className="mt-0.5 shrink-0 text-sage"
+                          />
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-
-                  <ButtonLink
-                    href={APP.url}
-                    external
-                    variant={featured ? "primary" : "outline"}
-                    className="mt-5 w-full"
-                  >
-                    เริ่มทดลองฟรี
-                  </ButtonLink>
-
-                  <ul className="mt-6 space-y-3 border-t border-ink/8 pt-6">
-                    {m.features.map((f) => (
-                      <li key={f} className="flex gap-2.5 text-sm text-ink/85">
-                        <CheckIcon
-                          width={18}
-                          height={18}
-                          className="mt-0.5 shrink-0 text-sage"
-                        />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                </MotionReveal>
               );
             })}
           </div>

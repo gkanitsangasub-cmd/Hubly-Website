@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TECH_SOLUTIONS } from "../../lib/content";
-import { Eyebrow } from "../../components/ui";
+import VideoHero from "../../components/VideoHero";
 import { ArrowRightIcon } from "../../components/icons";
 import MotionReveal from "../../components/MotionReveal";
 import CtaCard from "../../components/CtaCard";
@@ -18,27 +18,21 @@ const CARD_SHADOW =
 export default function AiSolutionPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative isolate overflow-hidden bg-cream py-16 md:py-24">
-        <div
-          aria-hidden
-          className="bg-noise pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-multiply"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-10 -top-24 h-80 w-80 rounded-full bg-orange-400/20 blur-3xl"
-        />
-        <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
-          <Eyebrow>AI Solution</Eyebrow>
-          <h1 className="mx-auto mt-5 max-w-3xl text-4xl font-bold leading-tight tracking-tight text-ink md:text-5xl">
-            ระบบ เว็บไซต์ และ AI ที่สร้างตามธุรกิจคุณ
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted">
-            เครื่องมือและ AI ที่ออกแบบเฉพาะให้ตรงกับการทำงานของคุณ — built by
-            Claude AI
-          </p>
-        </div>
-      </section>
+      <VideoHero
+        src="/hero/ai-hero.mp4"
+        poster="/hero/ai-hero-poster.jpg"
+        eyebrow="AI Solution"
+        title="ระบบ เว็บไซต์ และ AI ที่สร้างตามธุรกิจคุณ"
+        subtitle="เครื่องมือและ AI ที่ออกแบบเฉพาะให้ตรงกับการทำงานของคุณ — built by Claude AI"
+      >
+        <Link
+          href="/contact"
+          className="inline-flex items-center justify-center gap-2 rounded-btn bg-mocha px-6 py-3.5 text-sm font-semibold text-[#FDFBF9] shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-mocha-dark"
+        >
+          ปรึกษาโปรเจกต์
+          <ArrowRightIcon width={18} height={18} />
+        </Link>
+      </VideoHero>
 
       {/* Solutions */}
       <section className="relative isolate overflow-hidden bg-beige py-16 md:py-24">
