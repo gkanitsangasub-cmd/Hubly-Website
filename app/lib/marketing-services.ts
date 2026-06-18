@@ -28,7 +28,6 @@ export const MARKETING_SERVICES: ServiceCategory[] = [
         price: 1500,
         unit: "เดือน",
         isFlat: true,
-        autoSelectTriggeredBy: "artwork-caption",
       },
       {
         id: "artwork-caption",
