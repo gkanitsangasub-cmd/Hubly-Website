@@ -78,48 +78,44 @@ export default function AiPricingPage() {
             subtitle="แต่ละงานออกแบบเฉพาะตามความต้องการ — เล่าโจทย์ให้เราฟัง แล้วรับใบเสนอราคาฟรี"
           />
 
-          {/* Lead card + 3 tier cards */}
-          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-
-            {/* Cinematic lead card */}
-            <MotionReveal delay={0} className="h-full">
-              <div
-                className="relative h-full min-h-[320px] overflow-hidden rounded-card border border-ink/8 bg-ink bg-cover bg-top lg:min-h-[440px]"
-                style={{ backgroundImage: "url(/hero/ai-hero-poster.jpg)" }}
+          {/* Cinematic full-width banner */}
+          <MotionReveal delay={0} className="mt-14">
+            <div
+              className="relative h-[260px] md:h-[340px] overflow-hidden rounded-card border border-ink/8 bg-ink bg-cover bg-center"
+              style={{ backgroundImage: "url(/hero/ai-hero-poster.jpg)" }}
+            >
+              <video
+                className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/hero/ai-hero-poster.jpg"
+                aria-hidden="true"
+                style={{
+                  filter:
+                    "sepia(0.2) saturate(1.1) hue-rotate(5deg) brightness(0.85) contrast(1.05)",
+                }}
               >
-                <video
-                  className="absolute inset-0 h-full w-full object-cover object-top motion-reduce:hidden"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  poster="/hero/ai-hero-poster.jpg"
-                  aria-hidden="true"
-                  style={{
-                    filter:
-                      "sepia(0.2) saturate(1.1) hue-rotate(5deg) brightness(0.85) contrast(1.05)",
-                  }}
-                >
-                  <source src="/hero/ai-hero.mp4" type="video/mp4" />
-                </video>
-                <div
-                  aria-hidden
-                  className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent"
-                />
-                <div className="absolute inset-x-0 bottom-0 p-6">
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cream/70">
-                    AI Solution
-                  </div>
-                  <p className="mt-1.5 text-lg font-bold leading-snug text-cream">
-                    ราคาตามโปรเจกต์
-                    <br />
-                    ปรึกษาฟรีไม่มีค่าใช้จ่าย
-                  </p>
+                <source src="/hero/ai-hero.mp4" type="video/mp4" />
+              </video>
+              <div
+                aria-hidden
+                className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/30 to-transparent"
+              />
+              <div className="absolute inset-x-0 bottom-0 p-6">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.12em] text-cream/70">
+                  AI Solution
                 </div>
+                <p className="mt-1.5 text-lg font-bold leading-snug text-cream">
+                  ราคาตามโปรเจกต์ · ปรึกษาฟรีไม่มีค่าใช้จ่าย
+                </p>
               </div>
-            </MotionReveal>
+            </div>
+          </MotionReveal>
 
-            {/* 3 tier cards */}
+          {/* 3 tier cards */}
+          <div className="mt-4 grid gap-4 sm:grid-cols-3">
             {TIERS.map((t, i) => {
               const Icon = t.icon;
               return (
