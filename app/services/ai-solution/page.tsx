@@ -17,6 +17,9 @@ const SERVICE_TAGS: string[][] = [
   ["Lead Management", "Pipeline", "Hubly SaaS"],
   ["Next.js", "Claude AI", "SEO-ready"],
   ["LINE", "Facebook", "Messenger", "24 ชม."],
+  ["LLM", "OpenAI", "Claude AI"],
+  ["REST API", "Webhook", "Automation"],
+  ["LINE OA", "Broadcast", "Rich Menu"],
 ];
 
 export default function AiSolutionPage() {

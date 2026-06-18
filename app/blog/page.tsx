@@ -73,7 +73,7 @@ export default function BlogPage() {
                       {post.excerpt}
                     </p>
                     <a
-                      href="#"
+                      href={`/blog/${post.slug}`}
                       className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-mocha transition-colors hover:text-mocha-dark"
                     >
                       อ่านเพิ่ม

@@ -54,9 +54,6 @@ export default function TermsPage() {
             </div>
           ))}
         </div>
-        <p className="mt-12 rounded-card border border-ink/8 bg-card p-5 text-xs leading-relaxed text-muted shadow-sm">
-          เอกสารนี้เป็นเนื้อหาตัวอย่างเบื้องต้น ควรปรึกษาผู้เชี่ยวชาญด้านกฎหมายเพื่อปรับให้เหมาะสมกับธุรกิจของคุณก่อนเผยแพร่จริง
-        </p>
       </div>
     </section>
   );
