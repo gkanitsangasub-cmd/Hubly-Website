@@ -84,11 +84,11 @@ export default function AiPricingPage() {
             {/* Cinematic lead card */}
             <MotionReveal delay={0} className="h-full">
               <div
-                className="relative h-full min-h-[320px] overflow-hidden rounded-card border border-ink/8 bg-ink bg-cover bg-center lg:min-h-[440px]"
+                className="relative h-full min-h-[320px] overflow-hidden rounded-card border border-ink/8 bg-ink bg-cover bg-top lg:min-h-[440px]"
                 style={{ backgroundImage: "url(/hero/ai-hero-poster.jpg)" }}
               >
                 <video
-                  className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+                  className="absolute inset-0 h-full w-full object-cover object-top motion-reduce:hidden"
                   autoPlay
                   muted
                   loop
