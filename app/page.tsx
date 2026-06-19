@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { APP, MODULE_ACCENT } from "./lib/site";
 import { PILLARS, MARKETING_SERVICES, MODULES } from "./lib/content";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "https://hublycompany.com" },
+};
 import { ButtonLink, SectionHeading } from "./components/ui";
 import { ArrowRightIcon, CheckIcon } from "./components/icons";
 import HeroVideo from "./components/HeroVideo";

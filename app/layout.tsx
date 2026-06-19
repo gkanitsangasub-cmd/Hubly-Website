@@ -11,8 +11,30 @@ const prompt = Prompt({
   display: "swap",
 });
 
+const BASE = "https://hublycompany.com";
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "HublyCompany",
+  "url": BASE,
+  "logo": { "@type": "ImageObject", "url": `${BASE}/opengraph-image` },
+  "description":
+    "HublyCompany รวมบริการ Marketing Agency, AI Solution และซอฟต์แวร์ Hubly SaaS ไว้ในที่เดียว เพื่อให้ธุรกิจ SME ไทยเติบโตได้จริง",
+  "telephone": "+66946326916",
+  "email": "gkanit.sangasub@gmail.com",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+66946326916",
+    "contactType": "customer service",
+    "availableLanguage": "Thai",
+    "areaServed": "TH",
+  },
+  "areaServed": { "@type": "Country", "name": "Thailand" },
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hublycompany.com"),
+  metadataBase: new URL(BASE),
   title: {
     default: "HublyCompany — Agency ดิจิทัล + เทคโนโลยี AI + SaaS ของคุณเอง",
     template: "%s · HublyCompany",
@@ -44,6 +66,10 @@ export default function RootLayout({
   return (
     <html lang="th" className={`${prompt.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-cream text-ink antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

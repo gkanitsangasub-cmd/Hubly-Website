@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Hubly SaaS",
   description:
     "Hubly SaaS — ซอฟต์แวร์จัดการธุรกิจสำหรับ SME ไทย: HubChat (Inbox แชท), HubDeal (CRM), HubStore (ร้านค้า) ทำงานเชื่อมกันครบวงจร",
+  alternates: { canonical: "https://hublycompany.com/products" },
 };
 
 const byKey = Object.fromEntries(MODULES.map((m) => [m.key, m]));

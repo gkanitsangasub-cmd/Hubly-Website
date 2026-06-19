@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "บริการ",
   description:
     "บริการของ HublyCompany — Marketing Agency ครบวงจร และ AI Solution สร้างระบบ เว็บไซต์ และ AI ตามความต้องการธุรกิจคุณ",
+  alternates: { canonical: "https://hublycompany.com/services" },
 };
 
 const AREAS = [

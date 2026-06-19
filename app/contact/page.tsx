@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "ติดต่อเรา",
   description:
     "ติดต่อ HublyCompany — คุณแชมป์ 094-632-6916, คุณนัท 092-586-3639 ปรึกษาบริการ Marketing Agency, AI Solution และ Hubly SaaS",
+  alternates: { canonical: "https://hublycompany.com/contact" },
 };
 
 const PILL =

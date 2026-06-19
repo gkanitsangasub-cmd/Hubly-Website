@@ -7,6 +7,8 @@ import { ArrowRightIcon } from "../../components/icons";
 import MotionReveal from "../../components/MotionReveal";
 import CtaCard from "../../components/CtaCard";
 
+const BASE = "https://hublycompany.com";
+
 export function generateStaticParams() {
   return BLOG_POSTS.map((p) => ({ slug: p.slug }));
 }
@@ -22,6 +24,7 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `${BASE}/blog/${slug}` },
   };
 }
 
@@ -45,8 +48,49 @@ export default async function BlogPostPage({
   const gradient = GRADIENTS[idx % GRADIENTS.length];
   const related = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 3);
 
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "datePublished": post.publishedDate,
+    "dateModified": post.publishedDate,
+    "url": `${BASE}/blog/${post.slug}`,
+    "author": {
+      "@type": "Organization",
+      "name": "HublyCompany",
+      "url": BASE,
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "HublyCompany",
+      "url": BASE,
+      "logo": { "@type": "ImageObject", "url": `${BASE}/opengraph-image` },
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE}/blog/${post.slug}` },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "หน้าแรก", "item": BASE },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE}/blog` },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": `${BASE}/blog/${post.slug}` },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Hero */}
       <section
         className={`relative isolate overflow-hidden bg-gradient-to-br ${gradient} py-16 md:py-24`}
@@ -56,12 +100,24 @@ export default async function BlogPostPage({
           className="bg-noise pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-multiply"
         />
         <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
+          {/* Breadcrumb nav */}
+          <nav aria-label="Breadcrumb" className="mb-5 flex items-center justify-center gap-1.5 text-xs text-muted">
+            <Link href="/" className="hover:text-mocha transition-colors">หน้าแรก</Link>
+            <span aria-hidden>/</span>
+            <Link href="/blog" className="hover:text-mocha transition-colors">Blog</Link>
+            <span aria-hidden>/</span>
+            <span className="text-ink/60 line-clamp-1 max-w-[200px] sm:max-w-xs">{post.title}</span>
+          </nav>
+
           <Eyebrow>{post.category}</Eyebrow>
           <h1 className="mx-auto mt-5 text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl">
             {post.title}
           </h1>
           <p className="mt-4 text-sm text-muted">
-            {post.date} · โดย HublyCompany
+            {post.date} ·{" "}
+            <Link href="/contact" className="font-semibold text-mocha hover:text-mocha-dark transition-colors">
+              ทีม HublyCompany
+            </Link>
           </p>
         </div>
       </section>
@@ -81,6 +137,25 @@ export default async function BlogPostPage({
               </MotionReveal>
             ))}
           </article>
+
+          {/* Related services */}
+          {post.serviceLinks && post.serviceLinks.length > 0 && (
+            <div className="mt-10 rounded-card border border-mocha/20 bg-mocha/5 p-6">
+              <p className="text-sm font-semibold text-mocha">บริการที่เกี่ยวข้อง</p>
+              <div className="mt-3 flex flex-wrap gap-3">
+                {post.serviceLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="inline-flex items-center gap-1.5 rounded-btn border border-mocha/25 bg-card px-4 py-2 text-sm font-semibold text-mocha transition-colors hover:bg-mocha hover:text-[#FDFBF9]"
+                  >
+                    {link.label}
+                    <ArrowRightIcon width={14} height={14} />
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="mt-12 border-t border-ink/8 pt-8">
             <Link

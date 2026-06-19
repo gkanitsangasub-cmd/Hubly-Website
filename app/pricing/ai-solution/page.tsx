@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   title: "ราคา AI Solution",
   description:
     "ราคา AI Solution จาก HublyCompany — เว็บไซต์, Chatbot และระบบ AI ราคาตามโปรเจกต์ ติดต่อรับใบเสนอราคาฟรี",
+  alternates: { canonical: "https://hublycompany.com/pricing/ai-solution" },
 };
 
 const TIERS = [

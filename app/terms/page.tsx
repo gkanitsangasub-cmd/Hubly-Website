@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "ข้อกำหนดการใช้งาน",
   description:
     "ข้อกำหนดและเงื่อนไขการใช้งาน (Terms of Service) ของ HublyCompany และบริการ Hubly SaaS",
+  robots: { index: false, follow: false },
 };
 
 const SECTIONS = [

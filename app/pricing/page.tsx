@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "ราคา",
   description:
     "ราคาของ HublyCompany — Marketing Agency, AI Solution และ Hubly SaaS เลือกบริการที่ตรงกับธุรกิจคุณ",
+  alternates: { canonical: "https://hublycompany.com/pricing" },
 };
 
 const OPTIONS = [

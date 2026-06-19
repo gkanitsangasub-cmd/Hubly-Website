@@ -11,6 +11,23 @@ export const metadata: Metadata = {
   title: "Marketing Agency",
   description:
     "บริการ Marketing Agency ครบวงจรจาก HublyCompany — Social & Google Ads, Content & Artwork, Blog/SEO, Marketplace และวางกลยุทธ์การตลาดให้ธุรกิจ SME ไทย",
+  alternates: { canonical: "https://hublycompany.com/services/marketing" },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Marketing Agency",
+  "serviceType": "Digital Marketing",
+  "description":
+    "บริการ Marketing Agency ครบวงจร — Social & Google Ads, Content & Artwork, Blog/SEO, Marketplace และวางกลยุทธ์การตลาดให้ธุรกิจ SME ไทย",
+  "provider": {
+    "@type": "Organization",
+    "name": "HublyCompany",
+    "url": "https://hublycompany.com",
+  },
+  "areaServed": { "@type": "Country", "name": "Thailand" },
+  "url": "https://hublycompany.com/services/marketing",
 };
 
 const SERVICE_TAGS: string[][] = [
@@ -26,6 +43,10 @@ const SERVICE_TAGS: string[][] = [
 export default function MarketingAgencyPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <VideoHero
         src="/hero/marketing-hero.mp4"
         poster="/hero/marketing-hero-poster.jpg"

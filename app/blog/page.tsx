@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Blog",
   description:
     "บทความและความรู้จาก HublyCompany — การตลาด เทคโนโลยี AI และการบริหารธุรกิจ SME ไทย",
+  alternates: { canonical: "https://hublycompany.com/blog" },
 };
 
 const GRADIENTS = [

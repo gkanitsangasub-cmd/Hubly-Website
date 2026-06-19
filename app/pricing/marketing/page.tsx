@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "ราคา Marketing Agency",
   description:
     "เลือกบริการ Marketing Agency ที่ต้องการ — Social Media, Ads, SEO, Marketplace และ Consulting คำนวณราคาได้ทันที ไม่รวม Ad Spend",
+  alternates: { canonical: "https://hublycompany.com/pricing/marketing" },
 };
 
 export default function MarketingPricingPage() {

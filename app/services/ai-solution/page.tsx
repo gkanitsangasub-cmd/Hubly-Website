@@ -11,6 +11,23 @@ export const metadata: Metadata = {
   title: "AI Solution",
   description:
     "AI Solution จาก HublyCompany — เว็บไซต์ด้วยโค้ดจริง (built by Claude AI), Chatbot, และระบบ AI ที่สร้างตามความต้องการธุรกิจคุณ",
+  alternates: { canonical: "https://hublycompany.com/services/ai-solution" },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI Solution",
+  "serviceType": "Software Development",
+  "description":
+    "AI Solution จาก HublyCompany — เว็บไซต์ด้วยโค้ดจริง (built by Claude AI), Chatbot รูลเบสและ LLM, ระบบ AI และ System Integration ตามความต้องการธุรกิจ",
+  "provider": {
+    "@type": "Organization",
+    "name": "HublyCompany",
+    "url": "https://hublycompany.com",
+  },
+  "areaServed": { "@type": "Country", "name": "Thailand" },
+  "url": "https://hublycompany.com/services/ai-solution",
 };
 
 const SERVICE_TAGS: string[][] = [
@@ -25,6 +42,10 @@ const SERVICE_TAGS: string[][] = [
 export default function AiSolutionPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <VideoHero
         src="/hero/ai-hero.mp4"
         poster="/hero/ai-hero-poster.jpg"

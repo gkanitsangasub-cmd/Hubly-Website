@@ -371,8 +371,10 @@ export type BlogPost = {
   title: string;
   excerpt: string;
   date: string;
+  publishedDate: string; // ISO 8601 for structured data
   category: string;
   content: BlogSection[];
+  serviceLinks?: { href: string; label: string }[];
 };
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -382,7 +384,12 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "ถ้ายังจด Lead ใน Excel หรือลืมตามลูกค้าอยู่บ่อยๆ บทความนี้ช่วยให้คุณรู้ว่าเมื่อไหร่ควรขยับมาใช้ระบบ",
     date: "12 มิถุนายน 2026",
+    publishedDate: "2026-06-12",
     category: "Sales",
+    serviceLinks: [
+      { href: "/products#hubdeal", label: "ดู HubDeal CRM" },
+      { href: "/pricing/saas", label: "ดูราคา Hubly SaaS" },
+    ],
     content: [
       {
         p: "ธุรกิจส่วนใหญ่เริ่มต้นด้วย Excel Spreadsheet หรือ LINE Group — และมันก็ทำงานได้ดีในช่วงแรก แต่เมื่อทีมขยายและ Lead เข้ามาจากหลายช่องทาง สิ่งที่เคยเพียงพอกลับกลายเป็นอุปสรรค นี่คือ 5 สัญญาณที่บอกว่าธุรกิจของคุณพร้อมก้าวไปสู่ระบบ CRM แล้ว",
@@ -418,7 +425,12 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "เจาะวิธีคิดงบโฆษณาให้คุ้มค่า พร้อมตัวอย่างการกระจายงบระหว่างทดสอบและสเกล",
     date: "5 มิถุนายน 2026",
+    publishedDate: "2026-06-05",
     category: "Marketing",
+    serviceLinks: [
+      { href: "/services/marketing", label: "ดูบริการ Marketing Agency" },
+      { href: "/pricing/marketing", label: "ดูแพ็กเกจและราคา" },
+    ],
     content: [
       {
         p: "คำถามที่ทีม HublyCompany ได้รับบ่อยที่สุดจากลูกค้า SME คือ \"ผมควรใช้งบโฆษณา Facebook เท่าไหร่?\" คำตอบสั้นคือ — ขึ้นอยู่กับเป้าหมาย แต่บทความนี้จะช่วยให้คุณคิดตัวเลขได้อย่างมีหลักการ",
@@ -450,7 +462,12 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "เมื่อทุกข้อความอยู่ใน inbox เดียว ทีมตอบไวขึ้น ไม่มีแชทตกหล่น และเปลี่ยนเป็นยอดขายได้มากขึ้น",
     date: "28 พฤษภาคม 2026",
+    publishedDate: "2026-05-28",
     category: "Product",
+    serviceLinks: [
+      { href: "/products#hubchat", label: "ดู HubChat" },
+      { href: "/pricing/saas", label: "ดูราคา Hubly SaaS" },
+    ],
     content: [
       {
         p: "ลองนึกภาพนี้ — ลูกค้าทักมาใน Facebook Messenger แต่พนักงานเปิดหน้าต่าง LINE อยู่ กว่าจะสลับมาตอบก็ผ่านไป 3 ชั่วโมง ลูกค้าไปซื้อที่อื่นแล้ว นี่คือปัญหาที่ SME ไทยเผชิญทุกวัน และ Unified Inbox คือคำตอบ",
@@ -482,7 +499,12 @@ export const BLOG_POSTS: BlogPost[] = [
     excerpt:
       "ทำไมเว็บที่ build ด้วย codebase ถึงเร็วกว่า ปรับแต่งได้อิสระกว่า และดีต่อ SEO ในระยะยาว",
     date: "20 พฤษภาคม 2026",
+    publishedDate: "2026-05-20",
     category: "Tech",
+    serviceLinks: [
+      { href: "/services/ai-solution", label: "ดูบริการ AI Solution" },
+      { href: "/pricing/ai-solution", label: "ดูราคา AI Solution" },
+    ],
     content: [
       {
         p: "ในยุคที่ใครก็ทำเว็บได้ใน 5 นาทีด้วย Template สำเร็จรูป คำถามคือ — แล้วทำไมธุรกิจจำนวนมากถึงยังเลือกให้นักพัฒนาเขียน Codebase เอง? บทความนี้จะเจาะเปรียบเทียบทั้งสองแบบอย่างตรงไปตรงมา",
