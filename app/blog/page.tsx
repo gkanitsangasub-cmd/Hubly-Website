@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { BLOG_POSTS } from "../lib/content";
 import { Eyebrow } from "../components/ui";
 import { ArrowRightIcon } from "../components/icons";
@@ -58,20 +57,11 @@ export default function BlogPage() {
                   className={`flex h-full flex-col overflow-hidden rounded-card border border-ink/8 bg-card transition-all duration-300 hover:-translate-y-1.5 shadow-warm hover:shadow-warm-lg`}
                 >
                   <div
-                    className={`relative flex aspect-[16/10] items-end overflow-hidden bg-gradient-to-br p-4 ${
+                    className={`relative flex aspect-[16/10] items-end bg-gradient-to-br p-4 ${
                       GRADIENTS[i % GRADIENTS.length]
                     }`}
                   >
-                    {post.coverImage && (
-                      <Image
-                        src={post.coverImage}
-                        alt={post.title}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      />
-                    )}
-                    <span className="relative z-10 rounded-full bg-card/80 px-3 py-1 text-xs font-semibold text-ink backdrop-blur">
+                    <span className="rounded-full bg-card/80 px-3 py-1 text-xs font-semibold text-ink backdrop-blur">
                       {post.category}
                     </span>
                   </div>

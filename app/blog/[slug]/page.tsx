@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 import { BLOG_POSTS } from "../../lib/content";
 import { Eyebrow } from "../../components/ui";
 import { ArrowRightIcon } from "../../components/icons";
@@ -96,16 +95,6 @@ export default async function BlogPostPage({
       <section
         className={`relative isolate overflow-hidden bg-gradient-to-br ${gradient} py-16 md:py-24`}
       >
-        {post.coverImage && (
-          <Image
-            src={post.coverImage}
-            alt={post.title}
-            fill
-            priority
-            className="object-cover opacity-25"
-            sizes="100vw"
-          />
-        )}
         <div
           aria-hidden
           className="bg-noise pointer-events-none absolute inset-0 opacity-[0.06] mix-blend-multiply"
