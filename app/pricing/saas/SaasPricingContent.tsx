@@ -9,7 +9,7 @@ import BundleTable from "../../components/BundleTable";
 import CtaCard from "../../components/CtaCard";
 import MotionReveal from "../../components/MotionReveal";
 
-const BASE_PRICE = 1990;
+const BASE_PRICE = 2990;
 const ORDERED = [MODULES[1], MODULES[0], MODULES[2]];
 
 export default function SaasPricingContent() {
@@ -35,7 +35,7 @@ export default function SaasPricingContent() {
         <div className="relative z-10 mx-auto max-w-6xl px-6">
           <SectionHeading
             eyebrow="ราคา Hubly SaaS"
-            title="฿1,990/เดือน เท่ากันทุก SaaS"
+            title="฿2,990/เดือน เท่ากันทุก SaaS"
             subtitle="ไม่มีค่าติดตั้ง · ยกเลิกได้ทุกเมื่อ · จ่ายเท่าที่ใช้จริง"
           />
 

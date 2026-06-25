@@ -54,7 +54,7 @@ export const NAV_LINKS: NavItem[] = [
       {
         href: "/pricing/saas",
         label: "Hubly SaaS",
-        sublabel: "฿1,990/เดือน ทุก SaaS",
+        sublabel: "฿2,990/เดือน ทุก SaaS",
       },
     ],
   },

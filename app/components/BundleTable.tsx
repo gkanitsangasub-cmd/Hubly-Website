@@ -72,7 +72,7 @@ export default function BundleTable() {
       {/* Footer note */}
       <div className="border-t border-ink/8 bg-beige/40 px-5 py-3 sm:px-6">
         <p className="text-[11px] text-muted">
-          * ราคารายปีเรียกเก็บล่วงหน้าเป็นรายปี · ราคาปกติต่อ SaaS = ฿1,990/เดือน
+          * ราคารายปีเรียกเก็บล่วงหน้าเป็นรายปี · ราคาปกติต่อ SaaS = ฿2,990/เดือน
         </p>
       </div>
     </div>

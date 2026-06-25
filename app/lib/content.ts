@@ -226,7 +226,7 @@ export const MODULES: Module[] = [
     icon: KanbanIcon,
     tagline: "ระบบ CRM จัดการ Lead และปิดดีลอย่างมืออาชีพ",
     desc: "จัดการ Lead ทั้งทีมใน Kanban pipeline เดียว เห็นว่าดีลไหนอยู่ขั้นตอนไหน ใครรับผิดชอบ และ KPI ทีมขายเป็นอย่างไร — ปิดการขายได้เร็วขึ้นโดยไม่มีลูกค้าหลุดมือ",
-    priceValue: 1990,
+    priceValue: 2990,
     features: [
       "Kanban pipeline ลาก Lead ข้าม stage ได้เลย",
       "ติดตาม Lead ทุกขั้นตอน พร้อม Activity timeline",
@@ -241,7 +241,7 @@ export const MODULES: Module[] = [
     icon: ChatIcon,
     tagline: "Inbox รวมแชททุกช่องทาง ตอบไว ปิดการขาย",
     desc: "รวมแชท LINE และ Facebook มาไว้กล่องเดียว ทีมตอบไว ไม่พลาดข้อความ พร้อม Auto-reply, Broadcast และ Round-robin แจกงานอัตโนมัติ — เปลี่ยนทุกแชทให้เป็นยอดขาย",
-    priceValue: 1990,
+    priceValue: 2990,
     features: [
       "Unified Inbox — LINE + Facebook Messenger ในที่เดียว",
       "Auto-reply นอกเวลาทำการ + Keyword trigger",
@@ -256,7 +256,7 @@ export const MODULES: Module[] = [
     icon: StoreIcon,
     tagline: "ระบบจัดการร้านค้า สต็อก และรายรับ-รายจ่าย",
     desc: "ดูสินค้า สต็อก ออเดอร์ และรายรับ-รายจ่ายครบในระบบเดียว รู้สถานะร้านแบบเรียลไทม์ พร้อมแจ้งเตือนเมื่อสต็อกต่ำ และเชื่อมต่อกับ HubDeal + HubChat ได้อัตโนมัติ",
-    priceValue: 1990,
+    priceValue: 2990,
     features: [
       "จัดการสินค้าและสต็อกแบบเรียลไทม์",
       "ออเดอร์และการขาย ครบในที่เดียว",
