@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Logo from "./Logo";
-import { APP, NAV_LINKS } from "../lib/site";
+import { NAV_LINKS } from "../lib/site";
 import { MenuIcon, CloseIcon, ChevronDownIcon } from "./icons";
 
 export default function Navbar() {
@@ -64,21 +64,6 @@ export default function Navbar() {
           )}
         </div>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <a
-            href={APP.login}
-            className="rounded-btn border border-ink/15 px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-beige"
-          >
-            เข้าสู่ระบบ
-          </a>
-          <a
-            href={APP.url}
-            className="rounded-btn bg-mocha px-4 py-2 text-sm font-semibold text-[#FDFBF9] shadow-sm transition-colors hover:bg-mocha-dark"
-          >
-            ทดลองฟรี
-          </a>
-        </div>
-
         {/* Mobile toggle */}
         <button
           type="button"
@@ -124,20 +109,6 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-          </div>
-          <div className="mt-4 flex flex-col gap-3">
-            <a
-              href={APP.login}
-              className="rounded-btn border border-ink/15 px-4 py-2.5 text-center text-sm font-medium text-ink"
-            >
-              เข้าสู่ระบบ
-            </a>
-            <a
-              href={APP.url}
-              className="rounded-btn bg-mocha px-4 py-2.5 text-center text-sm font-semibold text-[#FDFBF9]"
-            >
-              ทดลองฟรี
-            </a>
           </div>
         </div>
       )}
