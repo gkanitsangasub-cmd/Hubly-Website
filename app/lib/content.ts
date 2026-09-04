@@ -1,532 +1,174 @@
-import type { ComponentType, SVGProps } from "react";
-import {
-  KanbanIcon,
-  ChatIcon,
-  StoreIcon,
-  MegaphoneIcon,
-  GoogleIcon,
-  ImageIcon,
-  SearchIcon,
-  RocketIcon,
-  CodeIcon,
-  RobotIcon,
-  LayersIcon,
-  SparkleIcon,
-} from "../components/icons";
-import type { ModuleKey } from "./site";
-
-type Icon = ComponentType<SVGProps<SVGSVGElement>>;
-
-/* ===== Home: three pillars ===== */
-export type Pillar = {
-  icon: Icon;
-  no: string;
-  name: string;
-  tag: string;
-  desc: string;
-  points: string[];
-  href: string;
-  cta: string;
-  accent: string;
-  dot: string;
-};
-
-export const PILLARS: Pillar[] = [
-  {
-    icon: MegaphoneIcon,
-    no: "01",
-    name: "Marketing Agency",
-    tag: "การตลาดที่ลงมือทำจริง",
-    desc: "วางแผน ยิงโฆษณา สร้าง Content และวัดผลจริงทุกช่องทาง ให้ธุรกิจโตแบบมีตัวเลข",
-    points: ["Social & Google Ads", "Content & Artwork", "กลยุทธ์ & วัดผล"],
-    href: "/services/marketing",
-    cta: "ดูบริการ Marketing",
-    accent: "bg-amber-500/12 text-amber-700",
-    dot: "bg-amber-500",
-  },
-  {
-    icon: SparkleIcon,
-    no: "02",
-    name: "AI Solution",
-    tag: "ระบบ & AI ตามสั่ง",
-    desc: "เว็บไซต์ ระบบ และ AI ที่สร้างตามความต้องการธุรกิจคุณ — built by Claude AI",
-    points: ["เว็บไซต์ด้วยโค้ดจริง", "Chatbot อัตโนมัติ", "ระบบจัดการ Lead"],
-    href: "/services/ai-solution",
-    cta: "ดู AI Solution",
-    accent: "bg-orange-400/25 text-orange-700",
-    dot: "bg-orange-400",
-  },
-  {
-    icon: LayersIcon,
-    no: "03",
-    name: "Hubly SaaS",
-    tag: "ซอฟต์แวร์พร้อมใช้",
-    desc: "ซอฟต์แวร์จัดการธุรกิจสำหรับ SME ไทย — CRM, แชท และร้านค้า เลือกเฉพาะที่ต้องการ",
-    points: ["HubDeal CRM", "HubChat รวมแชท", "HubStore ร้านค้า"],
-    href: "/products",
-    cta: "ดู Hubly SaaS",
-    accent: "bg-lime-700/12 text-lime-800",
-    dot: "bg-lime-700",
-  },
-];
-
-/* ===== Services: Marketing Agency ===== */
-export type ServiceItem = { icon: Icon; title: string; desc: string };
-
-export const MARKETING_SERVICES: ServiceItem[] = [
-  {
-    icon: MegaphoneIcon,
-    title: "Social Media Ads",
-    desc: "ยิงโฆษณา Facebook, Instagram, TikTok และ LINE ให้ตรงกลุ่มเป้าหมาย คุมงบ วัดผลได้",
-  },
-  {
-    icon: GoogleIcon,
-    title: "Google Ads",
-    desc: "Search, Display และ YouTube Ads ดักลูกค้าที่กำลังค้นหาธุรกิจแบบคุณ",
-  },
-  {
-    icon: ImageIcon,
-    title: "Content & Artwork",
-    desc: "ออกแบบ Artwork และเขียน Caption สำหรับโซเชียล สวย ตรงแบรนด์ พร้อม Content Calendar",
-  },
-  {
-    icon: SearchIcon,
-    title: "Blog & SEO",
-    desc: "เขียนบทความติดอันดับ Google ดึง organic traffic เข้าเว็บระยะยาว",
-  },
-  {
-    icon: StoreIcon,
-    title: "Marketplace Marketing",
-    desc: "ดูแลร้านบน Shopee & Lazada ทั้งโฆษณา Listing SEO โปรโมชัน และยอดขาย",
-  },
-  {
-    icon: KanbanIcon,
-    title: "Marketing Strategy",
-    desc: "วางกลยุทธ์การตลาด วิเคราะห์คู่แข่ง และ Optimize แคมเปญต่อเนื่องทุกเดือน",
-  },
-  {
-    icon: RocketIcon,
-    title: "Campaign Production",
-    desc: "ผลิตแคมเปญครบวงจร ตั้งแต่คอนเซ็ปต์ Short Video จนถึงเผยแพร่",
-  },
-];
-
-/* ===== Pricing: Marketing Packages ===== */
-export type MarketingPackage = {
-  name: string;
-  startingPrice: number;
-  desc: string;
-  points: string[];
-  featured?: boolean;
-  isMarketplace?: boolean;
-};
-
-export const MARKETING_PACKAGES: MarketingPackage[] = [
-  {
-    name: "Boost",
-    startingPrice: 8900,
-    desc: "เริ่มต้นทำการตลาดอย่างมีระบบ เหมาะกับธุรกิจที่เพิ่งเริ่ม",
-    points: [
-      "Facebook + Instagram Ads (1 Brand)",
-      "Artwork + Caption 8 ชิ้น/เดือน",
-      "Content Calendar",
-      "Monthly Performance Report",
-    ],
-  },
-  {
-    name: "Scale",
-    startingPrice: 12900,
-    desc: "สเกลหลายช่องทาง เหมาะกับธุรกิจที่รันอยู่แล้วอยากโต",
-    points: [
-      "Facebook/IG + Google Search Ads",
-      "Artwork + Caption 12 ชิ้น/เดือน",
-      "Content Calendar",
-      "2 บทความ Blog/SEO",
-      "Monthly Performance Report",
-    ],
-    featured: true,
-  },
-  {
-    name: "Full-Service",
-    startingPrice: 19900,
-    desc: "เหมือนมีทีมการตลาดเป็นของตัวเอง ดูแลครบวงจร",
-    points: [
-      "ทุก Paid Channel (FB/IG + Google + TikTok + LINE)",
-      "Artwork + Caption 20 ชิ้น/เดือน",
-      "Content Calendar",
-      "10 บทความ Blog/SEO",
-      "Dedicated Marketing Consultant",
-      "Monthly Performance Report",
-    ],
-  },
-  {
-    name: "Marketplace",
-    startingPrice: 8900,
-    desc: "ดูแล Shopee & Lazada ครบวงจร เพิ่มยอดขายบน Marketplace",
-    points: [
-      "Shopee & Lazada Ads Management",
-      "Product Listing + SEO Optimization (สูงสุด 20 รายการ)",
-      "Flash Sale / Campaign Planning",
-      "Shop Page Setup / Decoration",
-      "Monthly Sales Report",
-    ],
-    isMarketplace: true,
-  },
-];
-
-/* ===== Services: AI Solution ===== */
-export const TECH_SOLUTIONS: ServiceItem[] = [
-  {
-    icon: KanbanIcon,
-    title: "Software Lead Management",
-    desc: "ระบบจัดการ Lead แบบ Subscription — ขับเคลื่อนด้วย Hubly SaaS พร้อมใช้ทันที",
-  },
-  {
-    icon: CodeIcon,
-    title: "Build Website with Codebase",
-    desc: "เว็บไซต์ที่เขียนด้วยโค้ดจริง Built by Claude AI เร็ว ปรับแต่งได้ ไม่ติด template",
-  },
-  {
-    icon: RobotIcon,
-    title: "Chatbot Rulebase",
-    desc: "แชตบอตตอบลูกค้าอัตโนมัติตามกฎที่กำหนด ลดงานซ้ำ ตอบไว 24 ชม.",
-  },
-  {
-    icon: SparkleIcon,
-    title: "AI Chatbot (LLM-Powered)",
-    desc: "แชทบอทอัจฉริยะที่ขับเคลื่อนด้วย Large Language Model — ตอบคำถามซับซ้อน เรียนรู้ Context และ Escalate หาทีมได้อัตโนมัติ",
-  },
-  {
-    icon: LayersIcon,
-    title: "System Integration & API",
-    desc: "เชื่อมต่อระบบที่มีอยู่กับ Platform ต่างๆ ผ่าน REST API และ Webhook — ให้ข้อมูลไหลต่อเนื่องโดยไม่ต้องคีย์ซ้ำ",
-  },
-  {
-    icon: RocketIcon,
-    title: "LINE OA Automation",
-    desc: "ระบบอัตโนมัติสำหรับ LINE Official Account — Broadcast, Rich Menu, Member Card และ Loyalty Program ตามโจทย์ธุรกิจ",
-  },
-];
-
-/* ===== Products: Hubly SaaS modules (single source of pricing) ===== */
-export type Module = {
-  key: ModuleKey;
-  name: string;
-  icon: Icon;
-  tagline: string;
-  desc: string;
-  priceValue: number; // THB / month
-  features: string[];
-};
-
-export const MODULES: Module[] = [
-  {
-    key: "hubdeal",
-    name: "HubDeal",
-    icon: KanbanIcon,
-    tagline: "ระบบ CRM จัดการ Lead และปิดดีลอย่างมืออาชีพ",
-    desc: "จัดการ Lead ทั้งทีมใน Kanban pipeline เดียว เห็นว่าดีลไหนอยู่ขั้นตอนไหน ใครรับผิดชอบ และ KPI ทีมขายเป็นอย่างไร — ปิดการขายได้เร็วขึ้นโดยไม่มีลูกค้าหลุดมือ",
-    priceValue: 2990,
-    features: [
-      "Kanban pipeline ลาก Lead ข้าม stage ได้เลย",
-      "ติดตาม Lead ทุกขั้นตอน พร้อม Activity timeline",
-      "Assign ทีมขาย + Bulk actions จัดการหลาย Lead พร้อมกัน",
-      "รายงาน KPI — Win rate, Sales velocity, Avg deal size",
-      "Leaderboard Top sales + Drill-down รายดีล",
-    ],
-  },
-  {
-    key: "hubchat",
-    name: "HubChat",
-    icon: ChatIcon,
-    tagline: "Inbox รวมแชททุกช่องทาง ตอบไว ปิดการขาย",
-    desc: "รวมแชท LINE และ Facebook มาไว้กล่องเดียว ทีมตอบไว ไม่พลาดข้อความ พร้อม Auto-reply, Broadcast และ Round-robin แจกงานอัตโนมัติ — เปลี่ยนทุกแชทให้เป็นยอดขาย",
-    priceValue: 2990,
-    features: [
-      "Unified Inbox — LINE + Facebook Messenger ในที่เดียว",
-      "Auto-reply นอกเวลาทำการ + Keyword trigger",
-      "Broadcast ส่งข้อความหาลูกค้าทั้งหมดพร้อมกัน",
-      "Round-robin แจกแชทให้ทีมอัตโนมัติ",
-      "สร้าง Order และบันทึกรายได้โดยไม่ต้องออกจากแชท",
-    ],
-  },
-  {
-    key: "hubstore",
-    name: "HubStore",
-    icon: StoreIcon,
-    tagline: "ระบบจัดการร้านค้า สต็อก และรายรับ-รายจ่าย",
-    desc: "ดูสินค้า สต็อก ออเดอร์ และรายรับ-รายจ่ายครบในระบบเดียว รู้สถานะร้านแบบเรียลไทม์ พร้อมแจ้งเตือนเมื่อสต็อกต่ำ และเชื่อมต่อกับ HubDeal + HubChat ได้อัตโนมัติ",
-    priceValue: 2990,
-    features: [
-      "จัดการสินค้าและสต็อกแบบเรียลไทม์",
-      "ออเดอร์และการขาย ครบในที่เดียว",
-      "รายรับ-รายจ่าย + รายงานยอดขาย",
-      "แจ้งเตือนเมื่อสต็อกใกล้หมด",
-      "เชื่อม HubDeal + HubChat อัตโนมัติ",
-    ],
-  },
-];
-
-export const baht = (n: number) => `฿${n.toLocaleString("en-US")}`;
-
-export const ANNUAL_DISCOUNT = 0.10; // −10% when billed annually
-
-/* ===== How the SaaS work together ===== */
-export type Workflow = {
-  combo: ModuleKey[];
-  title: string;
-  desc: string;
-  featured?: boolean;
-};
-
-export const WORKFLOWS: Workflow[] = [
-  {
-    combo: ["hubchat", "hubdeal"],
-    title: "HubChat + HubDeal",
-    desc: "แชทเข้ามาใน HubChat → สร้าง Lead ใน HubDeal อัตโนมัติ ทีมขายตามต่อและปิดดีลได้ทันที ไม่มีลูกค้าหลุดมือ",
-  },
-  {
-    combo: ["hubdeal", "hubstore"],
-    title: "HubDeal + HubStore",
-    desc: "ปิดดีลใน HubDeal → สร้าง Order ใน HubStore อัตโนมัติ ตัดสต็อกและบันทึกรายได้ในขั้นตอนเดียว",
-  },
-  {
-    combo: ["hubchat", "hubstore"],
-    title: "HubChat + HubStore",
-    desc: "ลูกค้าทักมาสั่งซื้อในแชท → สร้าง Order และตัดสต็อกได้ทันทีจากในแชท ไม่ต้องสลับหน้าจอ",
-  },
-  {
-    combo: ["hubchat", "hubdeal", "hubstore"],
-    title: "ครบทั้ง 3 SaaS",
-    desc: "แชท → Lead → ปิดดีล → Order → ตัดสต็อก → รายงาน ครบทั้งวงจรในระบบเดียว ข้อมูลไหลต่อเนื่องโดยไม่ต้องคีย์ซ้ำ",
-    featured: true,
-  },
-];
-
-/* ===== Bundles (derived from module prices) =====
-   Bundle-only discount: 2 SaaS = 5% · 3 SaaS = 10% (5%+5%).
-   Stacks with annual billing (−10%) → max −15% / −20%. */
-export type Bundle = {
-  label: string;
-  modules: ModuleKey[];
-  bundleDiscount: number; // bundle-only fraction (excludes annual discount)
-};
-
-export const BUNDLES: Bundle[] = [
-  { label: "HubDeal + HubChat", modules: ["hubdeal", "hubchat"], bundleDiscount: 0.05 },
-  { label: "HubDeal + HubStore", modules: ["hubdeal", "hubstore"], bundleDiscount: 0.05 },
-  { label: "HubChat + HubStore", modules: ["hubchat", "hubstore"], bundleDiscount: 0.05 },
-  {
-    label: "ครบทั้ง 3 SaaS",
-    modules: ["hubdeal", "hubchat", "hubstore"],
-    bundleDiscount: 0.10, // 5%+5% cumulative
-  },
-];
-
-export function bundleRows(annual = false) {
-  const billingDiscount = annual ? ANNUAL_DISCOUNT : 0;
-  const priceOf = (k: ModuleKey) =>
-    MODULES.find((m) => m.key === k)!.priceValue;
-  return BUNDLES.map((b) => {
-    const normal = b.modules.reduce((s, k) => s + priceOf(k), 0);
-    const totalDiscount = billingDiscount + b.bundleDiscount;
-    const special = Math.round(normal * (1 - totalDiscount));
-    return {
-      label: b.label,
-      normal,
-      discountPct: Math.round(totalDiscount * 100),
-      special,
-    };
-  });
-}
-
-/* ===== Pricing FAQ ===== */
-export const FAQ = [
-  {
-    q: "เลือกใช้ SaaS แค่ตัวเดียวได้ไหม?",
-    a: "ได้เลย เลือกเฉพาะ module ที่ธุรกิจคุณต้องการ จ่ายเท่าที่ใช้ และเพิ่ม module อื่นทีหลังได้ตลอด",
-  },
-  {
-    q: "ส่วนลดรายปีและแพ็คเกจคิดยังไง?",
-    a: "ซื้อรายปีลด 10% ทันที และยังได้ส่วนลด Bundle เพิ่มอีก — เลือก 2 SaaS +5% หรือครบ 3 SaaS +10% รวมสูงสุดลด 20% จากราคาปกติ",
-  },
-  {
-    q: "มีค่าติดตั้งหรือสัญญาผูกมัดไหม?",
-    a: "ไม่มีค่าติดตั้ง รายเดือนยกเลิกได้ทุกเมื่อ รายปีชำระล่วงหน้าและได้ส่วนลด 10%",
-  },
-  {
-    q: "ข้อมูลปลอดภัยแค่ไหน?",
-    a: "ข้อมูลของแต่ละธุรกิจถูกแยกเก็บเฉพาะของคุณ ไม่แชร์กับผู้ใช้รายอื่น",
-  },
-  {
-    q: "มีทีม support ภาษาไทยไหม?",
-    a: "มีครับ ทีม HublyCompany พร้อมช่วยเหลือผ่านโทรศัพท์และอีเมล",
-  },
-];
-
-/* ===== Blog ===== */
+/** Editorial content. Service and pricing data live in services.ts and marketing-services.ts. */
 export type BlogSection = { h?: string; p: string };
 export type BlogPost = {
   slug: string;
   title: string;
   excerpt: string;
   date: string;
-  publishedDate: string; // ISO 8601 for structured data
+  publishedDate: string;
+  modifiedDate?: string;
   category: string;
   content: BlogSection[];
   serviceLinks?: { href: string; label: string }[];
 };
-
 export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "scale-sme-with-crm",
     title: "5 สัญญาณว่าธุรกิจ SME ของคุณถึงเวลาใช้ CRM",
     excerpt:
-      "ถ้ายังจด Lead ใน Excel หรือลืมตามลูกค้าอยู่บ่อยๆ บทความนี้ช่วยให้คุณรู้ว่าเมื่อไหร่ควรขยับมาใช้ระบบ",
+      "เมื่อข้อมูลลูกค้าเริ่มกระจัดกระจาย ลองทบทวนว่าทีมต้องการระบบแบบไหน เพื่อจัดการ Lead และส่งต่องานได้ชัดเจนขึ้น",
     date: "12 มิถุนายน 2026",
     publishedDate: "2026-06-12",
-    category: "Sales",
+    modifiedDate: "2026-09-04",
+    category: "Business Systems",
     serviceLinks: [
-      { href: "/products#hubdeal", label: "ดู HubDeal CRM" },
-      { href: "/pricing/saas", label: "ดูราคา Hubly SaaS" },
+      { href: "/solutions#systems", label: "Custom Business Systems" },
+      { href: "/solutions#automation", label: "Business Automation" },
     ],
     content: [
       {
-        p: "ธุรกิจส่วนใหญ่เริ่มต้นด้วย Excel Spreadsheet หรือ LINE Group — และมันก็ทำงานได้ดีในช่วงแรก แต่เมื่อทีมขยายและ Lead เข้ามาจากหลายช่องทาง สิ่งที่เคยเพียงพอกลับกลายเป็นอุปสรรค นี่คือ 5 สัญญาณที่บอกว่าธุรกิจของคุณพร้อมก้าวไปสู่ระบบ CRM แล้ว",
+        p: "หลายธุรกิจเริ่มจาก Spreadsheet และกลุ่มแชท เมื่อทีมและจำนวนลูกค้าเติบโต การรวมข้อมูลให้เห็นภาพเดียวกันจึงสำคัญขึ้น ลองดูสัญญาณเหล่านี้ก่อนตัดสินใจเลือกระบบ CRM",
       },
       {
-        h: "1. ลืมติดตาม Lead อยู่บ่อยๆ",
-        p: "เมื่อ Lead เข้ามาแต่ไม่ได้รับการ Follow-up ทันเวลา — นั่นคือโอกาสที่หายไป งานวิจัยพบว่าการติดต่อ Lead ภายใน 5 นาทีแรกเพิ่มโอกาสปิดการขายสูงถึง 21 เท่า แต่ถ้าทีมคุณยังจด Lead ใน Excel หรือจำเอาไว้ในหัว โอกาสเหล่านั้นจะหลุดมือไปทุกวัน ระบบ CRM จะแจ้งเตือนอัตโนมัติให้ทีมติดตาม Lead ตามเวลาที่กำหนด",
+        h: "1. ลืมติดตาม Lead",
+        p: "ถ้าโอกาสทางการขายถูกจดไว้หลายที่ ทีมอาจมองไม่เห็นว่ารายไหนต้องติดตามต่อ เริ่มจากกำหนดสถานะ ผู้รับผิดชอบ และงานถัดไปของแต่ละ Lead ให้ชัดเจน",
       },
       {
-        h: "2. ทีมไม่รู้ว่าใครดูแล Lead คนไหน",
-        p: "เมื่อทีมขายมีหลายคน คำถามที่พบบ่อยคือ \"Lead คนนี้ใครรับอยู่?\" หรือแย่กว่านั้น — ลูกค้าถูกติดต่อซ้ำจากหลายคน ทำให้ดูไม่เป็นมืออาชีพ CRM ช่วยให้มองเห็น Pipeline ทั้งหมดของทีม รู้ว่า Lead แต่ละรายอยู่ขั้นตอนไหน และใครรับผิดชอบ",
+        h: "2. ไม่ชัดเจนว่าใครดูแลลูกค้ารายไหน",
+        p: "ระบบควรช่วยให้ทีมรู้ว่าใครเป็นเจ้าของงาน และเห็นประวัติเมื่อส่งต่องาน ลดการถามข้อมูลซ้ำและความสับสนระหว่างทีม",
       },
       {
-        h: "3. ไม่รู้ว่าดีลไหนใกล้ปิดหรือเป็นแค่แนวโน้ม",
-        p: "ผู้จัดการฝ่ายขายต้องเดินไปถามทีมทีละคนว่า \"เดือนนี้จะปิดได้เท่าไหร่?\" — นั่นเป็นสัญญาณว่าขาดข้อมูลแบบ Real-time CRM ช่วยให้เห็น Forecast ยอดขาย Win Rate และ Avg Deal Size แบบทันทีโดยไม่ต้องประชุมรายงาน",
+        h: "3. มองภาพรวม Pipeline ได้ยาก",
+        p: "การแบ่งขั้นตอนการขายให้ตรงกับกระบวนการจริงช่วยให้ติดตามดีลได้ง่ายขึ้น กำหนดข้อมูลที่ต้องใช้ในแต่ละขั้นก่อนออกแบบหน้าจอหรือรายงาน",
       },
       {
-        h: "4. รายงานผลการขายทำนานและไม่ถูกต้อง",
-        p: "ถ้าทุกสิ้นเดือนทีมต้องใช้เวลาหลายชั่วโมงรวมข้อมูลจาก Excel หลายไฟล์เพื่อทำ Sales Report — นั่นคือเวลาที่สูญเสียไปโดยเปล่าประโยชน์ และตัวเลขก็มักมีข้อผิดพลาด ระบบ CRM สร้างรายงานได้อัตโนมัติทันที พร้อม Dashboard ที่ดูได้ตลอดเวลา",
+        h: "4. รวมรายงานด้วยมือทุกครั้ง",
+        p: "ถ้าทีมต้องคัดลอกข้อมูลจากหลายไฟล์เป็นประจำ ควรทบทวนแหล่งข้อมูลหลักและการเชื่อมข้อมูล ก่อนสร้าง Dashboard สำหรับติดตามผลร่วมกัน",
       },
       {
-        h: "5. ทีมโตขึ้นแต่งานยิ่งวุ่นขึ้น",
-        p: "ถ้าการเพิ่มคนในทีมขายไม่ได้ทำให้ยอดขายโตตาม แต่กลับสร้างความวุ่นวายมากขึ้น — นั่นคือปัญหาของระบบ ไม่ใช่คน CRM ช่วยให้ Onboard พนักงานใหม่ได้เร็วขึ้น เพราะทุก Lead มีประวัติและ Context ครบในที่เดียว",
+        h: "5. งานเพิ่มตามจำนวนคน",
+        p: "เมื่อธุรกิจโต ระบบและขั้นตอนควรช่วยรองรับทีมใหม่ได้ การกำหนดสิทธิ์ ผู้รับผิดชอบ และรูปแบบการส่งต่องานเป็นส่วนสำคัญของการออกแบบระบบ",
       },
       {
-        p: "ถ้าคุณเจอสัญญาณ 2-3 ข้อข้างต้น ธุรกิจของคุณพร้อมสำหรับ CRM แล้ว HubDeal จาก Hubly SaaS ออกแบบมาเฉพาะสำหรับ SME ไทย เริ่มต้นได้ทันที ไม่ต้องติดตั้งซับซ้อน ทดลองใช้ฟรีได้เลยที่ app.hublycompany.com",
+        p: "Hubly ช่วยออกแบบ Custom Business Systems เช่น CRM, Sales, Inventory และ Dashboard รวมถึง Automation ที่เชื่อมกับวิธีทำงานของธุรกิจ เริ่มจากเล่าเป้าหมายและเครื่องมือที่ทีมใช้อยู่ให้เราฟัง",
       },
     ],
   },
   {
     slug: "facebook-ads-budget",
-    title: "ตั้งงบ Facebook Ads เท่าไหร่ดี สำหรับธุรกิจเพิ่งเริ่ม",
+    title: "ตั้งงบ Facebook Ads อย่างไร ให้สัมพันธ์กับเป้าหมายธุรกิจ",
     excerpt:
-      "เจาะวิธีคิดงบโฆษณาให้คุ้มค่า พร้อมตัวอย่างการกระจายงบระหว่างทดสอบและสเกล",
+      "แยกงบโฆษณาออกจากค่าดูแลแคมเปญ พร้อมวางแผนการทดสอบและวัดผลก่อนขยายงาน",
     date: "5 มิถุนายน 2026",
     publishedDate: "2026-06-05",
-    category: "Marketing",
+    modifiedDate: "2026-09-04",
+    category: "Digital Growth",
     serviceLinks: [
-      { href: "/services/marketing", label: "ดูบริการ Marketing Agency" },
-      { href: "/pricing/marketing", label: "ดูแพ็กเกจและราคา" },
+      {
+        href: "/services/digital-growth",
+        label: "Digital Growth & Performance",
+      },
+      { href: "/pricing", label: "แพ็กเกจ Growth และราคา" },
     ],
     content: [
       {
-        p: "คำถามที่ทีม HublyCompany ได้รับบ่อยที่สุดจากลูกค้า SME คือ \"ผมควรใช้งบโฆษณา Facebook เท่าไหร่?\" คำตอบสั้นคือ — ขึ้นอยู่กับเป้าหมาย แต่บทความนี้จะช่วยให้คุณคิดตัวเลขได้อย่างมีหลักการ",
+        p: "งบโฆษณาที่เหมาะสมเริ่มจากสิ่งที่ธุรกิจต้องการให้เกิดขึ้น เช่น การรับรู้แบรนด์ การสอบถาม หรือโอกาสทางการขาย เป้าหมายที่ชัดช่วยให้เลือกช่องทางและวิธีวัดผลได้สอดคล้องกัน",
       },
       {
-        h: "ทำไมไม่มีตัวเลขตายตัว",
-        p: "Facebook Ads ทำงานแบบ Auction — ราคาต่อผลลัพธ์ขึ้นอยู่กับกลุ่มเป้าหมาย ความแข็งแกร่งของ Creative และช่วงเวลา ธุรกิจที่ขาย Product ราคา 3,000 บาท ต้องคิดงบต่างกับธุรกิจที่ขาย Service ราคา 50,000 บาทโดยสิ้นเชิง",
+        h: "แยกงบสื่อออกจากค่าบริการ",
+        p: "Ad Budget คือเงินที่ใช้ซื้อสื่อบนแพลตฟอร์ม ส่วนค่าดูแลแคมเปญเป็นงานวางแผน ตั้งค่า ปรับปรุง และรายงานผล ควรแยกทั้งสองส่วน รวมถึงงบผลิตกราฟิกและวิดีโอ เพื่อเห็นค่าใช้จ่ายทั้งหมด",
       },
       {
-        h: "Phase 1: งบทดสอบ (Test Phase)",
-        p: "สำหรับธุรกิจที่เพิ่งเริ่มยิงโฆษณา แนะนำงบ 5,000–10,000 บาท/เดือน ในช่วง 1-2 เดือนแรก โดยเป้าหมายไม่ใช่ยอดขาย แต่คือ \"เรียนรู้\" — เรียนรู้ว่า Creative แบบไหนที่ผู้คนคลิก Audience กลุ่มไหนตอบสนอง และ Cost per Result ของธุรกิจคุณอยู่ที่เท่าไหร่ ข้อมูลเหล่านี้มีค่ามากกว่าการจ่ายแพงเพื่อ Conversion โดยไม่รู้ว่าอะไรทำงาน",
+        h: "กำหนดสิ่งที่จะเรียนรู้จากการทดสอบ",
+        p: "ก่อนเริ่มแคมเปญ กำหนดกลุ่มเป้าหมาย ข้อความ และเนื้อหาที่ต้องการทดสอบ พร้อมระยะเวลาทบทวนผล การเปลี่ยนหลายอย่างพร้อมกันอาจทำให้แยกสาเหตุของผลลัพธ์ได้ยาก",
       },
       {
-        h: "Phase 2: งบสเกล (Scale Phase)",
-        p: "เมื่อคุณรู้แล้วว่า Creative และ Audience ไหนทำงาน ให้เพิ่มงบเป็น 2-3 เท่า โดยเน้นไปที่สิ่งที่พิสูจน์แล้วว่าได้ผล กฎทั่วไปคืออย่าเพิ่มงบเกิน 20-30% ต่อครั้ง เพราะ Algorithm ต้อง Learning อีกรอบก่อนที่ประสิทธิภาพจะกลับมาเท่าเดิม",
+        h: "ดูผลลัพธ์ต่อเนื่องถึงทีมขาย",
+        p: "ยอดคลิกหรือจำนวนข้อความเป็นเพียงส่วนหนึ่งของภาพรวม ควรติดตามคุณภาพของผู้ติดต่อและสถานะการขายร่วมกับทีม เพื่อรู้ว่าโฆษณาสร้างโอกาสที่ตรงกับธุรกิจหรือไม่",
       },
       {
-        h: "คิดจาก Target กลับมา",
-        p: "วิธีคิดงบที่ดีที่สุดคือย้อนกลับจากเป้าหมาย เช่น คุณต้องการลูกค้าใหม่ 10 คน/เดือน ถ้า Conversion Rate อยู่ที่ 5% คุณต้องการ Lead 200 คน ถ้า Cost per Lead อยู่ที่ 150 บาท (ค่าเฉลี่ย B2C ไทย) งบที่ต้องใช้คือ 30,000 บาท/เดือน ตัวเลขนี้อาจดูสูง แต่ถ้า LTV ของลูกค้าคุณสูงพอ ROI ก็จะดีตามมาเอง",
+        h: "วางแผนรอบถัดไปจากข้อมูล",
+        p: "ใช้รายงานและการประชุมทบทวนร่วมกันเพื่อตัดสินใจว่าควรปรับกลุ่มเป้าหมาย เนื้อหา เว็บไซต์ หรือขั้นตอนติดตามลูกค้าส่วนใด",
       },
       {
-        p: "ไม่มีงบที่ \"ถูก\" หรือ \"ผิด\" — มีแต่งบที่ตั้งมาจากข้อมูลจริงกับงบที่ตั้งมาจากความรู้สึก ถ้าคุณต้องการทีมที่ช่วยวางแผนงบและจัดการ Ads ให้คุ้มค่า ทีม Marketing Agency ของ HublyCompany พร้อมช่วยเสมอ",
+        p: "Hubly ให้บริการ Performance Ads Management สำหรับ Meta และ Google Ads รวมถึงแพ็กเกจ Growth รายเดือน โดยงบโฆษณาแยกจากค่าบริการทุกแพ็กเกจ ดูขอบเขตที่รวมและไม่รวมได้ในหน้าราคา",
       },
     ],
   },
   {
     slug: "unified-inbox-line-fb",
-    title: "รวมแชท LINE และ Facebook ไว้ที่เดียว ช่วยปิดการขายได้จริงไหม",
+    title: "เชื่อมงาน LINE และ Facebook ให้ทีมดูแลลูกค้าต่อเนื่อง",
     excerpt:
-      "เมื่อทุกข้อความอยู่ใน inbox เดียว ทีมตอบไวขึ้น ไม่มีแชทตกหล่น และเปลี่ยนเป็นยอดขายได้มากขึ้น",
+      "เริ่มจากเข้าใจขั้นตอนรับเรื่อง คัดกรอง และส่งต่องาน ก่อนเลือก Automation หรือ AI มาช่วย",
     date: "28 พฤษภาคม 2026",
     publishedDate: "2026-05-28",
-    category: "Product",
+    modifiedDate: "2026-09-04",
+    category: "Automation",
     serviceLinks: [
-      { href: "/products#hubchat", label: "ดู HubChat" },
-      { href: "/pricing/saas", label: "ดูราคา Hubly SaaS" },
+      { href: "/solutions#automation", label: "Business Automation" },
+      { href: "/solutions#ai", label: "AI Business Solutions" },
     ],
     content: [
       {
-        p: "ลองนึกภาพนี้ — ลูกค้าทักมาใน Facebook Messenger แต่พนักงานเปิดหน้าต่าง LINE อยู่ กว่าจะสลับมาตอบก็ผ่านไป 3 ชั่วโมง ลูกค้าไปซื้อที่อื่นแล้ว นี่คือปัญหาที่ SME ไทยเผชิญทุกวัน และ Unified Inbox คือคำตอบ",
+        p: "เมื่อลูกค้าติดต่อผ่านหลายช่องทาง ความท้าทายคือทำอย่างไรให้ทีมเห็นข้อมูลที่จำเป็นและส่งต่องานได้ครบ การออกแบบกระบวนการจึงควรเริ่มก่อนการเลือกเครื่องมือ",
       },
       {
-        h: "ต้นทุนที่แท้จริงของการแยกแอป",
-        p: "การที่ทีมต้องสลับระหว่าง LINE Business Account, Facebook Page Inbox และช่องทางอื่นๆ ไม่ได้แค่ \"ไม่สะดวก\" แต่มีต้นทุนจริง งานวิจัยพบว่าการตอบแชทช้าเกิน 1 ชั่วโมงทำให้โอกาสปิดการขายลดลงกว่า 60% นอกจากนี้ยังเสี่ยงกับแชทตกหล่นเมื่อทีมลืมเช็ค Notification บางช่องทาง",
+        h: "กำหนดเจ้าของงานและข้อมูลที่ต้องส่งต่อ",
+        p: "ระบุว่าใครดูแลเรื่องที่เข้ามา ต้องบันทึกข้อมูลอะไร และเมื่อใดควรส่งต่อให้ฝ่ายขายหรือทีมบริการ วิธีนี้ช่วยให้เห็นจุดที่ระบบควรสนับสนุนการทำงาน",
       },
       {
-        h: "Unified Inbox ทำงานอย่างไร",
-        p: "แทนที่จะเปิดหลายแอป ทีมงานเห็นทุกแชทจาก LINE และ Facebook ในที่เดียว ไม่ว่าลูกค้าจะทักจากช่องทางไหน ข้อความจะปรากฏใน Inbox เดียวกัน พร้อม Context ประวัติการสนทนาที่ผ่านมา ทีมสลับกันตอบได้โดยเห็น Handover อย่างชัดเจน ไม่มีข้อความซ้ำซ้อนหรือตอบผิดคน",
+        h: "เลือกงานซ้ำที่เหมาะกับ Automation",
+        p: "การแจ้งเตือน การอัปเดตสถานะ และการส่งข้อมูลระหว่างเครื่องมือเป็นตัวอย่างงานที่นำมาออกแบบ Automation ได้ โดยต้องตรวจสอบข้อจำกัดและสิทธิ์เชื่อมต่อของแต่ละระบบร่วมกัน",
       },
       {
-        h: "สิ่งที่เกิดขึ้นจริงกับทีมที่เปลี่ยนมาใช้",
-        p: "ลูกค้าของ HublyCompany ที่ใช้ HubChat รายงานว่า Response Time ลดลงเฉลี่ย 70% ในเดือนแรก เพราะทีมไม่ต้องสลับแอป และ Round-robin จะแจกแชทให้ผู้รับผิดชอบโดยอัตโนมัติ นอกจากนี้ Auto-reply ช่วยให้ลูกค้าได้รับการตอบกลับทันทีแม้นอกเวลาทำการ",
+        h: "ใช้ AI ตามขอบเขตที่กำหนด",
+        p: "AI Assistant สามารถออกแบบมาช่วยดูแลคำถามหรือคัดกรอง Lead ตามข้อมูลของธุรกิจ ควรกำหนดเรื่องที่ให้ AI ช่วย เรื่องที่ต้องส่งต่อคน และวิธีทบทวนคำตอบให้ชัดเจน",
       },
       {
-        h: "แต่ช่วยปิดการขายได้จริงไหม",
-        p: "ใช่ — แต่ไม่ใช่เพราะมันเป็น \"กล่องเดียว\" แต่เพราะมันทำให้ทีมมีเวลาและ Context ที่จะทำงานได้ดีขึ้น เมื่อพนักงานเห็นว่าลูกค้ารายนี้เคยถามเรื่องอะไร ซื้ออะไรไปแล้ว และสถานะ Order เป็นอย่างไร การ Up-sell และ Cross-sell ทำได้ง่ายขึ้นมาก",
+        h: "ดูแลข้อมูลและปรับปรุงต่อเนื่อง",
+        p: "กำหนดผู้มีสิทธิ์เข้าถึงข้อมูล และติดตามว่างานถูกส่งต่อครบหรือไม่ ก่อนขยายไปยังขั้นตอนอื่นของธุรกิจ",
       },
       {
-        p: "HubChat จาก Hubly SaaS รวม LINE + Facebook ไว้ในที่เดียว พร้อม Auto-reply, Broadcast และ Round-robin แจกงานอัตโนมัติ ทดลองใช้ฟรีได้ที่ app.hublycompany.com",
+        p: "Business Solutions ของ Hubly ครอบคลุม LINE & Email Automation, Data Sync, AI Customer Service และ Lead Qualification โดยออกแบบขอบเขตตามวิธีทำงานของแต่ละธุรกิจ",
       },
     ],
   },
   {
     slug: "ai-website-codebase",
-    title: "เว็บไซต์เขียนด้วยโค้ดจริง vs Template ต่างกันยังไง",
+    title: "WordPress หรือ Custom Website แบบไหนเหมาะกับธุรกิจคุณ",
     excerpt:
-      "ทำไมเว็บที่ build ด้วย codebase ถึงเร็วกว่า ปรับแต่งได้อิสระกว่า และดีต่อ SEO ในระยะยาว",
+      "เลือกแนวทางพัฒนาเว็บจากเป้าหมาย การใช้งาน และทีมดูแล พร้อมคิดถึง SEO และการดูแลหลังเปิดใช้งาน",
     date: "20 พฤษภาคม 2026",
     publishedDate: "2026-05-20",
-    category: "Tech",
+    modifiedDate: "2026-09-04",
+    category: "Website",
     serviceLinks: [
-      { href: "/services/ai-solution", label: "ดูบริการ AI Solution" },
-      { href: "/pricing/ai-solution", label: "ดูราคา AI Solution" },
+      { href: "/services/website", label: "Website & Digital Experience" },
+      { href: "/pricing#rate-card", label: "Website Care และ SEO" },
     ],
     content: [
       {
-        p: "ในยุคที่ใครก็ทำเว็บได้ใน 5 นาทีด้วย Template สำเร็จรูป คำถามคือ — แล้วทำไมธุรกิจจำนวนมากถึงยังเลือกให้นักพัฒนาเขียน Codebase เอง? บทความนี้จะเจาะเปรียบเทียบทั้งสองแบบอย่างตรงไปตรงมา",
+        p: "เว็บไซต์ที่เหมาะกับธุรกิจควรรองรับทั้งผู้เข้าชมและทีมที่ดูแล การเลือกระหว่าง WordPress กับ Custom Website จึงเริ่มจากเป้าหมายและการใช้งานจริง",
       },
       {
-        h: "Template คืออะไร และดีตรงไหน",
-        p: "Template หมายถึงเว็บไซต์สำเร็จรูปที่สร้างบน Platform อย่าง Wix, Squarespace, WordPress + Elementor หรือ Shopify ข้อดีชัดเจน — เร็ว ราคาถูก และใช้งานได้เลยโดยไม่ต้องมีความรู้ด้าน Code เหมาะมากสำหรับธุรกิจที่เพิ่งเริ่มต้นและต้องการ Online Presence อย่างรวดเร็ว",
+        h: "เริ่มจากหน้าที่ของเว็บไซต์",
+        p: "ระบุว่าเว็บไซต์ต้องแนะนำบริษัท นำเสนอบริการ รับการติดต่อ หรือเชื่อมระบบเฉพาะทาง จากนั้นวางโครงสร้างเนื้อหาและเส้นทางที่ผู้เข้าชมควรไปต่อ",
       },
       {
-        h: "Template มีข้อจำกัดอะไร",
-        p: "ปัญหาของ Template มักเริ่มชัดขึ้นเมื่อธุรกิจโตขึ้น ได้แก่ ความเร็ว — Template มักโหลด Code และ Plugin ที่คุณไม่ได้ใช้จำนวนมาก ทำให้ Page Speed ช้า ซึ่งกระทบทั้ง User Experience และ Google Ranking นอกจากนี้ยังมีข้อจำกัดการ Customize ที่ทำให้เว็บดูเหมือนกันหมด และค่าใช้จ่าย Subscription ที่บวกรวมแล้วสูงกว่าที่คิด",
+        h: "WordPress และการจัดการเนื้อหา",
+        p: "WordPress เป็นทางเลือกสำหรับงานเว็บไซต์ที่ต้องจัดการและเผยแพร่เนื้อหา ควรวางแผนการอัปเดต Plugin การสำรองข้อมูล และผู้รับผิดชอบดูแลเว็บไซต์ควบคู่กัน",
       },
       {
-        h: "Codebase คืออะไร และดีกว่าตรงไหน",
-        p: "เว็บที่เขียนด้วย Codebase หมายถึงนักพัฒนาเขียน Code ตั้งแต่ต้น (หรือใช้ Framework อย่าง Next.js แต่ไม่ใช่ Template สำเร็จรูป) ข้อได้เปรียบหลักคือ ความเร็ว — โหลดเฉพาะสิ่งที่จำเป็น ทำให้ Core Web Vitals ดีกว่า และ Google ให้คะแนน SEO สูงกว่า ความยืดหยุ่น — ออกแบบและ Function ได้ตามต้องการ ไม่มีข้อจำกัดจาก Platform และความเป็นเจ้าของ — Code เป็นของคุณ ไม่ขึ้นกับ Subscription ของ Platform ใดๆ",
+        h: "Custom Website และความต้องการเฉพาะ",
+        p: "เมื่อมีประสบการณ์ใช้งานหรือขั้นตอนเฉพาะธุรกิจ งาน Custom Website ช่วยให้กำหนดรายละเอียดการพัฒนาได้ตามโจทย์ ควรตกลงเรื่องขอบเขต การดูแล และการส่งมอบให้ชัดเจน",
       },
       {
-        h: "Built by Claude AI หมายความว่าอะไร",
-        p: "HublyCompany ใช้ Claude AI ในกระบวนการพัฒนาเว็บ ทำให้สร้างเว็บคุณภาพสูงได้เร็วขึ้นโดยไม่ลดคุณภาพ Code นักพัฒนายังคง Review และรับผิดชอบทุก Line แต่ AI ช่วย Accelerate งาน Boilerplate และ Testing ทำให้ราคาสมเหตุสมผลกว่าการจ้าง Agency ทั่วไปที่ไม่ใช้ AI",
+        h: "เว็บไซต์เดิมก็พัฒนาต่อได้",
+        p: "Website Redesign อาจเริ่มจากปรับเนื้อหา โครงสร้าง และเส้นทางการติดต่อ โดยตรวจสอบหน้าที่มีผู้ใช้อยู่เดิมและวางแผนเปลี่ยน URL อย่างเหมาะสม",
       },
       {
-        p: "สรุปง่ายๆ — Template เหมาะกับธุรกิจที่ต้องการเริ่มเร็วและงบจำกัด Codebase เหมาะกับธุรกิจที่ต้องการ Performance, SEO และความยืดหยุ่นระยะยาว ถ้าคุณอยากรู้ว่าแบบไหนเหมาะกับธุรกิจของคุณ ปรึกษาทีม AI Solution ของ HublyCompany ได้ฟรีที่หน้า Contact",
+        h: "วางแผนหลังเปิดใช้งาน",
+        p: "การดูแลเว็บไซต์และ SEO เป็นงานต่อเนื่อง Hubly มี Website Care สำหรับ WordPress และ SEO Content & Optimization ให้เลือกตามขอบเขตที่ธุรกิจต้องการ",
       },
     ],
   },

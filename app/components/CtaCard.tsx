@@ -1,4 +1,3 @@
-import { APP } from "../lib/site";
 import { ButtonLink } from "./ui";
 import { ArrowRightIcon } from "./icons";
 
@@ -8,8 +7,8 @@ export default function CtaCard({
   subtitle,
   primaryHref = "/contact",
   primaryLabel = "ปรึกษาเรา",
-  secondaryHref = APP.url,
-  secondaryLabel = "ทดลอง Hubly ฟรี",
+  secondaryHref = "/pricing",
+  secondaryLabel = "ดูแพ็กเกจ Growth",
 }: {
   title: string;
   subtitle: string;

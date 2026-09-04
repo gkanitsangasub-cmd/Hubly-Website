@@ -1,74 +1,50 @@
 # HublyCompany Website
 
-**Company:** HublyCompany — Agency ดิจิทัล (Marketing) + Tech & AI Solutions + Hubly SaaS for Thai SMEs.
+HublyCompany — Digital Growth & Business Solutions Partner.
+The current offering follows the September 2026 Company Profile supplied by the user.
 
-**Contact:** Kanit Sangasub · 094-632-6916 · gkanit.sangasub@gmail.com
+## Scope
 
-**Project type:** Static marketing site (Next.js SSG) — no backend, auth, database, or real API.
+A static Next.js marketing website. No business backend, database, authentication or payments.
+Quote links open mailto with a draft summary. Contact uses phone/email.
+Keep the supplied video files, poster images and warm visual identity.
 
-**Stack:** Next.js 16 App Router · Tailwind CSS v4 · TypeScript · Font: Prompt (Google Fonts, Thai + Latin, weights 300/400/500/600/700)
+## Current services
 
-**App (SaaS) URL:** all "ทดลองฟรี / เข้าสู่ระบบ" CTAs link out to `https://app.hublycompany.com`.
+1. Digital Growth & Performance
+2. Website & Digital Experience
+3. AI & Business Solutions
 
-**Brand:** Follow the Brand CI below — do NOT deviate on colors / font / radius.
+Business Solutions: Business Automation, AI Business Solutions, Custom Business Systems and Website Development.
 
----
+Featured solution: Hubly Tourism at `/solutions/tourism-crm`, authorized by the user as a real tourism CRM portfolio. Screenshots in `public/work/tourism-crm/` are cropped from the demo workspace, excluding account details. Keep demo context visible, do not invent performance metrics or reuse production credentials. Demo CTAs contact Hubly; they do not open the production app. This portfolio does not restore retired SaaS prices or trial CTAs.
 
-## Sitemap
-| Page | Path |
-| --- | --- |
-| Home | `/` |
-| Services (Marketing + Tech & AI) | `/services` |
-| Products (Hubly SaaS) | `/products` |
-| Pricing | `/pricing` |
-| Blog | `/blog` |
-| Contact | `/contact` |
-| Privacy Policy | `/privacy` |
-| Terms of Service | `/terms` |
+## Pricing source
 
-Nav: Services · Products · Pricing · Blog · Contact + [เข้าสู่ระบบ] + [ทดลองฟรี].
+Use `app/lib/marketing-services.ts` as the single source:
 
----
+- Eight monthly standalone services.
+- Growth Partner starts at THB 17,900/month.
+- Growth Team starts at THB 32,900/month.
+- Growth Team Plus starts at THB 52,900/month.
+- All packages exclude ad spend; production/SEO exclusions vary by package.
+- Custom project scope and prices are quoted separately.
+  The public offering no longer promotes the former SaaS subscription products. Do not restore retired prices, trial CTAs or old product descriptions.
 
-## Brand CI (always use — do not deviate)
+## Technical agreements
 
-### Colors (Mood: "Latte" — warm, premium SME, not cold tech blue)
-| Token | Hex | Tailwind |
-| --- | --- | --- |
-| Background (Warm Cream) | `#F9F3EB` | `cream` |
-| Card (Warm White) | `#FFFCF9` | `card` |
-| Primary (Mocha) | `#8A6A4E` | `mocha` |
-| Primary hover | `#7A5A3E` | `mocha-dark` |
-| Primary fg (on Mocha) | `#FDFBF9` | `[#FDFBF9]` |
-| Foreground (Warm Dark Brown) | `#3C3027` | `ink` |
-| Muted fg | `#73665C` | `muted` |
-| Accent (Clay) | `#D7A587` | `clay` |
-| Success (Sage) | `#6B9A6C` | `sage` |
-| Secondary (Beige) | `#F3EBE1` | `beige` |
+Next.js 16 App Router, React 19, TypeScript and Tailwind CSS 4.
+Read applicable bundled Next.js documentation before editing.
+Prefer server-rendered content with small client components for navigation, animation and rate selection.
+Keep `vercel.json` for Vercel.
+Preserve old URLs via permanent redirects in `next.config.ts`.
+Keep metadata, sitemap, internal links and structured data in sync with visible content.
+Use one H1 per page. Verify responsive layouts at 375 / 768 / 1280.
 
-### Module / pillar accents
-- HubDeal: `bg-amber-500/12 text-amber-700`
-- HubChat: `bg-rose-400/12 text-rose-700`
-- HubStore: `bg-lime-700/12 text-lime-800`
-- Tech & AI: `bg-orange-400/25 text-orange-700`
+## Brand
 
-### Radius — soft, rounded everything (base 0.9rem)
-`rounded-btn` 0.72rem · `rounded-card` ~1.1rem · `rounded-hero` 1.62rem
-
----
-
-## Pricing (single source: `app/lib/content.ts`)
-- รายเดือน: ฿2,990/เดือน เท่ากันทุก SaaS (HubDeal · HubChat · HubStore)
-- รายปี: −10% (`ANNUAL_DISCOUNT = 0.10`) → ฿2,691/เดือน (เรียกเก็บ ฿32,292/ปี)
-- Bundle discount (on top of billing): 2 SaaS = +5% · ครบ 3 SaaS = +10% (5%+5%)
-- สูงสุด: รายปี + 3 SaaS = −20% | รายปี + 2 SaaS = −15%
-- `bundleRows(annual?: boolean)` computes combined discount, rendered by `<BundleTable annual={...} />` on `/products` + `/pricing/saas`
-- Billing toggle UI lives in `app/pricing/saas/SaasPricingContent.tsx` (client component)
-
-## Working agreements
-1. Responsive at 375 / 768 / 1280.
-2. Brand CI colors only.
-3. SSG only — no backend/DB/API; contact form is static (mailto).
-4. Sections alternate bg: `cream` ↔ `card`. Section padding `py-20 md:py-28`, container `max-w-6xl mx-auto px-6`.
-5. Keep `vercel.json` (`framework: nextjs`) — required for Vercel deploys.
-6. Accessible: `aria-label` on icon buttons, semantic HTML.
+Prompt font (Thai + Latin, weights 300–700).
+Cream #F9F3EB; card #FFFCF9; mocha #8A6A4E; mocha hover #7A5A3E;
+ink #3C3027; muted #73665C; clay #D7A587; sage #6B9A6C; beige #F3EBE1.
+Radius: button 0.72rem, card 1.1rem, hero 1.62rem.
+Keep subtle animation, reduced-motion support, warm shadows and original cinematic videos.

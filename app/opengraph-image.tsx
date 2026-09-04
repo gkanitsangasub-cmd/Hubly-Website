@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "HublyCompany — Marketing Agency · AI Solution · SaaS";
+export const alt = "HublyCompany — Digital Growth & Business Solutions Partner";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -56,7 +56,7 @@ export default function OpengraphImage() {
             color: "#8A6A4E",
           }}
         >
-          Marketing Agency · AI Solution · SaaS
+          Digital Growth &amp; Business Solutions
         </div>
         <div
           style={{
@@ -66,7 +66,7 @@ export default function OpengraphImage() {
             color: "#73665C",
           }}
         >
-          for Thai SMEs
+          Marketing · Website · AI · Automation
         </div>
       </div>
     ),

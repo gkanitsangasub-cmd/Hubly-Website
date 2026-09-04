@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { BLOG_POSTS } from "../../lib/content";
+import { pageMetadata } from "../../lib/site";
 import { Eyebrow } from "../../components/ui";
 import { ArrowRightIcon } from "../../components/icons";
 import MotionReveal from "../../components/MotionReveal";
@@ -22,9 +23,25 @@ export async function generateMetadata({
   const post = BLOG_POSTS.find((p) => p.slug === slug);
   if (!post) return {};
   return {
-    title: post.title,
-    description: post.excerpt,
-    alternates: { canonical: `${BASE}/blog/${slug}` },
+    ...pageMetadata(post.title, post.excerpt, `/blog/${slug}`),
+    openGraph: {
+      type: "article",
+      images: [
+        {
+          url: BASE + "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: "HublyCompany — Digital Growth & Business Solutions Partner",
+        },
+      ],
+      title: post.title,
+      description: post.excerpt,
+      url: `${BASE}/blog/${slug}`,
+      locale: "th_TH",
+      siteName: "HublyCompany",
+      publishedTime: post.publishedDate,
+      modifiedTime: post.modifiedDate ?? post.publishedDate,
+    },
   };
 }
 
@@ -51,32 +68,42 @@ export default async function BlogPostPage({
   const blogPostingSchema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "headline": post.title,
-    "description": post.excerpt,
-    "datePublished": post.publishedDate,
-    "dateModified": post.publishedDate,
-    "url": `${BASE}/blog/${post.slug}`,
-    "author": {
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.publishedDate,
+    dateModified: post.modifiedDate ?? post.publishedDate,
+    inLanguage: "th-TH",
+    image: `${BASE}/opengraph-image`,
+    url: `${BASE}/blog/${post.slug}`,
+    author: {
       "@type": "Organization",
-      "name": "HublyCompany",
-      "url": BASE,
+      name: "HublyCompany",
+      url: BASE,
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": "HublyCompany",
-      "url": BASE,
-      "logo": { "@type": "ImageObject", "url": `${BASE}/opengraph-image` },
+      name: "HublyCompany",
+      url: BASE,
+      logo: { "@type": "ImageObject", url: `${BASE}/opengraph-image` },
     },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE}/blog/${post.slug}` },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${BASE}/blog/${post.slug}`,
+    },
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "หน้าแรก", "item": BASE },
-      { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE}/blog` },
-      { "@type": "ListItem", "position": 3, "name": post.title, "item": `${BASE}/blog/${post.slug}` },
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "หน้าแรก", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${BASE}/blog` },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `${BASE}/blog/${post.slug}`,
+      },
     ],
   };
 
@@ -101,12 +128,21 @@ export default async function BlogPostPage({
         />
         <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
           {/* Breadcrumb nav */}
-          <nav aria-label="Breadcrumb" className="mb-5 flex items-center justify-center gap-1.5 text-xs text-muted">
-            <Link href="/" className="hover:text-mocha transition-colors">หน้าแรก</Link>
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-5 flex items-center justify-center gap-1.5 text-xs text-muted"
+          >
+            <Link href="/" className="hover:text-mocha transition-colors">
+              หน้าแรก
+            </Link>
             <span aria-hidden>/</span>
-            <Link href="/blog" className="hover:text-mocha transition-colors">Blog</Link>
+            <Link href="/blog" className="hover:text-mocha transition-colors">
+              Blog
+            </Link>
             <span aria-hidden>/</span>
-            <span className="text-ink/60 line-clamp-1 max-w-[200px] sm:max-w-xs">{post.title}</span>
+            <span className="text-ink/60 line-clamp-1 max-w-[200px] sm:max-w-xs">
+              {post.title}
+            </span>
           </nav>
 
           <Eyebrow>{post.category}</Eyebrow>
@@ -115,10 +151,22 @@ export default async function BlogPostPage({
           </h1>
           <p className="mt-4 text-sm text-muted">
             {post.date} ·{" "}
-            <Link href="/contact" className="font-semibold text-mocha hover:text-mocha-dark transition-colors">
+            <Link
+              href="/contact"
+              className="font-semibold text-mocha hover:text-mocha-dark transition-colors"
+            >
               ทีม HublyCompany
             </Link>
           </p>
+          {post.modifiedDate && (
+            <p className="mt-2 text-xs text-muted">
+              ปรับปรุงล่าสุด:{" "}
+              {new Intl.DateTimeFormat("th-TH", {
+                dateStyle: "long",
+                timeZone: "Asia/Bangkok",
+              }).format(new Date(post.modifiedDate))}
+            </p>
+          )}
         </div>
       </section>
 
@@ -141,7 +189,9 @@ export default async function BlogPostPage({
           {/* Related services */}
           {post.serviceLinks && post.serviceLinks.length > 0 && (
             <div className="mt-10 rounded-card border border-mocha/20 bg-mocha/5 p-6">
-              <p className="text-sm font-semibold text-mocha">บริการที่เกี่ยวข้อง</p>
+              <p className="text-sm font-semibold text-mocha">
+                บริการที่เกี่ยวข้อง
+              </p>
               <div className="mt-3 flex flex-wrap gap-3">
                 {post.serviceLinks.map((link) => (
                   <Link
@@ -192,8 +242,7 @@ export default async function BlogPostPage({
                       {p.excerpt}
                     </p>
                     <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-mocha">
-                      อ่านเพิ่ม{" "}
-                      <ArrowRightIcon width={13} height={13} />
+                      อ่านเพิ่ม <ArrowRightIcon width={13} height={13} />
                     </span>
                   </Link>
                 </MotionReveal>
@@ -204,8 +253,8 @@ export default async function BlogPostPage({
       )}
 
       <CtaCard
-        title="อยากให้ธุรกิจโตเร็วกว่าอ่านบทความ?"
-        subtitle="ปรึกษาทีม HublyCompany ฟรี หรือเริ่มทดลองใช้ Hubly SaaS ได้ทันที"
+        title="นำไอเดียไปพัฒนาธุรกิจของคุณ"
+        subtitle="คุยกับทีม Hubly เพื่อวางแผนการตลาด เว็บไซต์ และระบบที่เหมาะกับการทำงานจริง"
       />
     </>
   );

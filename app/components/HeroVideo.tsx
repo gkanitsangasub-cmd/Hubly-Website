@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { APP } from "../lib/site";
 import { ArrowRightIcon } from "./icons";
 
 export default function HeroVideo() {
@@ -55,22 +54,18 @@ export default function HeroVideo() {
             className="hero-rise mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-base font-medium text-cream sm:gap-x-4 sm:text-xl md:text-2xl"
             style={{ animationDelay: "0.2s" }}
           >
-            <span>Marketing Agency</span>
+            <span>Digital Growth</span>
             <span aria-hidden className="text-clay">
               |
             </span>
-            <span>AI Solution</span>
-            <span aria-hidden className="text-clay">
-              |
-            </span>
-            <span>SaaS</span>
+            <span>Business Solutions</span>
           </p>
           <p
             className="hero-rise mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-cream/85 sm:text-base"
             style={{ animationDelay: "0.32s" }}
           >
-            รวมบริการ Marketing Agency, AI Solution และซอฟต์แวร์ Hubly SaaS
-            ไว้ในที่เดียว เพื่อให้ธุรกิจ SME ไทยเติบโตได้จริง
+            พาร์ตเนอร์ที่เชื่อม Marketing, Sales และ Operation ด้วยการตลาด
+            เว็บไซต์ AI และระบบที่ออกแบบตามธุรกิจคุณ
           </p>
 
           <div
@@ -85,11 +80,11 @@ export default function HeroVideo() {
               <ArrowRightIcon width={18} height={18} />
             </Link>
             <a
-              href={APP.url}
+              href="/contact"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-btn border border-cream/70 bg-ink/45 px-6 py-3.5 text-sm font-semibold text-cream shadow-lg backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:bg-ink/65"
             >
-              ทดลอง Hubly ฟรี
+              ปรึกษาธุรกิจของคุณ
             </a>
           </div>
         </div>

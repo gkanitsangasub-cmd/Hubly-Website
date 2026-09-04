@@ -1,13 +1,11 @@
-import type { Metadata } from "next";
-import { CONTACTS } from "../lib/site";
-import { PhoneIcon } from "../components/icons";
+import { COMPANY, CONTACTS, pageMetadata } from "../lib/site";
+import { MailIcon, PhoneIcon } from "../components/icons";
 
-export const metadata: Metadata = {
-  title: "ติดต่อเรา",
-  description:
-    "ติดต่อ HublyCompany — คุณแชมป์ 094-632-6916, คุณนัท 092-586-3639 ปรึกษาบริการ Marketing Agency, AI Solution และ Hubly SaaS",
-  alternates: { canonical: "https://hublycompany.com/contact" },
-};
+export const metadata = pageMetadata(
+  "ติดต่อเรา",
+  "ปรึกษา Digital Growth, Website และ Business Solutions กับ HublyCompany — คุณแชมป์ 094-632-6916, คุณนัท 092-586-3639",
+  "/contact",
+);
 
 const PILL =
   "inline-flex items-center gap-2 rounded-full border border-cream/30 bg-white/10 px-4 py-2 text-sm font-medium text-cream backdrop-blur-sm transition-colors hover:bg-white/20";
@@ -34,7 +32,10 @@ export default function ContactPage() {
       >
         <source src="/hero/contact-hero.mp4" type="video/mp4" />
       </video>
-      <div aria-hidden className="absolute inset-0 bg-mocha/20 mix-blend-multiply" />
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-mocha/20 mix-blend-multiply"
+      />
       {/* Top-heavy scrim — darker behind the text, lighter over the phone */}
       <div
         aria-hidden
@@ -56,7 +57,8 @@ export default function ContactPage() {
           คุยกับเราได้เลย
         </h1>
         <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-cream/85 sm:text-lg">
-          ทีม HublyCompany พร้อมให้คำปรึกษาฟรี ตอบกลับทุกข้อความ
+          เล่าเป้าหมายธุรกิจให้เราฟัง เพื่อวางแผน Digital Growth, Website หรือ
+          Business Solutions ไปด้วยกัน
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -66,6 +68,10 @@ export default function ContactPage() {
               {c.name} {c.phone}
             </a>
           ))}
+          <a href={"mailto:" + COMPANY.email} className={PILL}>
+            <MailIcon width={16} height={16} />
+            ส่งอีเมลหาเรา
+          </a>
         </div>
       </div>
     </section>

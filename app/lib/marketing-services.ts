@@ -1,173 +1,158 @@
-export type ServiceItem = {
-  id: string;
-  name: string;
-  price: number;
-  unit: string;
-  isFlat?: boolean;
-  isOneTime?: boolean;
-  min?: number;
-  autoSelectTriggeredBy?: string;
-  note?: string;
-  priceNote?: string;
-};
-
-export type ServiceCategory = {
-  id: string;
-  name: string;
-  items: ServiceItem[];
-};
-
-export const MARKETING_SERVICES: ServiceCategory[] = [
+/** Company Profile, pages 6–8. Prices are THB, excluding ad spend. */
+export const RATE_CARD = [
   {
     id: "social",
-    name: "Social Media Content",
-    items: [
-      {
-        id: "content-calendar",
-        name: "Content Calendar",
-        price: 1500,
-        unit: "เดือน",
-        isFlat: true,
-      },
-      {
-        id: "artwork-caption",
-        name: "Artwork + Caption (Static Post)",
-        price: 400,
-        unit: "ชิ้น",
-        min: 4,
-      },
-      {
-        id: "short-video",
-        name: "Short Video / Reel / TikTok",
-        price: 2000,
-        unit: "ชิ้น",
-        min: 1,
-        priceNote: "ราคาอาจเปลี่ยนตามคุณภาพงาน",
-      },
-      {
-        id: "page-management",
-        name: "Page Management (Comment + DM)",
-        price: 6000,
-        unit: "กะ",
-        min: 1,
-        note: "1 กะ = 8 ชม. ต่อ 1 platform",
-      },
-    ],
+    name: "Social Media Management",
+    price: 4900,
+    description:
+      "ดูแลการลงโพสต์ ตั้งเวลาเผยแพร่ และติดตามผลการทำงานของช่องทางโซเชียล",
+    scope: "Content Publishing / Scheduling / Performance Monitoring",
   },
   {
     id: "ads",
-    name: "Paid Advertising",
-    items: [
-      {
-        id: "fb-ig-ads",
-        name: "Facebook & Instagram Ads",
-        price: 4000,
-        unit: "brand",
-        min: 1,
-        note: "ไม่รวมค่า Ads",
-      },
-      {
-        id: "google-ads",
-        name: "Google Search Ads + Display + YouTube",
-        price: 4000,
-        unit: "brand",
-        min: 1,
-        note: "ไม่รวม Ads และ Artwork ที่ใช้ใน Display",
-      },
-      {
-        id: "tiktok-line-ads",
-        name: "TikTok & LINE Ads",
-        price: 2000,
-        unit: "เดือน",
-        isFlat: true,
-        note: "ไม่รวมค่า Ads",
-      },
-    ],
+    name: "Performance Ads Management",
+    price: 10900,
+    description:
+      "ดูแล Meta และ Google Ads ตั้งแต่ตั้งค่า ปรับแคมเปญ ไปจนถึงรายงานผล",
+    scope: "Meta & Google Ads / Setup / Optimize / Report",
+  },
+  {
+    id: "website",
+    name: "Website Care",
+    price: 2900,
+    description: "ดูแลเว็บไซต์ WordPress พร้อมสำรองข้อมูลและอัปเดตเนื้อหา",
+    scope: "WordPress Update / Backup / Plugin / Content Update",
+  },
+  {
+    id: "report",
+    name: "Report & Strategy Meeting",
+    price: 2900,
+    description:
+      "ทบทวนผลลัพธ์และ Insight พร้อมประชุมวางกลยุทธ์รายเดือนร่วมกับทีม",
+    scope: "Performance Review / Insight / Monthly Strategy Meeting",
   },
   {
     id: "seo",
-    name: "SEO & Blog Content",
-    items: [
-      {
-        id: "blog-article",
-        name: "Blog Article (SEO-optimized)",
-        price: 600,
-        unit: "บทความ",
-        min: 2,
-        note: "รวม Artwork ในบทความ",
-      },
-      {
-        id: "keyword-seo-audit",
-        name: "Keyword Research + On-Page SEO Audit",
-        price: 2000,
-        unit: "ครั้ง",
-        isFlat: true,
-        isOneTime: true,
-      },
-    ],
+    name: "SEO Content & Optimization",
+    price: 12900,
+    description:
+      "วางแผนคีย์เวิร์ด ปรับ On-page SEO และสร้างเนื้อหาให้ธุรกิจถูกค้นพบ",
+    scope: "Keyword Planning / On-page SEO / SEO Content",
   },
   {
-    id: "marketplace",
-    name: "Marketplace",
-    items: [
-      {
-        id: "marketplace-ads",
-        name: "Shopee / Lazada Ads Management",
-        price: 2000,
-        unit: "platform",
-        min: 1,
-        note: "ไม่รวมค่า Ads",
-      },
-      {
-        id: "product-listing",
-        name: "Product Listing + SEO",
-        price: 100,
-        unit: "รายการ",
-        min: 10,
-        note: "min 10 รายการ",
-      },
-      {
-        id: "flash-sale",
-        name: "Flash Sale / Campaign Planning",
-        price: 3000,
-        unit: "ครั้ง",
-        min: 1,
-        isOneTime: true,
-      },
-      {
-        id: "shop-decoration",
-        name: "Shop Page Decoration",
-        price: 2000,
-        unit: "ครั้ง",
-        isFlat: true,
-        isOneTime: true,
-      },
-    ],
+    id: "planning",
+    name: "Campaign & Content Planning",
+    price: 4900,
+    description:
+      "กำหนดทิศทางแคมเปญ วางแผนเนื้อหา และคิดโปรโมชันให้สอดคล้องกับเป้าหมาย",
+    scope: "Campaign Direction / Content Planning / Promotion Idea",
   },
   {
-    id: "strategy",
-    name: "Strategy & Consulting",
-    items: [
-      {
-        id: "monthly-strategy",
-        name: "Monthly Marketing Strategy",
-        price: 6000,
-        unit: "เดือน",
-        isFlat: true,
-        note: "รวม Performance Report, SEO Report และ Consultant",
-      },
-    ],
+    id: "graphic",
+    name: "Graphic Content",
+    price: 7900,
+    description:
+      "กราฟิกคอนเทนต์ 8 ชิ้นต่อเดือน สำหรับสื่อสารแบรนด์และบริการของคุณ",
+    scope: "8 Graphic Contents / Month",
   },
+  {
+    id: "video",
+    name: "Video Content",
+    price: 8900,
+    description:
+      "ตัดต่อวิดีโอสั้น 2 ชิ้นต่อเดือน สำหรับเนื้อหาบนช่องทางดิจิทัล",
+    scope: "2 Short-form Video Edits / Month",
+  },
+] as const;
+
+export type RateId = (typeof RATE_CARD)[number]["id"];
+export const baht = (value: number) => "฿" + value.toLocaleString("en-US");
+const partnerScope = [
+  "Social Media Management",
+  "Ads Management",
+  "Website Care",
+  "Monthly Report & Strategy Meeting",
+];
+const teamScope = [
+  "SEO Keyword Planning",
+  "On-page SEO",
+  "Internal SEO Article 10 ชิ้น/เดือน",
+  "External SEO Article 1 ชิ้น/เดือน",
+];
+const plusScope = [
+  "Campaign & Content Planning",
+  "Graphic Content 8 ชิ้น/เดือน",
+  "Short-form Video 2 ชิ้น/เดือน",
 ];
 
-// Build auto-select map: triggerItemId → itemIdToAutoSelect
-export const AUTO_SELECT_MAP: Record<string, string> = {};
-for (const cat of MARKETING_SERVICES) {
-  for (const item of cat.items) {
-    if (item.autoSelectTriggeredBy) {
-      AUTO_SELECT_MAP[item.autoSelectTriggeredBy] = item.id;
-    }
-  }
+export const GROWTH_PACKAGES = [
+  {
+    id: "growth-partner",
+    name: "Growth Partner",
+    price: 17900,
+    description:
+      "ทีมช่วยดู Growth รายเดือน สำหรับธุรกิจที่ยังไม่ทำ SEO และ Content Production เต็มชุด",
+    includesLabel: "เริ่มต้นดูแลการเติบโต",
+    features: partnerScope,
+    scope: partnerScope,
+    included: ["social", "ads", "website", "report"],
+    excludes: "งบโฆษณา / กราฟิก / วิดีโอ / SEO",
+  },
+  {
+    id: "growth-team",
+    name: "Growth Team",
+    price: 32900,
+    description: "เพิ่ม Organic Search และสร้างฐาน Content ให้ธุรกิจในระยะยาว",
+    includesLabel: "ทุกอย่างใน Growth Partner และเพิ่ม",
+    features: teamScope,
+    scope: [...partnerScope, ...teamScope],
+    included: ["social", "ads", "website", "report", "seo"],
+    excludes: "งบโฆษณา / กราฟิก / วิดีโอ",
+  },
+  {
+    id: "growth-team-plus",
+    name: "Growth Team Plus",
+    price: 52900,
+    description: "ทีมการตลาดที่ครบขึ้น พร้อมวางแคมเปญและผลิต Content รายเดือน",
+    includesLabel: "ทุกอย่างใน Growth Team และเพิ่ม",
+    features: plusScope,
+    scope: [...partnerScope, ...teamScope, ...plusScope],
+    included: [
+      "social",
+      "ads",
+      "website",
+      "report",
+      "seo",
+      "planning",
+      "graphic",
+      "video",
+    ],
+    excludes: "งบโฆษณา",
+  },
+] as const;
+
+export function selectedRates(ids: readonly RateId[]) {
+  return RATE_CARD.filter((item) => ids.includes(item.id));
+}
+export function monthlyEstimate(ids: readonly RateId[]) {
+  return selectedRates(ids).reduce((total, item) => total + item.price, 0);
 }
 
-export const allServiceItems = MARKETING_SERVICES.flatMap((c) => c.items);
+export const GROWTH_FAQ = [
+  {
+    q: "แพ็กเกจ Growth รวมงบโฆษณาหรือไม่?",
+    a: "ทุกแพ็กเกจไม่รวมงบโฆษณาที่ใช้กับแพลตฟอร์ม งบโฆษณาแยกจากค่าบริการดูแลรายเดือน",
+  },
+  {
+    q: "Growth Partner, Growth Team และ Growth Team Plus ต่างกันอย่างไร?",
+    a: "Growth Partner ดูแล Social Media, Ads, Website Care และ Report & Strategy Meeting ส่วน Growth Team เพิ่ม SEO พร้อมบทความภายใน 10 ชิ้นและภายนอก 1 ชิ้นต่อเดือน และ Growth Team Plus เพิ่ม Campaign & Content Planning กราฟิก 8 ชิ้น และวิดีโอสั้น 2 ชิ้นต่อเดือน",
+  },
+  {
+    q: "เลือกเฉพาะบริการที่ต้องการได้ไหม?",
+    a: "เลือกบริการรายด้านได้จาก Service Rate Card และสามารถขยายขอบเขตเพิ่มภายหลัง โดยทีมจะประเมินขอบเขตและยืนยันราคาก่อนเริ่มงาน",
+  },
+  {
+    q: "งานพัฒนาเว็บไซต์ AI และระบบธุรกิจคิดราคาอย่างไร?",
+    a: "งาน Business Solutions ประเมินขอบเขตและราคาตามความต้องการของแต่ละโปรเจกต์ แยกจากแพ็กเกจ Growth รายเดือน",
+  },
+] as const;

@@ -15,7 +15,7 @@ export default function Navbar() {
         <Logo />
 
         {/* Desktop nav */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 lg:flex">
           {NAV_LINKS.map((l) =>
             l.children ? (
               <div key={l.href} className="group relative">
@@ -32,7 +32,7 @@ export default function Navbar() {
                 </Link>
                 {/* Dropdown (pt-3 acts as a hover bridge) */}
                 <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                  <div className="w-64 rounded-card border border-ink/8 bg-card p-2 shadow-[0_16px_44px_-24px_rgba(60,48,39,0.35)]">
+                  <div className="w-72 rounded-card border border-ink/8 bg-card p-2 shadow-[0_16px_44px_-24px_rgba(60,48,39,0.35)]">
                     {l.children.map((c) => (
                       <Link
                         key={c.href}
@@ -70,7 +70,8 @@ export default function Navbar() {
           aria-label={open ? "ปิดเมนู" : "เปิดเมนู"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
-          className="grid h-10 w-10 place-items-center rounded-btn border border-ink/10 text-ink md:hidden"
+          aria-controls="mobile-navigation"
+          className="grid h-10 w-10 place-items-center rounded-btn border border-ink/10 text-ink lg:hidden"
         >
           {open ? (
             <CloseIcon width={22} height={22} />
@@ -82,7 +83,10 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-ink/8 bg-cream px-6 pb-6 pt-2 md:hidden">
+        <div
+          id="mobile-navigation"
+          className="max-h-[calc(100dvh-70px)] overflow-y-auto border-t border-ink/8 bg-cream px-6 pb-6 pt-2 lg:hidden"
+        >
           <div className="flex flex-col">
             {NAV_LINKS.map((l) => (
               <div key={l.href}>

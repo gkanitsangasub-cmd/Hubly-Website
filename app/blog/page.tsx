@@ -1,16 +1,15 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "../lib/site";
 import { BLOG_POSTS } from "../lib/content";
 import { Eyebrow } from "../components/ui";
 import { ArrowRightIcon } from "../components/icons";
 import MotionReveal from "../components/MotionReveal";
 import CtaCard from "../components/CtaCard";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description:
-    "บทความและความรู้จาก HublyCompany — การตลาด เทคโนโลยี AI และการบริหารธุรกิจ SME ไทย",
-  alternates: { canonical: "https://hublycompany.com/blog" },
-};
+export const metadata = pageMetadata(
+  "บทความเพื่อการเติบโตของธุรกิจ",
+  "ความรู้เรื่อง Digital Growth, Website, AI, Automation และระบบธุรกิจจากทีม HublyCompany",
+  "/blog",
+);
 
 const GRADIENTS = [
   "from-amber-500/30 to-clay/30",
@@ -92,8 +91,8 @@ export default function BlogPage() {
       </section>
 
       <CtaCard
-        title="อยากให้ธุรกิจโตเร็วกว่าอ่านบทความ?"
-        subtitle="ปรึกษาทีม HublyCompany ฟรี หรือเริ่มทดลองใช้ Hubly SaaS ได้ทันที"
+        title="นำไอเดียไปพัฒนาธุรกิจของคุณ"
+        subtitle="คุยกับทีม Hubly เพื่อวางแผนการตลาด เว็บไซต์ และระบบที่เหมาะกับการทำงานจริง"
       />
     </>
   );

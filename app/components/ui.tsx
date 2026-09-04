@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 type ButtonLinkProps = {
   href: string;
@@ -26,9 +27,9 @@ export function ButtonLink({
   const cls = `inline-flex items-center justify-center gap-2 rounded-btn px-5 py-3 text-sm font-semibold transition-all duration-200 ${variants[variant]} ${className}`;
   const rel = external ? "noopener noreferrer" : undefined;
   return (
-    <a href={href} rel={rel} className={cls}>
+    <Link href={href} rel={rel} className={cls}>
       {children}
-    </a>
+    </Link>
   );
 }
 
@@ -45,11 +46,13 @@ export function SectionHeading({
   title,
   subtitle,
   center = true,
+  as: Heading = "h2",
 }: {
   eyebrow?: string;
   title: ReactNode;
   subtitle?: ReactNode;
   center?: boolean;
+  as?: "h1" | "h2";
 }) {
   return (
     <div className={center ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
@@ -58,9 +61,9 @@ export function SectionHeading({
           <Eyebrow>{eyebrow}</Eyebrow>
         </div>
       )}
-      <h2 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-ink sm:text-3xl md:text-4xl">
+      <Heading className="mt-4 text-2xl font-bold leading-tight tracking-tight text-ink sm:text-3xl md:text-4xl">
         {title}
-      </h2>
+      </Heading>
       {subtitle && (
         <p className="mt-4 text-base leading-relaxed text-muted md:text-lg">
           {subtitle}

@@ -3,8 +3,8 @@ import { COMPANY } from "../lib/site";
 
 export const metadata: Metadata = {
   title: "ข้อกำหนดการใช้งาน",
-  description:
-    "ข้อกำหนดและเงื่อนไขการใช้งาน (Terms of Service) ของ HublyCompany และบริการ Hubly SaaS",
+  description: "ข้อกำหนดและเงื่อนไขการใช้งานเว็บไซต์และบริการของ HublyCompany",
+  alternates: { canonical: "https://hublycompany.com/terms" },
   robots: { index: false, follow: false },
 };
 
@@ -15,11 +15,11 @@ const SECTIONS = [
   },
   {
     h: "2. ขอบเขตการให้บริการ",
-    p: "HublyCompany ให้บริการด้าน Marketing Agency, AI Solution และซอฟต์แวร์ Hubly SaaS (HubDeal, HubChat, HubStore) ตามรายละเอียดและราคาที่ระบุบนเว็บไซต์ ซึ่งอาจมีการปรับปรุงเป็นครั้งคราว",
+    p: "HublyCompany ให้บริการด้าน Digital Growth & Performance, Website & Digital Experience และ AI & Business Solutions ตามรายละเอียดและขอบเขตงานที่ตกลงร่วมกัน",
   },
   {
-    h: "3. บัญชีผู้ใช้และการชำระเงิน",
-    p: "ผู้ใช้มีหน้าที่รักษาความปลอดภัยของบัญชี ค่าบริการ Hubly SaaS เป็นแบบรายเดือน ไม่มีค่าติดตั้ง และสามารถยกเลิกได้ทุกเมื่อ โดยการเปลี่ยนแปลงจะมีผลในรอบบิลถัดไป",
+    h: "3. ขอบเขตงานและค่าบริการ",
+    p: "รายละเอียดงาน ค่าบริการ และเงื่อนไขการชำระเงินเป็นไปตามใบเสนอราคาและข้อตกลงของแต่ละงาน ราคาแพ็กเกจ Growth ที่แสดงเป็นราคาเริ่มต้นรายเดือนและไม่รวมงบโฆษณา กรุณายืนยันขอบเขตกับทีมก่อนเริ่มบริการ",
   },
   {
     h: "4. การใช้งานที่ยอมรับได้",
@@ -46,7 +46,7 @@ export default function TermsPage() {
         <h1 className="text-3xl font-bold tracking-tight text-ink md:text-4xl">
           ข้อกำหนดการใช้งาน
         </h1>
-        <p className="mt-3 text-sm text-muted">อัปเดตล่าสุด: มิถุนายน 2026</p>
+        <p className="mt-3 text-sm text-muted">อัปเดตล่าสุด: กันยายน 2026</p>
         <div className="mt-10 space-y-8">
           {SECTIONS.map((s) => (
             <div key={s.h}>

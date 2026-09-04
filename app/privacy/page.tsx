@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   description:
     "นโยบายความเป็นส่วนตัว (Privacy Policy) ของ HublyCompany — วิธีที่เราเก็บ ใช้ และคุ้มครองข้อมูลส่วนบุคคลของคุณ",
   robots: { index: false, follow: false },
+  alternates: { canonical: "https://hublycompany.com/privacy" },
 };
 
 const SECTIONS = [
