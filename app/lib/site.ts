@@ -57,6 +57,7 @@ export const NAV_LINKS: NavItem[] = [
   },
   { href: "/pricing", label: "Pricing" },
   { href: "/blog", label: "Blog" },
+  { href: "https://hubly-rich-menu-owner.vercel.app", label: "Rich Menu" },
   { href: "/contact", label: "Contact" },
 ];
 export function pageMetadata(
